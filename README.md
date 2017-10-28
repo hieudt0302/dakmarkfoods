@@ -4,6 +4,7 @@
 ```
 cp .env.example .env
 php artisan key:generate
+composer dump-autoload
 ```
 2. Resore package
 ```
