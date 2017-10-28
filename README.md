@@ -9,4 +9,12 @@ php artisan key:generate
 ```
 composer install
 ```
+3. Create empty database first then
+```
+php artisan migrate --seed
+```
 
+3. Run
+```
+php artisan serve --port=2017
+```
