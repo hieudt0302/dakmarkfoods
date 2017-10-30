@@ -1,0 +1,234 @@
+/* LANGUEAGE */
+
+.has-dropdown .sub-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+    z-index: 2000;
+}
+
+.has-dropdown:hover .sub-list {
+    display: block;
+}
+
+.has-dropdown .sub-list li {
+    display: block;
+    float: none !important;
+}
+
+.has-dropdown .sub-list li a {
+    text-align: left;
+}
+
+.flag-icon-background,
+.flag-icon {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.flag-icon {
+    position: relative;
+    display: inline-block;
+    width: 1.3333333333em;
+    line-height: 1em;
+}
+
+.flag-icon:before {
+    content: '\00a0';
+}
+
+.flag-icon.flag-icon-squared {
+    width: 1em;
+}
+
+.flag-icon-cn {
+    background-image: url(../images/flags/4x3/cn.svg);
+}
+
+.flag-icon-cn.flag-icon-squared {
+    background-image: url(../images/flags/1x1/cn.svg);
+}
+
+.flag-icon-jp {
+    background-image: url(../images/flags/4x3/jp.svg);
+}
+
+.flag-icon-jp.flag-icon-squared {
+    background-image: url(../images/flags/1x1/jp.svg);
+}
+
+.flag-icon-kr {
+    background-image: url(../images/flags/4x3/kr.svg);
+}
+
+.flag-icon-kr.flag-icon-squared {
+    background-image: url(../images/flags/1x1/kr.svg);
+}
+
+.flag-icon-us {
+    background-image: url(../images/flags/4x3/us.svg);
+}
+
+.flag-icon-us.flag-icon-squared {
+    background-image: url(../images/flags/1x1/us.svg);
+}
+
+.flag-icon-vn {
+    background-image: url(../images/flags/4x3/vn.svg);
+}
+
+.flag-icon-vn.flag-icon-squared {
+    background-image: url(../images/flags/1x1/vn.svg);
+}
+
+
+
+
+/* SEARCH BOTTOM TOPBAR */
+
+.search-bottom-topbar {
+    display: none;
+    background-color: #1e1e1e;
+}
+
+.search-bottom-topbar.show {
+    display: block;
+}
+
+.search-bottom-topbar .search-top {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    height: 75px;
+    background-color: transparent;
+    border: none;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+
+
+/* OVERRIDE MENU */
+
+.main-nav {
+    /*height: 55px !important;*/
+}
+
+.main-nav .mobile-nav .mobile-text {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 21px;
+    padding-left: 10px;
+}
+
+.main-nav .mobile-nav.small-height {
+    padding: 0 10px;
+}
+
+.inner-nav ul {
+    font-size: 14px;
+}
+
+.inner-nav ul li a {
+    letter-spacing: 0;
+}
+
+ul.top-links.left {
+    float: left !important
+}
+
+ul.top-links.right {
+    float: right !important
+}
+
+/* OVERRIDE SECTION */
+.section-title{
+  font-size: 25px;
+}
+.post-prev-title{
+  font-size: 16px;
+}
+.post-prev-title a{
+  color: #333;
+
+}
+
+/* OVERLAY */
+.lang-select-content{
+  display: none;
+}
+.lang-select-list{
+  list-style: none;
+  text-align: left;
+}
+.lang-select-list li{
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+.lang-select-list li i{
+  margin-right: 5px;
+}
+
+.lang-select-list a{
+  text-decoration: none;
+  margin-left: 60px;
+  text-align: left;
+}
+@media screen and (min-width: 769px){
+  .lang-select-list a{
+    margin-left: 100px;
+  }
+}
+/* CATs */
+.danhmucsp .cat-detail{
+  position: relative;
+  text-decoration: none;
+  border: none;
+}
+.danhmucsp .cat-detail a{
+  text-decoration: none;
+  border: none;
+}
+.danhmucsp .cat-detail .cat-thumb{
+  border-radius: 5px;
+}
+.danhmucsp .cat-detail a:hover .cat-des{
+  background-color: #0084FF;
+  color: #fff;
+  opacity: 1;
+}
+.danhmucsp .cat-detail .cat-des{
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  color: #555;
+  width: 100%;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+}
+.danhmucsp .cat-detail .cat-des .sub{
+  display: block;
+  font-size: 12px;
+  text-transform: none;
+  font-weight: normal;
+}
+.phuongthucthanhtoan .payment{
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+}
+.phuongthucthanhtoan .payment img{
+  width: 54px;
+  height: 33px
+}
+  
