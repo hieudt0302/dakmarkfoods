@@ -51,22 +51,156 @@
             </ul>
         </div>
         <!-- END SITE LANGUAGE -->
-
-        <!-- SITE SEARCH OVERLAY -->
-        <div id="full-screen-search">
-            <button type="button" class="close">×</button>
-            <form>
-                <div class="seach-input">
-                    <input type="text" class="search" id="s" name="s" placeholder="Nhập nội dung" autofocus="autofocus" value="">
-                </div>
-            </form>
+        <!-- Top Bar -->
+        <div class="top-bar ">
+            <div class="full-wrapper clearfix">
+                <!-- Top Links -->
+                <ul class="top-links left">
+                    <li><a href="tel:+841223338889" data-original-title="" title="">GIỚI THIỆU</a></li>
+                    <li><a href="tel:+841223338889" data-original-title="" title="">BLOG</a></li>
+                    <li><a href="tel:+841223338889" data-original-title="" title="">LIÊN HỆ</a></li>
+                </ul>
+                <!-- End Top Links -->
+                <!-- Social Links -->
+                <ul class="top-links right tooltip-bot" data-original-title="" title="">
+                    <li>
+                        <a id="lang-select" href="#"><i class="flag-icon flag-icon-vn"></i></a>
+                    </li>
+                </ul>
+                <!-- End Social Links -->
+            </div>
         </div>
-        <!-- END SITE SEARCH OVERLAY -->
-
+        <!-- End Top Bar -->
+        <!-- Logo Section -->
+        <section class="small-section pt-30 pt-xs-20 pb-30 pb-xs-20">
+            <div class="container align-center">
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <a href="#top"><img src="{{ asset('frontend/images/DakMark-foods.png') }}" width="300" height="125" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Logo Section -->
+        <!-- MENU -->
+        <div id="sticky-wrapper" class="sticky-wrapper">
+            <nav class="main-nav dark mn-align-left js-stick" style="width: 1325px;">
+                <div class="full-wrapper relative clearfix">
+                    <div class="mobile-nav">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <!-- Main Menu -->
+                    <div class="inner-nav desktop-nav">
+                        <ul class="clearlist">
+                            <!-- Item With Sub -->
+                            <li>
+                                <a href="index.html" class="active">TRANG CHỦ</a>
+                            </li>
+                            <!-- End Item With Sub -->
+                            <!-- Item With Sub -->
+                            <li>
+                                <a href="#" class="mn-has-sub">NÔNG SẢN <i class="fa fa-angle-down"></i></a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">
+                                    <li>
+                                        <a href="#">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Mission</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Vision</a>
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                            </li>
+                            <!-- End Item With Sub -->
+                            <!-- Item With Sub -->
+                            <li>
+                                <a href="#" class="mn-has-sub">ĐẶC SẢN <i class="fa fa-angle-down"></i></a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">
+                                    <li>
+                                        <a href="#">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Mission</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Vision</a>
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                            </li>
+                            <!-- End Item With Sub -->
+                            <!-- Item With Sub -->
+                            <li>
+                                <a href="#" class="mn-has-sub">ĐẶC BIỆT <i class="fa fa-angle-down"></i></a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">
+                                    <li>
+                                        <a href="#">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Mission</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Vision</a>
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                            </li>
+                            <!-- End Item With Sub -->
+                            <li>
+                                <a href="special-construction-1-portfolio.html">KHUYẾN MÃI</a>
+                            </li>
+                            <li class="right">
+                                <a href="#" class="mn-has-sub"><i class="fa fa-user-circle-o"></i> Tài Khoản</a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">
+                                    <li>
+                                        <a href="#">Đăng Nhập</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Đăng Ký</a>
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                            </li>
+                            <li class="right">
+                                <a href="#" class="mn-has-sub"><i class="fa fa-search"></i> Tìm Kiếm</a>
+                                <ul class="mn-sub">
+                                    <li>
+                                        <div class="mn-wrap">
+                                            <form method="post" class="form">
+                                                <div class="search-wrap">
+                                                    <button class="search-button animate" type="submit" title="Start Search">
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                    <input type="text" class="form-control search-field" placeholder="Search...">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="right">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> Giỏ Hàng (0)</a>
+                            </li>
+                            <li class="right">
+                                <a href="#"><i class="fa fa-heart-o"></i> Yêu Thích</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Main Menu -->
+                </div>
+            </nav>
+        </div>
+        <!-- End Menu -->
         <!-- Fullwidth Slider -->
         <div class="home-section fullwidth-slider bg-dark" id="home">
             <!-- Slide Item -->
-            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-20" data-background="{{ asset('frontend/images/home-sample/01.jpg') }}">
+            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-30" data-background="{{ asset('frontend/images/home-sample/01.jpg') }}">
                 <div class="js-height-parent container">
                     <!-- Hero Content -->
                     <div class="home-content">
@@ -89,17 +223,17 @@
             </section>
             <!-- End Slide Item -->
             <!-- Slide Item -->
-            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-20" data-background="{{ asset('frontend/images/home-sample/02.jpg') }}">
+            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-30" data-background="{{ asset('frontend/images/home-sample/02.jpg') }}">
                 <div class="js-height-parent container">
                     <!-- Hero Content -->
                     <div class="home-content">
                         <div class="home-text">
                             <h1 class="hs-line-8 no-transp mb-50 mb-xs-10">
-                                We Are just crative people
-                            </h1>
+                                    We Are just crative people
+                                </h1>
                             <h2 class="hs-line-14 mb-50 mb-xs-10">
-                                Rhythm Creative Studio
-                            </h2>
+                                    Rhythm Creative Studio
+                                </h2>
                             <div class="local-scroll">
                                 <a href="#about" class="btn btn-mod btn-border-w btn-small btn-circle hidden-xs">See More</a>
                                 <span class="hidden-xs">&nbsp;</span>
@@ -112,17 +246,17 @@
             </section>
             <!-- End Slide Item -->
             <!-- Slide Item -->
-            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-20" data-background="{{ asset('frontend/images/home-sample/03.jpg') }}">
+            <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-30" data-background="{{ asset('frontend/images/home-sample/03.jpg') }}">
                 <div class="js-height-parent container">
                     <!-- Hero Content -->
                     <div class="home-content">
                         <div class="home-text">
                             <h2 class="hs-line-8 no-transp mb-50 mb-xs-10">
-                                Create your dream with
-                            </h2>
+                                    Create your dream with
+                                </h2>
                             <h1 class="hs-line-14 mb-50 mb-xs-10">
-                                Amazing Design
-                            </h1>
+                                    Amazing Design
+                                </h1>
                             <div>
                                 <a href="pages-pricing-1.html" class="btn btn-mod btn-border-w btn-small btn-circle">Get Pricing</a>
                             </div>
@@ -134,149 +268,21 @@
             <!-- End Slide Item -->
         </div>
         <!-- End Fullwidth Slider -->
-
-        <!-- Navigation panel -->
-        <nav class="main-nav stick-fixed">
-            <div class="full-wrapper relative clearfix">
-                <!-- Logo ( * your text or image into link tag *) -->
-                <div class="nav-logo-wrap local-scroll">
-                    <a href="#top" class="logo">
-                        <img src="{{ asset('frontend/images/DakMark-foods.png') }}" alt="" />
-                    </a>
-                </div>
-                <div class="mobile-nav">
-                    <i class="fa fa-bars"></i>
-                </div>
-                <!-- Main Menu -->
-                <!-- Main Menu -->
-                <div class="inner-nav desktop-nav">
-                    <ul class="clearlist">
-                        <!-- Item With Sub -->
-                        <li>
-                            <a href="#" class="mn-has-sub active">Trang Chủ <i class="fa fa-angle-down"></i></a>
-                            <!-- Sub Multilevel -->
-                            <ul class="mn-sub mn-has-multi">
-                                <!-- Sub Column -->
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <!-- End Sub Column -->
-                            </ul>
-                            <!-- End Sub Multilevel -->
-                        </li>
-                        <!-- End Item With Sub -->
-                        <!-- Item With Sub -->
-                        <li>
-                            <a href="#" class="mn-has-sub">Nông Sản <i class="fa fa-angle-down"></i></a>
-                            <!-- Sub Multilevel -->
-                            <ul class="mn-sub mn-has-multi">
-                                <!-- Sub Column -->
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <!-- End Sub Column -->
-                            </ul>
-                            <!-- End Sub Multilevel -->
-                        </li>
-                        <!-- End Item With Sub -->
-                        <!-- Item With Sub -->
-                        <li>
-                            <a href="#" class="mn-has-sub">ĐẶC SẢN <i class="fa fa-angle-down"></i></a>
-                            <!-- Sub Multilevel -->
-                            <ul class="mn-sub mn-has-multi">
-                                <!-- Sub Column -->
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <!-- End Sub Column -->
-                            </ul>
-                            <!-- End Sub Multilevel -->
-                        </li>
-                        <!-- End Item With Sub -->
-                        <!-- Item With Sub -->
-                        <li>
-                            <a href="#" class="mn-has-sub">Đặc Biệt <i class="fa fa-angle-down"></i></a>
-                            <!-- Sub Multilevel -->
-                            <ul class="mn-sub mn-has-multi">
-                                <!-- Sub Column -->
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="mp-index-10.html">Giới Thiệu</a>
-                                </li>
-                                <!-- End Sub Column -->
-                            </ul>
-                            <!-- End Sub Multilevel -->
-                        </li>
-                        <!-- End Item With Sub -->
-                        <!-- Item With Sub -->
-                        <li>
-                            <a href="#">Khuyến Mãi</a>
-                        </li>
-                        <!-- End Item With Sub -->
-                        <!-- Divider -->
-                        <li><a>&nbsp;</a></li>
-                        <!-- End Divider -->
-                        <!-- Favorite -->
-                        <li>
-                            <a href="#" class="align-center"><i class="fa fa-heart-o"></i></a>
-                        </li>
-                        <!-- End Favorite -->
-                        <!-- Search -->
-                        <li>
-                            <a id="site-search" href="#" class="align-center"><i class="fa fa-search"></i></a>
-                        </li>
-                        <!-- End Search -->
-                        <!-- Cart -->
-                        <li>
-                            <a href="#" class="align-center"><i class="fa fa-shopping-cart"></i> (0)</a>
-                        </li>
-                        <!-- End Cart -->
-                        <!-- User -->
-                        <li>
-                            <a href="#" class="align-center"><i class="fa fa-user-circle-o"></i> (0)</a>
-                        </li>
-                        <!-- End User -->
-                        <!-- Languages -->
-                        <li>
-                            <a id="lang-select" class="align-center" href="#"><i class="flag-icon flag-icon-vn"></i></a>
-                        </li>
-                        <!-- End Languages -->
-                    </ul>
-                </div>
-                <!-- End Main Menu -->
-            </div>
-        </nav>
-        <!-- End Navigation panel -->
-
-        <!-- Best Seller Product -->
+        <!-- Product -->
         <section class="small-section pt-50 pb-30">
             <div class="container relative">
-                <h2 class="section-title align-left mb-30 mb-sm-40">
-                    SẢN PHẨM MUA NHIỀU
-                    <a href="#" class="section-more right">xem thêm <i class="fa fa-angle-right"></i></a>
-                </h2>
+                <h2 class="section-title mb-30 mb-sm-40">SẢN PHẨM MUA NHIỀU</h2>
                 <div class="row multi-columns-row">
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt=""></a>
                             <div class="intro-label">
                                 <span class="label label-danger bg-red">30%</span>
                             </div>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">G-Star Polo Applique Jersey</a>
+                            <a href="shop-single.html">G-Star Polo Applique Jersey</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <del>$150.00</del>
@@ -288,10 +294,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Only &amp; Sons Pique Polo Shirt</a>
+                            <a href="shop-single.html">Only &amp; Sons Pique Polo Shirt</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$28.99</strong>
@@ -301,10 +307,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Longline Long Sleeve T-shirt</a>
+                            <a href="shop-single.html">Longline Long Sleeve T-shirt</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$39.99</strong>
@@ -314,67 +320,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Polo Shirt With Floral Sleeves</a>
-                        </div>
-                        <div class="post-prev-text align-center mb-0">
-                            <strong>$85.99</strong>
-                        </div>
-                    </div>
-                    <!-- End Shop Item -->
-                    <!-- Shop Item -->
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
-                        <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt=""></a>
-                            <div class="intro-label">
-                                <span class="label label-danger bg-red">30%</span>
-                            </div>
-                        </div>
-                        <div class="post-prev-title align-center">
-                            <a href="#">G-Star Polo Applique Jersey</a>
-                        </div>
-                        <div class="post-prev-text align-center mb-0">
-                            <del>$150.00</del>
-                            &nbsp;
-                            <strong>$94.75</strong>
-                        </div>
-                    </div>
-                    <!-- End Shop Item -->
-                    <!-- Shop Item -->
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
-                        <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="post-prev-title align-center">
-                            <a href="#">Only &amp; Sons Pique Polo Shirt</a>
-                        </div>
-                        <div class="post-prev-text align-center mb-0">
-                            <strong>$28.99</strong>
-                        </div>
-                    </div>
-                    <!-- End Shop Item -->
-                    <!-- Shop Item -->
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
-                        <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="post-prev-title align-center">
-                            <a href="#">Longline Long Sleeve T-shirt</a>
-                        </div>
-                        <div class="post-prev-text align-center mb-0">
-                            <strong>$39.99</strong>
-                        </div>
-                    </div>
-                    <!-- End Shop Item -->
-                    <!-- Shop Item -->
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
-                        <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="post-prev-title align-center">
-                            <a href="#">Polo Shirt With Floral Sleeves</a>
+                            <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$85.99</strong>
@@ -382,110 +331,27 @@
                     </div>
                     <!-- End Shop Item -->
                 </div>
-            </div>
-        </section>
-        <!-- End Best Seller Product -->
-        
-        <!-- New Product -->
-        <section class="small-section bg-gray-lighter pt-50 pb-30">
-            <div class="container relative">
-                <h2 class="section-title align-left mb-30 mb-sm-40">
-                    SẢN PHẨM MỚI VỚI CAROUSEL
-                    <a href="#" class="section-more right">xem thêm <i class="fa fa-angle-right"></i></a>
-                </h2>
-                <div class="row">
-                    <div class="image-carousel owl-carousel">
-
-                        <!-- Shop Item -->
-                        <div>
-                            <div class="post-prev-img p15">
-                                <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="post-prev-title align-center">
-                                <a href="#">Polo Shirt With Floral Sleeves</a>
-                            </div>
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-                        </div>
-                        <!-- End Shop Item -->
-                        <!-- Shop Item -->
-                        <div>
-                            <div class="post-prev-img p15">
-                                <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="post-prev-title align-center">
-                                <a href="#">Polo Shirt With Floral Sleeves</a>
-                            </div>
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-                        </div>
-                        <!-- End Shop Item -->
-                        <!-- Shop Item -->
-                        <div>
-                            <div class="post-prev-img p15">
-                                <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="post-prev-title align-center">
-                                <a href="#">Polo Shirt With Floral Sleeves</a>
-                            </div>
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-                        </div>
-                        <!-- End Shop Item -->
-                        <!-- Shop Item -->
-                        <div>
-                            <div class="post-prev-img p15">
-                                <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="post-prev-title align-center">
-                                <a href="#">Polo Shirt With Floral Sleeves</a>
-                            </div>
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-                        </div>
-                        <!-- End Shop Item -->
-                        <!-- Shop Item -->
-                        <div>
-                            <div class="post-prev-img p15">
-                                <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
-                            </div>
-                            <div class="post-prev-title align-center">
-                                <a href="#">Polo Shirt With Floral Sleeves</a>
-                            </div>
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-                        </div>
-                        <!-- End Shop Item -->
-                    </div>
+                <div class="align-center">
+                    <a href="" class="btn btn-mod btn-round btn-medium">XEM THÊM</a>
                 </div>
-                    
             </div>
         </section>
-        <!-- End New Product -->
-
-        <!-- Hot Product -->
+        <!-- End Product -->
+        <!-- Product -->
         <section class="small-section pt-50 pb-30">
             <div class="container relative">
-                <h2 class="section-title align-left mb-30 mb-sm-40">
-                    SECTION KHÁC
-                    <a href="#" class="section-more right">xem thêm <i class="fa fa-angle-right"></i></a>
-                </h2>
+                <h2 class="section-title mb-30 mb-sm-40">SẢN PHẨM MỚI</h2>
                 <div class="row multi-columns-row">
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt=""></a>
                             <div class="intro-label">
                                 <span class="label label-danger bg-red">30%</span>
                             </div>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">G-Star Polo Applique Jersey</a>
+                            <a href="shop-single.html">G-Star Polo Applique Jersey</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <del>$150.00</del>
@@ -497,10 +363,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Only &amp; Sons Pique Polo Shirt</a>
+                            <a href="shop-single.html">Only &amp; Sons Pique Polo Shirt</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$28.99</strong>
@@ -510,10 +376,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Longline Long Sleeve T-shirt</a>
+                            <a href="shop-single.html">Longline Long Sleeve T-shirt</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$39.99</strong>
@@ -523,10 +389,10 @@
                     <!-- Shop Item -->
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 mb-20">
                         <div class="post-prev-img">
-                            <a href="#"><img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt=""></a>
+                            <a href="shop-single.html"><img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt=""></a>
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="#">Polo Shirt With Floral Sleeves</a>
+                            <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             <strong>$85.99</strong>
@@ -534,19 +400,21 @@
                     </div>
                     <!-- End Shop Item -->
                 </div>
+                <div class="align-center">
+                    <a href="" class="btn btn-mod btn-round btn-medium">XEM THÊM</a>
+                </div>
             </div>
         </section>
-        <!-- End New Product -->
-
-        <!-- Product Categories -->
-        <section class="small-section pt-20 pb-20 bg-gray-lighter danhmucsp">
+        <!-- End Product -->
+        <!-- Product -->
+        <section class="small-section pt-20 pb-20 bg-dark-lighter danhmucsp">
             <div class="container relative">
                 <h2 class="section-title mb-30 mb-sm-40">DANH MỤC SẢN PHẨM</h2>
                 <div class="row multi-columns-row">
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     THỊT TƯƠI SỐNG
@@ -560,7 +428,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     CÁ TƯƠI SỐNG
@@ -574,8 +442,8 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
-                                <img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt="" class="cat-thumb">
+                            <a href="shop-single.html">
+                                <img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt"" class="cat-thumb">
                                 <div class="cat-des">
                                     HOA QUẢ TƯƠI
                                     <span class="sub">100 Sản Phẩm</span>
@@ -588,7 +456,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     HẠT COFFEE
@@ -602,7 +470,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     THỊT TƯƠI SỐNG
@@ -616,7 +484,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     CÁ TƯƠI SỐNG
@@ -630,7 +498,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     THỊT TƯƠI SỐNG
@@ -644,7 +512,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     CÁ TƯƠI SỐNG
@@ -658,7 +526,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/fruit.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     HOA QUẢ TƯƠI
@@ -672,7 +540,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/coffee.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     HẠT COFFEE
@@ -686,7 +554,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/meat.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     THỊT TƯƠI SỐNG
@@ -700,7 +568,7 @@
                     <!-- Cat Item -->
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 pt-20">
                         <div class="cat-detail">
-                            <a href="#">
+                            <a href="shop-single.html">
                                 <img src="{{ asset('frontend/images/home-sample/cats/fish.jpg') }}" alt="" class="cat-thumb">
                                 <div class="cat-des">
                                     CÁ TƯƠI SỐNG
@@ -714,15 +582,11 @@
                 </div>
             </div>
         </section>
-        <!-- End Product Categories -->
-
-        <!-- News -->
+        <!-- End Product -->
+        <!-- Product -->
         <section class="small-section pt-50 pb-30">
             <div class="container relative">
-                <h2 class="section-title align-left mb-30 mb-sm-40">
-                    TIN TỨC/KHUYẾN MÃI
-                    <a href="#" class="section-more right">xem thêm <i class="fa fa-angle-right"></i></a>
-                </h2>
+                <h2 class="section-title mb-30 mb-sm-40">TIN TỨC/KHUYẾN MÃI</h2>
                 <div class="row multi-columns-row">
                     <!-- Post Item -->
                     <div class="col-sm-6 col-md-3 col-lg-3 mb-60 mb-xs-40">
@@ -803,32 +667,40 @@
                 </div>
             </div>
         </section>
-        <!-- End News -->
-
-        <section class="small-section bg-gray-lighter">
+        <!-- End Product -->
+        <section class="small-section bg-dark-lighter">
             <div class="container relative">
+                
                 <form class="form align-center" id="mailchimp" novalidate="true">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <h2 class="section-title">ĐĂNG KÝ NHẬN BẢN TIN</h2>
-                            <p><small>Đừng bỏ lỡ những sản phẩm hot và khuyến mãi siêu hấp dẫn</small></p>
+                            
+                            <div class="newsletter-label">
+                                ĐĂNG KÝ NHẬN BẢN TIN
+                            </div>
+                            
                             <div class="mb-20">
                                 <input placeholder="Enter Your Email" class="newsletter-field form-control input-md round mb-xs-10" type="email" pattern=".{5,100}" required="" name="EMAIL">
+                                
                                 <button type="submit" class="btn btn-mod btn-medium btn-w btn-round mb-xs-10">
                                     Subscribe
                                 </button>
                             </div>
+                            
                             <div class="form-tip">
                                 <i class="fa fa-info-circle"></i> Chúng tôi sẻ không spam
                             </div>
+                            
                             <div id="subscribe-result"></div>
+                            
                         </div>
                     </div>
                 </form>
+                
             </div>
         </section>
         <!-- Foter -->
-        <footer class="page-section bg-gray footer pb-20 pt-30 align-left">
+        <footer class="page-section bg-gray-lighter footer pb-20 pt-30 align-left">
             <div class="container">
                 <div class="row align-left">
                     <!-- Widget -->
