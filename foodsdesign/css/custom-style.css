@@ -474,5 +474,8 @@ ul.top-links.right {
   line-height: 60px;
   text-align: center;
 }
-
-
+.product-cat{
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 6px;
+}
