@@ -95,6 +95,7 @@
         <script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/rev-slider.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/bootstrapscrollspy.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/custom-js.js') }}"></script>
 
         <script>
