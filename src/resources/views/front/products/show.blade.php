@@ -160,7 +160,7 @@
 		<ul class="nav nav-tabs tablist local-scroll" role="tablist">
 			<li><a href="#gioithieu" class="active">@lang('product.description')</a></li>
 			<li><a href="#specs">@lang('product.add-info')</a></li>
-			<li><a href="#reviewbox">@lang('product.reviews')</a></li>
+			<li><a href="#reviewbox">@lang('product.reviews') ({{count($product->comments)}})</a></li>
 		</ul>
 	</div>
 </div>
