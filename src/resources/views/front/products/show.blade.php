@@ -160,7 +160,7 @@
 		<ul class="nav nav-tabs tablist local-scroll" role="tablist">
 			<li><a href="#gioithieu" class="active">@lang('product.description')</a></li>
 			<li><a href="#specs">@lang('product.add-info')</a></li>
-			<li><a href="#reviewbox">@lang('product.reviews')</a></li>
+			<li><a href="#reviewbox">@lang('product.reviews') ({{count($product->comments)}})</a></li>
 		</ul>
 	</div>
 </div>
@@ -246,7 +246,7 @@
 				<h3 class="section-title align-left mb-10">@lang('product.add-review')</h3>
 				<hr class="mt-0 ">
 				<!-- Form -->
-				<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
+				<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="form post-cmt">
 					{{ csrf_field() }}
 					<input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
 					@guest
