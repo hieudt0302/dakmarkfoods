@@ -208,8 +208,9 @@
         </nav>
         <!-- End Navigation panel -->
 
+
         <!-- Product Info -->
-        <section class="small-section productsingle">
+        <section class="small-section pb-10" id="mota">
             <div class="container relative">
                 <div class="row mb-30">
                     <!-- PRODUCT IMAGE -->
@@ -292,162 +293,186 @@
         </section>
         <!-- End Product Info -->
 
-        <!-- Product Description -->
-        <section class="small-section gioithieu">
+        <div class="tabsanpham bg-gray-lighter pt-0 pb-0" id="product-tabs">
             <div class="container relative">
-                <p>
-                    Đây là giới thiệu sản phẩm
-                </p>
-                Đây là video
-                <div class="video">
-                    <iframe width="640" height="360" src="http://www.youtube.com/embed/JuyB7NO0EYY" allowfullscreen></iframe>
+                <ul class="nav nav-tabs tablist" role="tablist">
+                    <li><a href="#gioithieu" class="active">GIỚI THIỆU</a></li>
+                    <li><a href="#specs">THÔNG SỐ</a></li>
+                    <li><a href="#reviewbox">ĐÁNH GIÁ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Product Description -->
+        <section class="small-section bg-gray-lighter gioithieu pt-20 pb-0" id="gioithieu">
+            <div class="container relative">
+                <div class="post-content">
+                    <p>
+                        Đây là giới thiệu sản phẩm
+                    </p>
+                    Đây là video
+                    <div class="video">
+                        <iframe width="640" height="360" src="http://www.youtube.com/embed/JuyB7NO0EYY" allowfullscreen></iframe>
+                    </div>
+                    <p>
+                        Đây là slider hình ảnh
+                        <ul class="clearlist content-slider">
+                            <li>
+                                <img src="images/home-sample/01.jpg" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/home-sample/02.jpg" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/home-sample/03.jpg" alt="" />
+                            </li>
+                        </ul>
+                    </p>
                 </div>
-                <p>
-                    Đây là slider hình ảnh
-                    <ul class="clearlist content-slider">
-                        <li>
-                            <img src="images/home-sample/01.jpg" alt="" />
-                        </li>
-                        <li>
-                            <img src="images/home-sample/02.jpg" alt="" />
-                        </li>
-                        <li>
-                            <img src="images/home-sample/03.jpg" alt="" />
-                        </li>
-                    </ul>
-                </p>
-                <p>
-                    
-                </p>
+                   
             </div>
         </section>
         <!-- End Product Description -->
 
-        <!-- Product Review -->
-        <section class="small-section pt-20 pb-20 bg-gray-lighter" id="reviewbox">
+        <!-- Product Specs -->
+        <section class="small-section pt-20 pb-0 bg-gray-lighter" id="specs">
             <div class="container relative">
-                <h3 class="section-title align-left mb-10 ">CÓ 5 ĐÁNH GIÁ<a href="#reviewboxform " class="section-more right ">gửi đánh giá của bạn</a></h3>
-                <hr class="mt-0 ">
-                <ul class="media-list text comment-list clearlist ">
-                    <!-- Comment Item -->
-                    <li class="media comment-item ">
-                        <a class="pull-left " href="# "><img class="media-object comment-avatar " src="images/user-avatar.png " alt=" "></a>
-                        <div class="media-body ">
-                            <div class="comment-item-data ">
-                                <div class="comment-author ">
-                                    <a href="# ">Emma Johnson</a>
-                                </div>
-                                Feb 9, 2014, at 10:37<span class="separator ">—</span>
-                                <span>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star-o "></i>
-                                </span>
-                            </div>
-                            <p>
-                                Donec fermentum turpis et finibus commodo. Sed dictum laoreet mi, vitae dignissim purus interdum at. Sed a est at purus cursus elementum ut sed lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                            </p>
-                        </div>
-                    </li>
-                    <!-- End Comment Item -->
-                    <!-- Comment Item -->
-                    <li class="media comment-item ">
-                        <a class="pull-left " href="# "><img class="media-object comment-avatar " src="images/user-avatar.png " alt=" "></a>
-                        <div class="media-body ">
-                            <div class="comment-item-data ">
-                                <div class="comment-author ">
-                                    <a href="# ">John Doe</a>
-                                </div>
-                                Feb 9, 2014, at 10:3<span class="separator ">—</span>
-                                <span>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star-o "></i>
-                                </span>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                            </p>
-                        </div>
-                    </li>
-                    <!-- End Comment Item -->
-                </ul>
-                <!-- Add Review -->
-                <div class="mb-20" id="reviewboxform">
-                    <h3 class="section-title align-left mb-10">GỬI ĐÁNH GIÁ CỦA BẠN</h3>
-                    <hr class="mt-0 ">
-                    <!-- Form -->
-                    <form method="post" action="#" id="form" role="form" class="form">
-                        <div class="row mb-20 mb-md-10">
-                            <div class="col-md-6 mb-md-10">
-                                <!-- Name -->
-                                <input type="text" name="name" id="name" class="input-md form-control" placeholder="Name *" maxlength="100" required>
-                            </div>
-                            <div class="col-md-6 ">
-                                <!-- Email -->
-                                <input type="email" name="email" id="email" class="input-md form-control" placeholder="Email*" maxlength="100" required>
-                            </div>
-                        </div>
-                        <div class="row col-md-12 pb-20">
-                            <span>ĐÁNH GIÁ: </span> 
-                            <a class="star" id="1-star">
-                                <i class="danhgia fa fa-star-o"></i>
-                            </a>
-                            <a class="star" id="2-star">
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                            </a>
-                            <a class="star" id="3-star">
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                            </a>
-                            <a class="star" id="4-star">
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                            </a>
-                            <a class="star" id="5-star">
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                                <i class="danhgia fa fa-star-o"></i>
-                            </a>
-                        </div>
-                        <div class="row col-md-12" style="display: none">
-                            <select class="input-md round form-control" id="yourrating">
-                                <option selected>-- Select one --</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <!-- Comment -->
-                        <div class="mb-30 mb-md-10 ">
-                            <textarea name="text " id="text " class="input-md form-control " rows="6 " placeholder="Comment " maxlength="400 "></textarea>
-                        </div>
-                        <!-- Send Button -->
-                        <button type="submit " class="btn btn-mod btn-medium btn-round ">
-                            GỬI ĐÁNH GIÁ
-                        </button>
-                    </form>
-                    <!-- End Form -->
+                <h3 class="section-title align-left mb-10 ">THÔNG SỐ</h3>
+                <div class="specs-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati pariatur repudiandae laborum, veniam odio sed deserunt quidem maxime cum nulla impedit rerum non vitae labore recusandae, itaque numquam ipsum asperiores. In architecto sequi voluptate dicta quis delectus deserunt qui accusamus dolore deleniti, mollitia fugiat laborum, vel autem, dolorem distinctio. Magni eos voluptatum quas minus rem, consectetur nobis doloribus, quam, perspiciatis laudantium impedit placeat reiciendis eveniet qui sequi itaque molestiae. Doloremque autem quod nemo ullam animi saepe sequi assumenda perferendis eos pariatur. Vero obcaecati assumenda veritatis illum alias, tenetur ea eius dicta quia. Excepturi tempore hic, nisi! Quam numquam, nulla impedit quod accusamus exercitationem obcaecati minus, eius aliquam, sequi itaque cum blanditiis quidem voluptas natus! Ipsa doloribus aliquam officiis quas qui maiores nulla vero, obcaecati placeat! Esse doloribus odit sapiente voluptatibus, quisquam rem architecto, dignissimos fugiat autem quasi nesciunt nemo. Dicta facere deleniti aut nisi optio, neque natus voluptatum facilis ab libero iste amet. Aspernatur enim, voluptas quibusdam recusandae ea itaque deserunt laboriosam maxime libero est facilis quis repudiandae repellat aut harum porro molestiae eum culpa nisi ipsam adipisci odio accusantium! Eligendi odio necessitatibus ea, mollitia officiis molestiae nobis, consequatur aliquid aspernatur ipsa, nam doloribus sequi accusamus quo quas unde, delectus.
                 </div>
-                <!-- End Add Review -->
+            </div>
+        </section>
+        <!-- End Product Specs -->
+
+        <!-- Product Review -->
+        <section class="small-section pt-20 pb-0 bg-gray-lighter" id="reviewbox">
+            <div class="container relative">
+                <h3 class="section-title align-left mb-10 ">CÓ 5 ĐÁNH GIÁ<a href="#reviewboxform " class="section-more right ">gửi đánh giá</a></h3>
+                <div class="review-content">
+                    <hr class="mt-0 ">
+                    <ul class="media-list text comment-list clearlist ">
+                        <!-- Comment Item -->
+                        <li class="media comment-item ">
+                            <a class="pull-left " href="# "><img class="media-object comment-avatar " src="images/user-avatar.png " alt=" "></a>
+                            <div class="media-body ">
+                                <div class="comment-item-data ">
+                                    <div class="comment-author ">
+                                        <a href="# ">Emma Johnson</a>
+                                    </div>
+                                    Feb 9, 2014, at 10:37<span class="separator ">—</span>
+                                    <span>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star-o "></i>
+                                    </span>
+                                </div>
+                                <p>
+                                    Donec fermentum turpis et finibus commodo. Sed dictum laoreet mi, vitae dignissim purus interdum at. Sed a est at purus cursus elementum ut sed lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- End Comment Item -->
+                        <!-- Comment Item -->
+                        <li class="media comment-item ">
+                            <a class="pull-left " href="# "><img class="media-object comment-avatar " src="images/user-avatar.png " alt=" "></a>
+                            <div class="media-body ">
+                                <div class="comment-item-data ">
+                                    <div class="comment-author ">
+                                        <a href="# ">John Doe</a>
+                                    </div>
+                                    Feb 9, 2014, at 10:3<span class="separator ">—</span>
+                                    <span>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star-o "></i>
+                                    </span>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- End Comment Item -->
+                    </ul>
+                    <!-- Add Review -->
+                    <div class="mb-20" id="reviewboxform">
+                        <h3 class="section-title align-left mb-10">GỬI ĐÁNH GIÁ CỦA BẠN</h3>
+                        <hr class="mt-0 ">
+                        <!-- Form -->
+                        <form method="post" action="#" id="form" role="form" class="form">
+                            <div class="row mb-20 mb-md-10">
+                                <div class="col-md-6 mb-md-10">
+                                    <!-- Name -->
+                                    <input type="text" name="name" id="name" class="input-md form-control" placeholder="Name *" maxlength="100" required>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <!-- Email -->
+                                    <input type="email" name="email" id="email" class="input-md form-control" placeholder="Email*" maxlength="100" required>
+                                </div>
+                            </div>
+                            <div class="row col-md-12 pb-20">
+                                <span>ĐÁNH GIÁ: </span> 
+                                <a class="star" id="1-star">
+                                    <i class="danhgia fa fa-star-o"></i>
+                                </a>
+                                <a class="star" id="2-star">
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                </a>
+                                <a class="star" id="3-star">
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                </a>
+                                <a class="star" id="4-star">
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                </a>
+                                <a class="star" id="5-star">
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                    <i class="danhgia fa fa-star-o"></i>
+                                </a>
+                            </div>
+                            <div class="row col-md-12" style="display: none">
+                                <select class="input-md round form-control" id="yourrating">
+                                    <option selected>-- Select one --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <!-- Comment -->
+                            <div class="mb-30 mb-md-10 ">
+                                <textarea name="text " id="text " class="input-md form-control " rows="6 " placeholder="Comment " maxlength="400 "></textarea>
+                            </div>
+                            <!-- Send Button -->
+                            <button type="submit " class="btn btn-mod btn-medium btn-round ">
+                                GỬI ĐÁNH GIÁ
+                            </button>
+                        </form>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Add Review -->
+                </div>
+                    
             </div>
         </section>
         <!-- End Product Review -->
 
         <!-- Related Product -->
-        <section class="small-section pt-40 pb-20">
+        <section class="small-section pt-20 pb-0 bg-gray-lighter">
             <div class="container relative ">
                 <h3 class="section-title align-left mb-30 ">SẢN PHẨM TƯƠNG TỰ CÓ THỂ BẠN THÍCH</h3>
                 <!-- Products Grid -->
@@ -549,7 +574,7 @@
         <!-- End Related Product -->
 
         <!-- Newsletter -->
-        <section class="small-section bg-gray-lighter ">
+        <section class="small-section bg-gray-lighter">
             <div class="container relative ">
                 <form class="form align-center" id="mailchimp" novalidate="true">
                     <div class="row">
@@ -722,6 +747,7 @@
     <script type="text/javascript " src="js/all.js "></script>
     <script type="text/javascript " src="js/contact-form.js "></script>
     <script type="text/javascript " src="js/jquery.ajaxchimp.min.js "></script>
+    <script type="text/javascript " src="js/bootstrapscrollspy.min.js"></script>
     <script type="text/javascript " src="js/custom-js.js "></script>
     <!-- FACEBOOK SUPPORT CHAT: GENERATE HERE: zotabox.com -->
     <script type="text/javascript ">
