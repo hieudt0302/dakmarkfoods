@@ -5,10 +5,10 @@
     <!-- Social Bar -->
    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59eb390395f7b200121c29f0&product=sticky-share-buttons"></script>
    <!-- End Social Bar -->
-   
-    <!-- Slider -->
-    @include('front.home.slider')
-    <!-- End Slider -->
+
+    <!-- Futured Slider -->
+    @include('front.home.featuredslider')
+    <!-- End Futured Slider -->
 
 <section id="decorate">
     <div class="row">

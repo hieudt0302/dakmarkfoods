@@ -1,16 +1,4 @@
 $(document).ready(function() {
-    $('#lang-select').click(function() {
-    	var langcontent = $(".lang-select-content").html()
-    	console.log(langcontent)
-    	var lanp = document.createElement("div")
-    	lanp.innerHTML = langcontent
-    	console.log(lanp)
-        swal({
-        	title: "Language",
-        	button: false,
-            content: lanp,
-        });
-    })
     $( '#site-search' ).on( 'focus, click', function( event ) {
         // Prevent the default action
         event.preventDefault();
@@ -37,4 +25,74 @@ $(document).ready(function() {
         // Hide the Full Screen Search
         $( '#full-screen-search' ).removeClass( 'open' );
     } );
+
+    /* RATING BOX */
+    $('#reviewboxform a.star').on( 'focus, click', function( event ) {
+        event.preventDefault();
+        var curID = $(this).attr("id");
+        var yourRt = curID.charAt(0);
+        let el = document.querySelector('#reviewboxform'); 
+        var danhgia = el.querySelectorAll('a.star');
+
+        for (i = 0; i < danhgia.length; i++) {
+            var exiKey = danhgia[i].querySelectorAll('i.danhgia');
+            
+            if (danhgia[i].id != curID){
+                for (var j=0; j < exiKey.length; j++) {
+                    exiKey[j].setAttribute("class", "danhgia fa fa-star-o");
+                }
+            }else{
+                for (var j=0; j < exiKey.length; j++) {
+                    exiKey[j].setAttribute("class", "danhgia fa fa-star");
+                }
+            }
+        }
+        // GET and SET Rating select value
+        $("#yourrating option[value="+yourRt+"]").prop('selected', true);
+        // $('#yourrating').val(yourRt).prop('selected', true);
+    });
+    //Testing Rating value
+    // $('body').on( 'focus, click', function( event ) {
+    //     var selectRation = $("#yourrating option:selected").text();
+    //     console.log(selectRation);
+    // });
+    // 
+    
+    $('body').scrollspy({ target: '#product-tabs' })
+    $('#product-tabs').affix({
+      offset: {
+        top: getOffset(1),
+        bottom: getOffset(0)
+      }
+    });
+    $('#product-tabs').on('activate.bs.scrollspy', function () {
+        var children = $("#product-tabs li.active > a").attr("href");
+        // console.log(children);
+        // if (children == "#reviewbox"){
+        //     $('#product-tabs').data('bs.affix').options.offset.bottom = $("#reviewboxform").offset().top
+        // }else{
+        //     var mainNav = $('.main-nav').outerHeight(true);
+        //     var mota = $('#mota').outerHeight(true);
+        //     var topPos = mainNav + mota;
+        //     $('#product-tabs').data('bs.affix').options.offset.top = topPos;
+        //     $('#product-tabs').data('bs.affix').options.offset.bottom = $('#reviewboxform').offset().bottom;
+        // }
+    });
+
+    function getOffset(isTop){
+        if (isTop == 1){
+            return ($('.main-nav').outerHeight(true) + $('#mota').outerHeight(true) - 50);
+        }
+        if (isTop == 0){
+            var mainNav = $('.main-nav').outerHeight(true);
+            var mota = $('#mota').outerHeight(true);
+            var specs  = $('#specs').outerHeight(true);
+            var reviewbox  = $('#reviewbox').outerHeight(true);
+            return (mainNav+mota+specs+reviewbox+150);
+        }
+
+    }
+
+    /* PRODUCT SINGLE SCROLL */
+    
 })

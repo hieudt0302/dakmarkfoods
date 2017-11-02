@@ -17,16 +17,15 @@
         <link rel="apple-touch-icon" sizes="72x72" href="{{asset('frontend/images/apple-touch-icon-72x72.png')}}">
         <link rel="apple-touch-icon" sizes="114x114" href="{{asset('frontend/images/apple-touch-icon-114x114.png')}}">
         
-        <!-- CSS -->        
-        <!-- <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}"> -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/custom-style.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style-responsive.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/vertical-rhythm.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/rev-slider.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/rs-plugin/css/settings.css') }}" media="screen" />  
+        <link rel="stylesheet" href="{{ asset('frontend/css/timeline.css') }}">
          
         @yield('header')
     </head>
@@ -40,7 +39,18 @@
         
         <!-- Page Wrap -->
         <div class="page" id="top">
-            
+
+            <!-- SITE SEARCH OVERLAY -->
+            <div id="full-screen-search">
+                <button type="button" class="close">×</button>
+                {!! Form::open(array('url' => '/search')) !!}
+                <div class="seach-input">
+                    <input type="text" class="search" id="s" name="key" placeholder="@lang('header.enter-keyword')" autofocus="autofocus">
+                </div>
+                {!! Form::close() !!}
+            </div>
+            <!-- END SITE SEARCH OVERLAY -->
+
             <!-- Navigation panel -->
             @include('layouts.nav')
             <!-- End Navigation panel -->
@@ -84,7 +94,8 @@
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script> 
         <script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/js/rev-slider.js') }}"></script>        
+        <script type="text/javascript" src="{{ asset('frontend/js/rev-slider.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/custom-js.js') }}"></script>
 
         <script>
                 (function() {

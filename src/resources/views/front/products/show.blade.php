@@ -4,288 +4,326 @@
 
 @endsection
 @section('content')
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.product-details')</h1>
-                <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
-                    <li><span>/</span>{{$product->translation->name??$product->name}}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
-<section class="productdetail blogsingle shoplist">
-	<div class="container">
-		<div class="row">
-			<div class="pro-detail-infor list-item">
-				<div class="col-md-4 col-sm-4 col-xs-12">
+<!-- Product Info -->
+<section class="small-section pb-10" id="mota">
+	<div class="container relative">
+		<div class="row mb-30">
+			<!-- PRODUCT IMAGE -->
+			<div class="col-md-4 mb-md-30">
 				@if(count($product->medias) > 0)
 					@foreach($product->medias as $key =>  $media)
 						@if($key === 0)
-						<div class="pro-img">
-							<img src="{{asset('/storage')}}/{{$media->source}}" alt="" class="product-main-img">
-						</div>
-						@else 
-							@if($key === 1)
-							<div class="more-img">
-								<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
-							@endif 
-								@if($key < 4)
-									@if($key === 1)
-									<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
-									@else
-									<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+							<div class="pro-img">
+								<div class="post-prev-img">
+									<a href="{{asset('/storage')}}/{{$media->source}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('/storage')}}/{{$media->source}}" alt=""></a>
+									@if(!$product->sold_off)
+										@if($is_sales)
+											<div class="pro-overlay-info align-left">
+												<span class="giamgia">SALE</span>
+											</div>
+										@endif
 									@endif
-								@endif
-							@if($key + 1  == count($product->medias))
-								<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
+								</div>
 							</div>
+						@else
+							@if($key === 1)
+								<div class="more-img">
+									{{--<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>--}}
+									{{--@endif--}}
+									{{--@if($key < 4)--}}
+										{{--@if($key === 1)--}}
+											{{--<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">--}}
+										{{--@else--}}
+											{{--<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">--}}
+										{{--@endif--}}
+									{{--@endif--}}
+									{{--@if($key + 1  == count($product->medias))--}}
+										{{--<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>--}}
+								</div>
 							@endif
 						@endif
 					@endforeach
 				@else
 					<div class="pro-img">
-						<img src="{{asset('/images/no-image.png')}}" alt="" class="product-main-img">
+						<div class="post-prev-img">
+							<a href="{{asset('/images/no-image.png')}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('/images/no-image.png')}}" alt=""></a>
+						</div>
 					</div>
-				@endif 
-				</div>
-				<div class="col-md-8 col-sm-8 col-xs-12">
-					<div class="pro-list-it it">
-						
-						<h4 class="hd-after"><a href="#">{{$product->translation->name??$product->name}}</a></h4>
-						<span class="right">
-							<span class="star-rate small">
-                                @if($starAvg>=1)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=2)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o"></i>
-                                @endif
-                                @if($starAvg>=3)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=4)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=5)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-						 	</span><br>
-						 	<span class="rv">(Based on {{count($product->comments)}} reviews)</span>
-						</span>
+				@endif
+			</div>
+			<!-- END PRODUCT IMAGE -->
+			<div class="col-md-8 mb-md-30">
+				<h3 class="mt-0 mb-20">
+					{{$product->translation->name??$product->name}}
+					@if(!$product->disable_wishlist_button)
+						<a href="javascript:void(0)" class="yeuthich pull-right add-wishlist"><i class="fa fa-heart-o"></i></a>
+					@endif
 
+				</h3>
+				<div class="mod-breadcrumbs mb-10">
+					<a href="#">@lang('product.product')</a>&nbsp;/&nbsp;<span>{{$product->translation->name??$product->name}}</span>
+				</div>
+				<hr class="mt-0">
+				<div class="row">
+					<div class="col-xs-6 lead mt-0 mb-20">
 						@if($product->sold_off)
-							<span class="hot">Sold Off</span>
+							<strong>Sold Off</strong>
 						@else
 							@if(!$is_sales)
-								<span class="price2">{{$product->old_price}}</span>
-								<span class="sub">{{$product->price}}</span>
+								<del class="section-text">{{$product->old_price}}</del>
+								<strong>{{$product->price}}</strong>
 							@else
-								<span class="price2">{{$product->price}}</span>
-								<span class="sub">{{$product->special_price}}</span>
+								<del class="section-text">{{$product->price}}</del>
+								<strong>{{$product->special_price}}</strong>
 								<span class="hot">Sale</span>
 							@endif
 						@endif
-
-						<p class="para">{{$product->translation->summary??''}}</p>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						<div class="right-it">
-								 <form class="quantity" method="post" action="#">
-								      <div class="numbers-row">
-								        <input type="text" name="quantity" id="french-hens" value="1">
-								      </div>
-							    </form>
-								<!-- <div class="drop">
-									<select>
-										<option value="">1 kg</option>
-										<option value="">Other</option>
-									</select>
-								</div> -->
-								<span class="check">
-									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
-								</span>	
-						</div>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						<div class="pro-description"> 
-							<p>sku<span>{{$product->sku}}</span></p>
-							<p>@lang('common.categories')<span>{{$product->category->translation->name??''}}</span></p>
-							<!-- <p>Expire date<span>01/11/2015</span></p> -->
-							<p>Tags<span>
-                                    @foreach($product->tags as $tag)
-                                		{{$tag->name}}, 
-                                		@endforeach
-                                </span></p>
-						</div>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						@if(!$product->call_for_price)
-							@if(!$product->disable_buy_button)
-							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
-							@endif
-							@if(!$product->disable_wishlist_button)
-							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
-							@endif
+					</div>
+					<div class="col-xs-6 align-right section-text reviews local-scroll">
+						@if($starAvg>=1)
+							<i class="fa fa-star" aria-hidden="true"></i>
 						@else
-							<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
 						@endif
-						<a class="chat" href="#"  data-toggle="tooltip" data-placement="top" title="{{ __('common.chat-details')}}"><i class="fa fa-weixin" aria-hidden="true"></i></a>
-						<div id="call-number" style="display:none;">
-							<br>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">		
-							<!-- TODO: Get Phone from setting data -->
-						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: 0123456789.</h2>
-						</div>
-					</div>	
+						@if($starAvg>=2)
+							<i class="fa fa-star" aria-hidden="true"></i>
+						@else
+							<i class="fa fa-star-o"></i>
+						@endif
+						@if($starAvg>=3)
+							<i class="fa fa-star" aria-hidden="true"></i>
+						@else
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						@endif
+						@if($starAvg>=4)
+							<i class="fa fa-star" aria-hidden="true"></i>
+						@else
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						@endif
+						@if($starAvg>=5)
+							<i class="fa fa-star" aria-hidden="true"></i>
+						@else
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						@endif
+						 &nbsp;<a href="#reviewbox">({{count($product->comments)}} reviews)</a>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="tabs  blogsingle-content">
-					<span class="tab-links">
-						<li class="active"><a href="#tab1">@lang('product.description')</a></li>
-						<li><a href="#tab2">@lang('product.add-info')</a></li>
-						<li><a href="#tab3">@lang('product.reviews') <span>({{count($product->comments)}})</span></a></li>
-					</span>
-					<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4" width="100">
-				    <div class="tab-content">
-				        <div id="tab1" class="tab active comment list-item">
-				            <h2 class="cmt-heading">@lang('product.description')</span></h2>
-				            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-                                        {!!$product->translation->description??''!!}
-									</div>
-								
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-			
-				        </div>
-				        <div id="tab2" class="tab comment list-item">
-				           <h2 class="cmt-heading">@lang('product.specs')</span></h2>
-				            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-                                        <p>
-                                            {!!$product->translation->specs??''!!}
-                                        </p>
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-				        </div>
-				        <div id="tab3" class="tab comment list-item">
-				        	<h2 class="cmt-heading">@lang('product.reviews')({{count($product->comments)}})</span></h2>
-                            @foreach($product->comments as  $review)
-                            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">{{$review->name}}</a><span class="date">{{date('M d, Y',strtotime($review->created_at))}}</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-                                                    @if($review->rate>=1)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=2)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o"></i>
-                                                    @endif
-                                                    @if($review->rate>=3)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=4)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=5)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-											 	</span>
-											</span>
-											<p>{{$review->comment}}</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
-										</div>	
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-                            @endforeach
-                            
-			       	 	</div>
-				    </div>
-				    <!-- comment form -->
-					<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
-                    {{ csrf_field() }}
-                    <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
-                        <label>@lang('product.add-review')</label>
-                            @guest
-							<div class="row">
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="name" class="name" type="text" placeholder="{{ __('profile.name')}}">
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="email" class="email" type="text" placeholder="E-{{ __('profile.email')}}*">
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="website" class="website" type="text" placeholder="Website">
-								</div>
-                            </div>
-                            @else
-                            <input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
-                            <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
-                            <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
-                            <input type="hidden" id="website" name="website" value="">
-                            @endguest
-							<div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <!-- Rating -->
-                                    <select name="rate">
-                                        <option value="0">-- @lang('product.select-one')--</option>
-                                        <option value="1">1 Star</option>
-                                        <option value="2">2 Star</option>
-                                        <option value="3">3 Star</option>
-                                        <option value="4">4 Star</option>
-                                        <option value="5">5 Star</option>
-                                    </select>
-                                </div>
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<input name="comment" class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
-								</div>
-                            </div>
-							<input class="submit" type="submit" value="{{ __('product.send-review')}}">
-					</form>
+				<hr class="mt-0">
+				<div class="section-text mb-20">
+					{{$product->translation->summary??''}}
+				</div>
+				{{--<div class="quatang">--}}
+					{{--<h4 class="mt-0 mb-0">KHUYẾN MÃI ĐI KÈM</h4>--}}
+					{{--<ul class="clearlist widget-menu">--}}
+						{{--<li><i class="fa fa-gift" aria-hidden="true"></i> Hỗ Trợ A</li>--}}
+						{{--<li><i class="fa fa-gift" aria-hidden="true"></i> Hỗ Trợ A</li>--}}
+					{{--</ul>--}}
+				{{--</div>--}}
+				<hr class="mt-10">
+				<div class="mb-20">
+					@if(!$product->call_for_price)
+						@if(!$product->disable_buy_button)
+							<form method="post" action="#" class="form">
+								<input type="number" class="input-lg round" min="1" max="100" value="1">
+								<a href="javascript:void(0)" class="readmore add-shoopingcart btn btn-mod btn-large btn-round">@lang('shoppings.add-cart')</a>
+							</form>
+						@endif
+					@else
+						<button class="call btn btn-mod btn-large btn-round" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></button>
+					@endif
+				</div>
+				<hr class="mt-0">
+				<div class="section-text small">
+					<div>SKU: <span>{{$product->sku}}</span></div>
+					<div class="social-share">
+						Chia sẻ:
+						<a href="#" class="social facebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+						<a href="#" class="social twitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+						<a href="#" class="social pinterest" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+					</div>
+					<div class="tags">Tags:
+						@foreach($product->tags as $tag)
+							<a href="#">{{$tag->name}}</a>
+						@endforeach
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<!-- End Product Info -->
+
+<!-- Product Tabs-->
+<div class="tabsanpham bg-gray-lighter pt-0 pb-0" id="product-tabs">
+	<div class="container relative">
+		<ul class="nav nav-tabs tablist local-scroll" role="tablist">
+			<li><a href="#gioithieu" class="active">@lang('product.description')</a></li>
+			<li><a href="#specs">@lang('product.add-info')</a></li>
+			<li><a href="#reviewbox">@lang('product.reviews')</a></li>
+		</ul>
+	</div>
+</div>
+<!-- End Product Tabs-->
+
+<!-- Product Description -->
+<section class="small-section bg-gray-lighter gioithieu pt-20 pb-0" id="gioithieu">
+	<div class="container relative">
+		<div class="post-content">
+			{!!$product->translation->description??''!!}
+		</div>
+	</div>
+</section>
+<!-- End Product Description -->
+
+<!-- Product Specs -->
+<section class="small-section pt-20 pb-0 bg-gray-lighter" id="specs">
+	<div class="container relative">
+		<h3 class="section-title align-left mb-10 ">@lang('product.add-info')</h3>
+		<div class="specs-content">
+			{!!$product->translation->specs??''!!}
+		</div>
+	</div>
+</section>
+<!-- End Product Specs -->
+
+<!-- Product Review -->
+<section class="small-section pt-20 pb-0 bg-gray-lighter" id="reviewbox">
+	<div class="container relative local-scroll">
+		<h3 class="section-title align-left mb-10 ">@lang('product.reviews') ({{count($product->comments)}})<a href="#reviewboxform" class="section-more right">@lang('product.add-review')</a></h3>
+		<div class="review-content">
+			<ul class="media-list text comment-list clearlist ">
+			@foreach($product->comments as  $review)
+				<!-- Comment Item -->
+				<li class="media comment-item ">
+					<a class="pull-left" href="#"><img class="media-object comment-avatar " src="{{asset('frontend/images/user-avatar.png')}}" alt=" "></a>
+					<div class="media-body ">
+						<div class="comment-item-data ">
+							<div class="comment-author ">
+								<a href="#">{{$review->name}}</a>
+							</div>
+							{{date('M d, Y',strtotime($review->created_at))}}<span class="separator ">—</span>
+							<span>
+								@if($review->rate>=1)
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@else
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+								@endif
+								@if($review->rate>=2)
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@else
+									<i class="fa fa-star-o"></i>
+								@endif
+								@if($review->rate>=3)
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@else
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+								@endif
+								@if($review->rate>=4)
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@else
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+								@endif
+								@if($review->rate>=5)
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@else
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+								@endif
+							</span>
+						</div>
+						<p>
+							{{$review->comment}}
+						</p>
+					</div>
+				</li>
+				<!-- End Comment Item -->
+			@endforeach
+			</ul>
+
+
+			<!-- Add Review -->
+			<div class="mb-20" id="reviewboxform">
+				<h3 class="section-title align-left mb-10">@lang('product.add-review')</h3>
+				<hr class="mt-0 ">
+				<!-- Form -->
+				<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
+					{{ csrf_field() }}
+					<input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
+					@guest
+					<div class="row mb-20 mb-md-10">
+						<div class="col-md-4 mb-md-10">
+							<!-- Name -->
+							<input type="text" name="name" id="name" class="name input-md form-control" placeholder="{{ __('profile.name')}}" required>
+						</div>
+						<div class="col-md-4">
+							<!-- Email -->
+							<input type="email" name="email" id="email" class="email input-md form-control" placeholder="E-{{ __('profile.email')}}*" required>
+						</div>
+						<div class="col-md-4">
+							{{-- Website --}}
+							<input type="text" name="website" id="website" class="website input-md form-control" placeholder="Website">
+						</div>
+					</div>
+					@else
+					<input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
+					<input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
+					<input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
+					<input type="hidden" id="website" name="website" value="">
+					@endguest
+					<div class="row col-md-12 pb-20">
+						<span></span>
+						<a class="star" id="1-star">
+							<i class="danhgia fa fa-star-o"></i>
+						</a>
+						<a class="star" id="2-star">
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+						</a>
+						<a class="star" id="3-star">
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+						</a>
+						<a class="star" id="4-star">
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+						</a>
+						<a class="star" id="5-star">
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+							<i class="danhgia fa fa-star-o"></i>
+						</a>
+					</div>
+					<div class="row col-md-12" style="display: none">
+						<select class="input-md round form-control" id="yourrating">
+							<option selected>-- Select one --</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+					<!-- Comment -->
+					<div class="mb-30 mb-md-10 ">
+						<textarea name="comment" id="comment " class="comt input-md form-control " rows="6 " placeholder="{{ __('product.comment')}}*"></textarea>
+					</div>
+					<!-- Send Button -->
+					<button type="submit" class="btn btn-mod btn-medium btn-round ">
+						{{ __('product.send-review') }}
+					</button>
+				</form>
+			</div>
+			<!-- End Add Review -->
+		</div>
+
+	</div>
+</section>
+<!-- End Product Review -->
 
 
 @endsection
