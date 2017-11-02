@@ -1591,7 +1591,7 @@ a.logo:hover{
 	cursor: pointer;
 }
 
-.mobile-on .mn-has-multi > li:last-child > a{
+.mobile-on . > li:last-child > a{
     border-bottom: 1px solid rgba(255,255,255, .065) !important;
 }
 
@@ -1633,7 +1633,7 @@ a.logo:hover{
 
 /* Menu sub multi */
 
-.mn-has-multi{
+.{
     width: auto !important;
     padding: 15px;
     text-align: left;
@@ -1849,7 +1849,7 @@ a.logo:hover{
 
 /* Menu sub multi */
 
-.mobile-on .mn-has-multi{
+.mobile-on .{
     width: auto;
     padding: 0;
     text-align: left;
