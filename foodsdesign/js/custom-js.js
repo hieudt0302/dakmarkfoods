@@ -56,5 +56,43 @@ $(document).ready(function() {
     //     var selectRation = $("#yourrating option:selected").text();
     //     console.log(selectRation);
     // });
+    // 
+    
+    $('body').scrollspy({ target: '#product-tabs' })
+    $('#product-tabs').affix({
+      offset: {
+        top: getOffset(1),
+        bottom: getOffset(0)
+      }
+    });
+    $('#product-tabs').on('activate.bs.scrollspy', function () {
+        var children = $("#product-tabs li.active > a").attr("href");
+        // console.log(children);
+        // if (children == "#reviewbox"){
+        //     $('#product-tabs').data('bs.affix').options.offset.bottom = $("#reviewboxform").offset().top
+        // }else{
+        //     var mainNav = $('.main-nav').outerHeight(true);
+        //     var mota = $('#mota').outerHeight(true);
+        //     var topPos = mainNav + mota;
+        //     $('#product-tabs').data('bs.affix').options.offset.top = topPos;
+        //     $('#product-tabs').data('bs.affix').options.offset.bottom = $('#reviewboxform').offset().bottom;
+        // }
+    });
+
+    function getOffset(isTop){
+        if (isTop == 1){
+            return ($('.main-nav').outerHeight(true) + $('#mota').outerHeight(true) - 50);
+        }
+        if (isTop == 0){
+            var mainNav = $('.main-nav').outerHeight(true);
+            var mota = $('#mota').outerHeight(true);
+            var specs  = $('#specs').outerHeight(true);
+            var reviewbox  = $('#reviewbox').outerHeight(true);
+            return (mainNav+mota+specs+reviewbox+150);
+        }
+
+    }
+
+    /* PRODUCT SINGLE SCROLL */
     
 })

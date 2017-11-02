@@ -11,7 +11,7 @@
                 <li class="dropdown">
                     <button class="btn search-top-bt  btn-default">
                         <i class="fa fa-search"></i>
-                        &nbsp;@lang{{ strtoupper( __('common.search')) }}
+                        &nbsp;@lang{{ strtoupper( __('header.search')) }}
                     </button>
                 </li>
                 <li class="dropdown">
@@ -32,10 +32,20 @@
                             </a>                                        
                         </li> 
                         <li>
-                            <a href="#">
+                            <a href="{{URL::asset('')}}language/cn">
                                 中文
                             </a>                                        
-                        </li>                                                                                                          
+                        </li> 
+                        <li>
+                            <a href="{{URL::asset('')}}language/jp">
+                                日本語
+                            </a>                                        
+                        </li> 
+                        <li>
+                            <a href="{{URL::asset('')}}language/kr">
+                                한국어
+                            </a>                                        
+                        </li>                                                                                                                                                          
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -76,7 +86,7 @@
     <div class="row">
         <div class="topsearch">
             {!! Form::open(array('url' => '/search')) !!}
-                <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
+                <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
             {!! Form::close() !!}
         </div>
     </div>
@@ -143,7 +153,7 @@
                         <!-- Blog menu -->
                         @foreach($blog_menu as $menu)
                         <li class="dropdown first">
-                            <a href="{{url('/menu')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
+                            <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
                             {{$menu->translation->name??$menu->name}}
                             </a>
                         </li>  
@@ -164,7 +174,7 @@
                             <ul class="dropdown-menu level1">
                                 @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                 <li>
-                                    <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                    <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
                                         <i class="ion-ios-minus-empty"></i>
                                         {{$sub->translation->name??$sub->name}}
                                     </a>

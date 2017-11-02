@@ -29,13 +29,13 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
-                        <li><a href="#content" data-toggle="tab">Nội dung</a></li>
-                        <li><a href="#pictures" data-toggle="tab">Ảnh sản phẩm</a></li>
+                        <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
+                        <li class="{{$tab==2?'active':''}}"><a href="#content" data-toggle="tab">Nội dung</a></li>
+                        <li class="{{$tab==3?'active':''}}"><a href="#pictures" data-toggle="tab">Ảnh sản phẩm</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
-                        <div class="active tab-pane" id="info">
+                        <div class="{{$tab==1?'active':''}}  tab-pane" id="info">
                             <form action="{{url('/admin/products')}}/{{$product->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
@@ -49,12 +49,7 @@
                                             <div class="form-group">
                                                <label class="col-md-3 control-label" for="name" title="">Tên sản phẩm</label>
                                                 <div class="col-md-4">
-                                                    <div class="input-group input-group-required">
-                                                        <input class="form-control text-box single-line valid" id="name" name="name" type="text" value="{{$product->name}}">
-                                                        <div class="input-group-btn">
-                                                            <span class="required">*</span>
-                                                        </div>
-                                                    </div>
+                                                     <input class="form-control" id="name" name="name" type="text" value="{{$product->name}}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -90,7 +85,24 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>                                            
+                                            </div> 
+                                            <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @foreach($product->tags as $t)
+                                                                @if($t->id == $tag->id)
+                                                                    @php($selected = true)
+                                                                @endif
+                                                            @endforeach
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>                                   
                                         </div>
                                     </div>
                                     <div class="panel panel-default">
@@ -201,7 +213,7 @@
                             </form>
                         </div>
                         <!-- CONTENT TAB -->
-                        <div class="tab-pane" id="content">
+                        <div class="{{$tab==2?'active':''}} tab-pane" id="content">
                             <div class="panel-group">
                                 <!-- Language Select -->
                                 <div class="panel panel-default">
@@ -269,7 +281,7 @@
                             </div>
                         </div>
                         <!-- PRICTURES TAB -->
-                        <div class="tab-pane" id="pictures">
+                        <div class="{{$tab==3?'active':''}} tab-pane" id="pictures">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 
@@ -359,6 +371,27 @@
             </div>
         </div>
     </div>  
+
+<!-- MESSAGE-->
+<div class="modal modal-info fade" id="modal-alert-update">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Phản Hổi</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Cập nhật thành công!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection
 
 
@@ -381,12 +414,10 @@
         });
 
         $('.select2').select2();
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        // CKEDITOR.replace('excerpt-editor');
-        // CKEDITOR.replace('content-editor');
-        //bootstrap WYSIHTML5 - text editor
-        // $('.textarea').wysihtml5()
+        $('#tags').select2({
+            tags: true,
+            tokenSeparators: [',']
+        });
     
 
     // TAB: CONTENT
@@ -431,7 +462,9 @@
                     '_method': 'PATCH'
                 },
                 success:function(response){
-                    alert(response['message']);
+                    // alert(response['message']);
+                    $('#modal-message').html(response['message'])
+                    $("#modal-alert-update").modal();
                 },
                 error:function(response){
                     alert(response['message']);
@@ -476,10 +509,24 @@
         });
     });
 
+    $('#name').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var name =  $('#name').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/products/generateslug")}}' + '/' + name,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
     /* DELETE IMAGE */
-    // $("#table-row").on("click", ".ajax-action-link", function () {
-    //             //$(this).closest('tr').remove();
-    // });
     $('.ajax-action-link').on("click",  function (e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';

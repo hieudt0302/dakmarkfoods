@@ -10,11 +10,14 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Notifications\PasswordResetNotification;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword, Notifiable, EntrustUserTrait;
- 
+    //Fix bug
+    use SoftDeletes { SoftDeletes::restore insteadof EntrustUserTrait; }
+
     /**
      * The database table used by the model.
      *
@@ -66,6 +69,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      public function orders()
      {
          return $this->hasMany('App\Models\Order', 'customer_id');
+     }
+
+     public function comments()
+     {
+         return $this->hasMany('App\Models\Comment');
      }
 
 }

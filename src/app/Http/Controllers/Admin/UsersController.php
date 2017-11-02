@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Role;
 use DB;
@@ -91,7 +92,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        if($user->hasRole('admin'))
+        if($user->hasRole('admin') && $id != Auth::id())
         {
             if(!Auth::user()->hasRole('admin'))
                 return abort(404);

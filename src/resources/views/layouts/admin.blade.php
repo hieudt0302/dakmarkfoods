@@ -375,7 +375,7 @@
             <i class="fa fa-files-o"></i>
             <span>Bán Hàng</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
@@ -402,7 +402,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('admin/products')}}"><i class="fa fa-circle-o"></i> Danh Mục</a></li>
+            <li><a href="{{url('admin/products')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
             <li><a href="{{url('admin/products/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
             <!-- <li><a href="{{url('admin/products/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li> -->
             <li><a href="{{url('admin/products/reviews')}}"><i class="fa fa-circle-o"></i> Đánh Giá</a></li>
@@ -411,14 +411,14 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>Blog</span>
+            <span>Bài viết</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{url('admin/posts')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>            
             <li><a href="{{url('admin/posts/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
-            <li><a href="{{url('admin/posts')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
             <!-- <li><a href="{{url('admin/posts/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li> -->
             <li><a href="{{url('admin/posts/comments')}}"><i class="fa fa-circle-o"></i> Bình Luận</a></li>
           </ul>
@@ -432,8 +432,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('/admin/menu')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
-            <li><a href="{{url('/admin/menu/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
-            <!-- <li><a href="{{url('/admin/menu/config')}}"><i class="fa fa-circle-o"></i> Thiết Lập</a></li> -->
+            <li><a href="{{url('/admin/subject/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
+            <!-- <li><a href="{{url('/admin/subject/config')}}"><i class="fa fa-circle-o"></i> Thiết Lập</a></li> -->
           </ul>
         </li>
         <!-- FAQ -->
@@ -507,16 +507,16 @@
         </li>
 
         <!-- Settings-->
-        <li class="treeview">
+        <li>
           <a href="{{url('/admin/settings')}}">
             <i class="fa fa-cogs"></i> 
             <span>Cài đặt</span>
           </a>
         </li>
       
-        <li class="header">QUICK VIEW</li>
+<!--         <li class="header">QUICK VIEW</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Đơn Hàng</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Sản Phẩm</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Sản Phẩm</span></a></li> -->
       </ul>
     </section>
     <!-- /.sidebar -->

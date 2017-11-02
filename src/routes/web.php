@@ -33,6 +33,7 @@ Route::get('/product-quality', 'Front\HomeController@product_quality');
 Route::get('/contact', 'Front\HomeController@contact');
 Route::post('/contact',  ['uses'=>'Front\HomeController@send_contact','as' => 'front.send-contact']);
 Route::post('/subscribe',  ['uses'=>'Front\HomeController@subscribe','as' => 'front.subscribe']);
+Route::post('/unsubscribe',  ['uses'=>'Front\HomeController@unsubscribe','as' => 'front.unsubscribe']);
 Route::get('/promotion', 'Front\HomeController@promotion');
 
 /* ACCOUNT */
@@ -44,14 +45,15 @@ Route::get('/orders',  ['uses'=>'Front\HomeController@orders','middleware' => 'a
 Route::get('/faqs', 'Front\FaqController@index');
 
 /* PRODUCT */
-Route::get('/products', 'Front\ProductsController@index');
+// Route::get('/products', 'Front\ProductsController@index');
 Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
 Route::post('/products','Front\ProductsController@search'); 
 
 /* POST */
-Route::get('/posts', 'Front\PostsController@index');
+// Route::get('/posts', 'Front\PostsController@index');
+Route::get('/subject/posts/tags/{slug}', 'Front\PostsController@filterByTag');
 Route::get('/posts/{slug}', 'Front\PostsController@show');
 Route::post('/posts','Front\PostsController@search');  
 
@@ -59,10 +61,10 @@ Route::post('/posts','Front\PostsController@search');
 Route::post('/products/{id}/review', 'Front\ReviewsController@store');
 
 /* COMMENT - PRODUCT */
-Route::post('/posts/{slug}/comment', 'Front\CommentsController@store');
+Route::post('/posts/{id}/comment', 'Front\CommentsController@store');
 
 /* MENU */
-Route::get('/menu/{parent}/{slug}', 'Front\MenuController@menu');
+Route::get('/subject/{parent}/{slug}', 'Front\MenuController@menu');
 
 /* SHOPPING CART */
 Route::get('/cart', 'Front\ShoppingCartController@cart');
@@ -225,8 +227,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::post('orders/{id}/cancel/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@CancelOrderStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/change/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeOrderStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/change/paymentstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangePaymentStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/change/shippingstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeShippingStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/update/fee',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateOrderFee','middleware' => ['role:admin|manager']]);
-
+    Route::post('orders/{id}/details/update', ['as'=>'admin.orders.show','uses'=>'OrdersController@DetailUpdateItem','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/update/billingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateBillingAddress','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/update/shippingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateShippingAddress','middleware' => ['role:admin|manager']]);
+    Route::delete('orders/{id}/details/{detail_id}',['as'=>'admin.products.show','uses'=>'OrdersController@DetailDestroy','middleware' => ['role:admin|manager']]);
     // InfoPages
     Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index','middleware'=> ['role:admin|manager']]);
     Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create','middleware'=> ['role:admin|manager']]);
@@ -263,7 +270,3 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update']);
 });
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
