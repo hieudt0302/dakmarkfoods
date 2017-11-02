@@ -46,14 +46,14 @@
         <!-- END FAVICON -->
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url('frontend/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/style.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/custom-style.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/style-responsive.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/vertical-rhythm.min.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/owl.carousel.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ url('frontend/css/timeline.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/custom-style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/style-responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/vertical-rhythm.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/timeline.css') }}">
 
         @yield('header')
     </head>
