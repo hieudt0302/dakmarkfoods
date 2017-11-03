@@ -75,7 +75,7 @@
                                     @if(!$product->disable_buy_button)
                                         @if(!$product->sold_off)
                                         <form method="post" action="#" class="form">
-                                            <a href="javascript:void(0)" class="readmore add-shoopingcart call btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
+                                            <a href="javascript:void(0)" class="readmore add-shoopingcart btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
                                         </form>
                                         @endif
                                     @endif
@@ -185,11 +185,6 @@
                                             @else
                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                             @endif
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
                                         </div>
                                     </div>
                                 </li>
