@@ -53,7 +53,7 @@
                         @endforeach
                     </ul>
                 </li>
-                
+
                 <!-- Promotion -->
                 <li>
                     <a href="{{ url('/promotion')}}">
