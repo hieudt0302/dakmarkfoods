@@ -380,6 +380,7 @@
         $('.call').click(function(event) {
             var target = $( event.target );
             var x = document.getElementById("call-number");
+            target.text('');
             target.html(x.innerHTML);
 //		    if (x.style.display === "none") {
 //		        x.style.display = "block";
