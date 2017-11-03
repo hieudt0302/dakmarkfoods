@@ -60,7 +60,7 @@ class PostsController extends Controller
         $post = Post::where('slug',$slug)->firstOrFail();
         $post_category = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$post_category->id)->get();
-        $last_posts = Post::take(10)->get(); ///TODO: move number limit to database setting        
+        $last_posts = Post::take(5)->get(); ///TODO: move number limit to database setting
         return View('front/posts/show', compact('post','categories','last_posts','post_category'));
     }
 

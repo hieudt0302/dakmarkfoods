@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-4 mt-30">
                 <div class="mod-breadcrumbs align-right">
-                    <a href="{{url('/')}}">Trang Chủ</a>&nbsp;/&nbsp;@lang('header.contact')
+                    <a href="{{url('/')}}">@lang('header.home')</a>&nbsp;/&nbsp;@lang('header.contact')
                 </div>
             </div>
         </div>
