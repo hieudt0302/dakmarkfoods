@@ -62,7 +62,7 @@
 
 				</h3>
 				<div class="mod-breadcrumbs mb-10">
-					<a href="#">@lang('product.product')</a>&nbsp;/&nbsp;<span>{{$product->translation->name??$product->name}}</span>
+					<a href="{{url('/products')}}">@lang('product.product')</a>&nbsp;/&nbsp;<span>{{$product->translation->name??$product->name}}</span>
 				</div>
 				<hr class="mt-0">
 				<div class="row">

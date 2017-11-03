@@ -44,6 +44,8 @@ class CommentsController extends Controller
             'comment' => 'required|string',
         ]);
 
+//        dd($request->all());
+
         if ($validator->fails()) {
             return redirect()->back()
             ->with('message', 'ERROR-INPUT: Code EI1003')

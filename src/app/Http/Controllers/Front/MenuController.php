@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Front;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductTranslation;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
+
+
 
 class MenuController extends Controller
 {
@@ -22,7 +25,13 @@ class MenuController extends Controller
             $lastProducts = Product::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
             //PRODCTS
             $results = $category->publishedProducts()->paginate(21);  ///TODO: move number limit to database setting
-            return View('front/products/index', compact('results','tags','comments', 'lastProducts','category'))
+            $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
+                ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+                ->groupBy('product_id')
+                ->orderBy('count', 'desc')
+                ->limit(4)
+                ->get();
+            return View('front/products/index', compact('results','tags','comments', 'lastProducts','category', 'best_sellers_products'))
             ->with('i', ($page??1 - 1) * 21);
         } elseif ($parent == "posts") {
             //RELATED

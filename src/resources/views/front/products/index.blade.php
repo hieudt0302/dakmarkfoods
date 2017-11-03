@@ -118,33 +118,23 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="widget cats">
-                        <h5 class="widget-title">DANH MỤC SẢN PHẨM</h5>
+                        <h5 class="widget-title">DANH MỤC SẢN PHẨM (CHƯA CÓ LANG)</h5>
                         <div class="widget-body">
                             <ul class="clearlist widget-menu">
-                                <li>
-                                    <a href="#" title="">
-                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>  Coffee
-                                        <small class="right">(12)</small>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">
-                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>  Meat
-                                        <small class="right">(120)</small>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">
-                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>  Fish
-                                        <small class="right">(132)</small>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">
-                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>  Fruit
-                                        <small class="right">(12)</small>
-                                    </a>
-                                </li>
+                                @foreach($product_menu->GetMenuSubLevel1() as $sub)
+                                    <li>
+                                        <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                            <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                                            {{$sub->translation->name??$sub->name}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                                {{--<li>--}}
+                                    {{--<a href="#" title="">--}}
+                                        {{--<i class="fa fa-circle-thin" aria-hidden="true"></i>  Coffee--}}
+                                        {{--<small class="right">(12)</small>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
                             </ul>
                         </div>
                     </div>
