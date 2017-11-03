@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Futured Slider -->
-    @include('front.home.featuredslider')
+    @include('front.home.slider')
     <!-- End Futured Slider -->
 
     <!-- Best Seller -->
@@ -21,5 +21,5 @@
     <!-- News -->
     @include('front.home.product_section_news')
     <!-- End News -->
-    
+
 @endsection
