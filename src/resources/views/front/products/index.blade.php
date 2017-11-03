@@ -185,11 +185,6 @@
                                             @else
                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                             @endif
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
                                         </div>
                                     </div>
                                 </li>
