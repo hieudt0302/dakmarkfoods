@@ -156,7 +156,7 @@
                                 <li class="clearfix">
                                     <a href="{{url('/posts')}}/{{$recentpost->slug}}"><img src="{{ asset('images/blog/' . $recentpost->img) }}" alt="" class="widget-posts-img" /></a>
                                     <div class="widget-posts-descr">
-                                        <a href="#" title="">{{$recentpost->translation->title}}</a> @lang('blog.posted-by') {{$recentpost->author->first_name}}<br/>@lang('blog.posted-on') {{ date('d-m-Y', strtotime($recentpost->created_at)) }}
+                                        <a href="{{url('/posts')}}/{{$recentpost->slug}}" title="">{{$recentpost->translation->title}}</a> @lang('blog.posted-by') {{$recentpost->author->first_name}}<br/>@lang('blog.posted-on') {{ date('d-m-Y', strtotime($recentpost->created_at)) }}
                                     </div>
                                 </li>
                                 @endforeach
