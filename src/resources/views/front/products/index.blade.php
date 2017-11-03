@@ -87,8 +87,9 @@
                     <!-- END PRODUCT LISTs -->
 
                     <!-- PRODUCT PAGINATION -->
-                    <div class="pagination">
-                        {{ $results->links() }}
+                    {{ $results->links() }}
+                    {{--<div class="pagination">--}}
+                        {{--{{ $results->links() }}--}}
                         {{--<a href=""><i class="fa fa-angle-left"></i></a>--}}
                         {{--<a href="" class="active">1</a>--}}
                         {{--<a href="">2</a>--}}
@@ -96,7 +97,7 @@
                         {{--<a class="no-active">...</a>--}}
                         {{--<a href="">9</a>--}}
                         {{--<a href=""><i class="fa fa-angle-right"></i></a>--}}
-                    </div>
+                    {{--</div>--}}
                     <!-- END PRODUCT PAGINATION -->
                 </div>
                 <!-- END PRODUCT CONTENT -->
