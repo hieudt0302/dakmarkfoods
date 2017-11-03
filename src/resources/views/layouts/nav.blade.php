@@ -97,7 +97,7 @@
 
                 <!-- Cart -->
                 <li>
-                    <a href="{{ url('/cart') }}" class="align-center"><i class="fa fa-shopping-cart"></i> (0)</a>
+                    <a href="{{ url('/cart') }}" class="align-center"><i class="fa fa-shopping-cart shopping-cart-icon"></i></a>
                 </li>
                 <!-- End Cart -->
 

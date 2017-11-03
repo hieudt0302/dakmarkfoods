@@ -23,8 +23,17 @@ class ProductsController extends Controller
     public function index()
     {
         $tags = Tag::has('products')->get();
-        $results = Product::where('published',1)->paginate(10);
-        return View('front/products/index',compact('results','tags'));
+        $results = Product::where('published',1)->paginate(12);
+
+        //Miss: Product categories
+        $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
+            ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy('count', 'desc')
+            ->limit(4)
+            ->get();
+
+        return View('front/products/index',compact('results','tags', 'best_sellers_products'));
     }
   
     /**

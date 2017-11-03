@@ -9,6 +9,15 @@ $('.add-shoopingcart').on('click', function (img) {
     // var imgtodrag = $(this).parent('.item').find("img").eq(0);
     
     var imgtodrag = $('.product-main-img');
+    // If is single
+    if ( $('#mota').length ){
+        imgtodrag = $('#mota .product-main-img');
+    }
+    else{
+        //Not single (multiple product image)
+        imgtodrag = $(this).closest('.item').find('.product-main-img').first();
+        console.log(imgtodrag);
+    }
 
     if (imgtodrag) {
         var imgclone = imgtodrag.clone()
@@ -31,6 +40,7 @@ $('.add-shoopingcart').on('click', function (img) {
                 'height': 75
             }, 1000, 'easeInOutExpo');
 
+        //Error
         setTimeout(function () {
             cart.effect("shake", {
                 times: 2
