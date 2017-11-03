@@ -67,6 +67,8 @@ $(document).ready(function() {
     });
     $('#product-tabs').on('activate.bs.scrollspy', function () {
         var children = $("#product-tabs li.active > a").attr("href");
+        // console.log("AFFIT TOP: "+getOffset(1));
+        // console.log("AFFIT BOTTOM: "+getOffset(0));
         // console.log(children);
         // if (children == "#reviewbox"){
         //     $('#product-tabs').data('bs.affix').options.offset.bottom = $("#reviewboxform").offset().top
