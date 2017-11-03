@@ -16,7 +16,7 @@
 						@if($key === 0)
 							<div class="pro-img">
 								<div class="post-prev-img">
-									<a href="{{asset('/storage')}}/{{$media->source}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('/storage')}}/{{$media->source}}" alt=""></a>
+									<a href="{{asset('/storage')}}/{{$media->source}}" class="lightbox-gallery-3 mfp-image product-main-img"><img src="{{asset('/storage')}}/{{$media->source}}" alt=""></a>
 									@if(!$product->sold_off)
 										@if($is_sales)
 											<div class="pro-overlay-info align-left">
@@ -47,7 +47,7 @@
 				@else
 					<div class="pro-img">
 						<div class="post-prev-img">
-							<a href="{{asset('/images/no-image.png')}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('/images/no-image.png')}}" alt=""></a>
+							<a href="{{asset('/images/no-image.png')}}" class="lightbox-gallery-3 mfp-image product-main-img"><img src="{{asset('/images/no-image.png')}}" alt=""></a>
 						</div>
 					</div>
 				@endif
