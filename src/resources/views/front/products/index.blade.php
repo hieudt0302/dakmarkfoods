@@ -36,7 +36,7 @@
                         <!-- Shop Item -->
                         <div class="item col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-30 mb-xs-30">
                             <div class="post-prev-img">
-                                <a href="{{url('/products')}}/{{$product->slug}}"><img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" class="product-main-img" alt=""></a>
+                                <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" class="product-main-img" alt=""></a>
                                 @if($product->sold_off)
                                     <div class="pro-overlay-info align-left">
                                         <span class="hethang">Sold Off</span>
@@ -56,7 +56,7 @@
                             </div>
 
                             <div class="post-prev-title align-center">
-                                <a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
+                                <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
                             </div>
                             <div class="post-prev-text align-center mb-0">
                                 @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
@@ -123,7 +123,7 @@
                             <ul class="clearlist widget-menu">
                                 @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                     <li>
-                                        <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                        <a href="{{url('/products')}}/{{$sub->slug}}">
                                             <i class="fa fa-circle-thin" aria-hidden="true"></i>
                                             {{$sub->translation->name??$sub->name}}
                                         </a>
@@ -145,9 +145,9 @@
                             @foreach($best_sellers_products as $product)
                                 <!-- Preview item -->
                                 <li class="clearfix">
-                                    <a href="{{url('/products')}}/{{$product->slug}}"><img src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="" class="widget-posts-img"></a>
+                                    <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="" class="widget-posts-img"></a>
                                     <div class="widget-posts-descr">
-                                        <a href="{{url('/products')}}/{{$product->slug}}" title="">{{$product->translation->name??$product->name}}</a>
+                                        <a href="{{url('/product')}}/{{$product->slug}}" title="">{{$product->translation->name??$product->name}}</a>
                                         <div>
                                             @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                                                 <del class="section-text">{{$product->price}}</del> &nbsp;

@@ -22,10 +22,45 @@ class PostsController extends Controller
     {     
         $tags = Tag::has('posts')->get();
         $comments = Tag::has('posts')->get();
-        $lastPosts = Post::take(10)->get(); ///TODO: move number limit to database setting
-        $post_group = Post::all()->groupBy('category_id');  ///TODO: move number limit to database setting
-        return View('front/posts/index-allcat', compact('post_group','tags','comments', 'lastPosts'));        
+        $post_category = Category::where('slug','posts')->firstOrFail();
+        $categories = Category::where('parent_id',$post_category->id)->get();
+        $lastPosts = Post::take(5)->get(); ///TODO: move number limit to database setting
+        $posts = Post::paginate(10);  ///TODO: move number limit to database setting
+        return View('front/posts/index', compact('posts','tags','comments', 'post_category','categories', 'lastPosts'))->with('i', ($page??1 - 1) * 10);
     }
+
+
+    /**
+     * Display a listing of the category.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cat($slug)
+    {
+        //RELATED
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $tags = Tag::has('posts')->get();
+        $comments = Tag::has('posts')->get();
+        $lastPosts = Post::where('published',1)->take(5)->get(); ///TODO: move number limit to database setting
+        $post_category = Category::where('slug','posts')->firstOrFail();
+        $categories = Category::where('parent_id',$post_category->id)->get();
+        //POSTS
+        $posts = $category->publishedPosts()->paginate(10);  ///TODO: move number limit to database setting
+
+        return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category'))
+            ->with('i', ($page??1 - 1) * 10);
+
+
+//        $tags = Tag::has('posts')->get();
+//        $comments = Tag::has('posts')->get();
+//        $post_category = Category::where('slug','posts')->firstOrFail();
+//        $categories = Category::where('parent_id',$post_category->id)->get();
+//        $lastPosts = Post::take(10)->get(); ///TODO: move number limit to database setting
+//        $posts = Post::paginate(5);  ///TODO: move number limit to database setting
+//        return View('front/posts/index', compact('posts','tags','comments', 'post_category','categories', 'lastPosts'))->with('i', ($page??1 - 1) * 5);
+    }
+
+
 
 
     /**

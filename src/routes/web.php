@@ -46,13 +46,16 @@ Route::get('/faqs', 'Front\FaqController@index');
 
 /* PRODUCT */
 Route::get('/products', 'Front\ProductsController@index');
-Route::get('/products/{id}', 'Front\ProductsController@show');
+Route::get('/products/{slug}', 'Front\ProductsController@cat');
+Route::get('/product/{id}', 'Front\ProductsController@show');
+
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
 Route::post('/products','Front\ProductsController@search');
 
 /* BLOG */
 Route::get('/blog','Front\PostsController@index');
+Route::get('/blog/{slug}','Front\PostsController@cat');
 
 /* POST */
 //Route::get('/posts', 'Front\PostsController@index');

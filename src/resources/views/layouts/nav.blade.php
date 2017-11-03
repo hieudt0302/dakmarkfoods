@@ -16,8 +16,7 @@
                 <!-- Homapage With Sub -->
                 <li>
                     <a href="{{url('/')}}" class="mn-has-sub active">
-                        @lang('header.home')
-                        <i class="fa fa-angle-down"></i>
+                        @lang('header.home') <i class="fa fa-angle-down"></i>
                     </a>
                     <!-- Sub Multilevel -->
                     <ul class="mn-sub">
@@ -44,24 +43,36 @@
                 <!-- End Homapage With Sub -->
 
                 <!-- Blog menu -->
-                @foreach($blog_menu as $menu)
                 <li>
-                    <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="mn-has-sub">
-                    {{$menu->translation->name??$menu->name}}
+                    <a href="{{url('/blog')}}" class="mn-has-sub">
+                        @lang('blog.blog') <i class="fa fa-angle-down"></i>
                     </a>
-                </li>  
-                @endforeach
+                    <!-- Sub Multilevel -->
+                    <ul class="mn-sub">
+                        @foreach($blog_menu as $menu)
+                            <li>
+                                <a href="{{url('/blog')}}/{{$menu->slug}}">
+                                    {{$menu->translation->name??$menu->name}}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <!-- End Sub Multilevel -->
+                </li>
+                <!-- End Homapage With Sub -->
+
+
 
                 <!-- Product menu -->
                 <li>
-                    <a class="mn-has-sub">
+                    <a href="{{url('/products')}}" class="mn-has-sub">
                     {{$product_menu->translation->name??$product_menu->name}}
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <ul class="mn-sub">
                         @foreach($product_menu->GetMenuSubLevel1() as $sub)
                         <li>
-                            <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                            <a href="{{url('/products')}}/{{$sub->slug}}">
                                 <i class="ion-ios-minus-empty"></i>
                                 {{$sub->translation->name??$sub->name}}
                             </a>

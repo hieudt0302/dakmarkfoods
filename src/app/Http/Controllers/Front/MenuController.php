@@ -38,7 +38,7 @@ class MenuController extends Controller
             $category = Category::where('slug', $slug)->firstOrFail();
             $tags = Tag::has('posts')->get();
             $comments = Tag::has('posts')->get();
-            $lastPosts = Post::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
+            $lastPosts = Post::where('published',1)->take(5)->get(); ///TODO: move number limit to database setting
             $post_category = Category::where('slug','posts')->firstOrFail();
             $categories = Category::where('parent_id',$post_category->id)->get(); 
             //POSTS
