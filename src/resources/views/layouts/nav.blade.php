@@ -43,28 +43,33 @@
                 </li>
                 <!-- End Homapage With Sub -->
 
-                <!-- Products With Sub -->
+                <!-- Blog menu -->
+                @foreach($blog_menu as $menu)
                 <li>
-                    <a href="{{ url('/products')}}" class="mn-has-sub">
-                        {{$product_menu->translation->name??$product_menu->name}}
-                        <i class="fa fa-angle-down"></i>
+                    <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="mn-has-sub">
+                    {{$menu->translation->name??$menu->name}}
                     </a>
-                    <!-- Sub Multilevel -->
+                </li>  
+                @endforeach
+
+                <!-- Product menu -->
+                <li>
+                    <a class="mn-has-sub">
+                    {{$product_menu->translation->name??$product_menu->name}}
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
                     <ul class="mn-sub">
-                        <!-- Sub Column -->
                         @foreach($product_menu->GetMenuSubLevel1() as $sub)
-                            <li>
-                                <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
-                                    <i class="ion-ios-minus-empty"></i>
-                                    {{$sub->translation->name??$sub->name}}
-                                </a>
-                            </li>
-                    @endforeach
-                    <!-- End Sub Column -->
+                        <li>
+                            <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                <i class="ion-ios-minus-empty"></i>
+                                {{$sub->translation->name??$sub->name}}
+                            </a>
+                        </li>
+                        @endforeach
                     </ul>
-                    <!-- End Sub Multilevel -->
                 </li>
-                <!-- End Products With Sub -->
+
 
                 <!-- Promotion -->
                 <li>
