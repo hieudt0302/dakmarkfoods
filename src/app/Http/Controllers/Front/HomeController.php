@@ -30,7 +30,7 @@ class HomeController extends Controller
         $about_us = InfoPage::where('slug','about')->first();
         $product_origin = InfoPage::where('slug','product-origin')->first();
         $product_quality = InfoPage::where('slug','product-quality')->first(); 
-        $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+        $new_products = Product::orderBy('created_at', 'desc')->limit(8)->get();
         $community_category = Category::where('slug', 'community')->firstOrFail();
         // $best_sellers_products = DB::table('products')
         //                             ->join('order_details','products.id', '=', 'order_details.product_id')
@@ -54,7 +54,7 @@ class HomeController extends Controller
                                 ->orderBy('created_at', 'desc')
                                 ->limit(4)
                                 ->get();                
-        $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
+        $new_blogs = Post::orderBy('updated_at', 'desc')->limit(4)->get();
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
