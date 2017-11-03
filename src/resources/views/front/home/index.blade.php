@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Futured Slider -->
-    @include('front.home.slider')
+    @include('front.home.featuredslider')
     <!-- End Futured Slider -->
 
     <!-- Best Seller -->
