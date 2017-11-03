@@ -14,7 +14,7 @@
                                 @lang('common.headquarter-address')
                             </li>
                             <li>
-                                <a href="tel:+842462531666"><i class="fa fa-phone-square" aria-hidden="true"></i> 024 6253 1666</a>
+                                <a href="tel:+842462531666" id="call-number"><i class="fa fa-phone-square" aria-hidden="true"></i> 024 6253 1666</a>
                             </li>
                             <li>
                                 <a href="tel:+84916322822"><i class="fa fa-mobile" aria-hidden="true"></i> 0916 322 822</a>

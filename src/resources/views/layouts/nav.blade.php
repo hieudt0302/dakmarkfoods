@@ -85,7 +85,7 @@
 
                 <!-- Favorite -->
                 <li>
-                    <a href="{{ url('/wishlist') }}" class="align-center"><i class="fa fa-heart-o"></i></a>
+                    <a href="{{ url('/wishlist') }}" class="align-center"><i class="wishlist-icon fa fa-heart-o"></i></a>
                 </li>
                 <!-- End Favorite -->
 

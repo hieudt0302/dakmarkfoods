@@ -48,10 +48,13 @@
                                         </div>
                                     @endif
                                 @endif
-                                <div class="pro-overlay-info align-bottom-left">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                </div>
+                                @if(!$product->disable_wishlist_button)
+                                    <div class="pro-overlay-info align-bottom-left">
+                                        <a href="javascript:void(0)"><i class="yeuthich add-wishlist fa fa-heart-o"></i></a>
+                                    </div>
+                                @endif
                             </div>
+
                             <div class="post-prev-title align-center">
                                 <a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
                             </div>
@@ -240,6 +243,42 @@
                }
             });
         });
+         $('.add-wishlist').click(function() {
+             var id = $("input[name='product_id']").val();
+             var name = $("input[name='product_name']").val();
+             var price = $("input[name='product_price']").val();
+             var quantity = 1;//$("input[name='quantity']").val();
+             $(this).effect("shake", {
+                 times: 1
+             }, 200);
+
+             $.ajax({
+                 type:'POST',
+                 url:'{{ url("/add-to-wishlist") }}',
+                 data: {
+                     'id': id, //just test
+                     'name': name,//just test
+                     'price': price,//just test
+                     'quantity': quantity,//just test
+                 },
+                 success:function(response){
+                     console.log(response['message']); //debug
+                 },
+                 error:function(response){
+                     console.log(response['message']); //debug
+                 }
+             });
+         });
+         $('.call').click(function(event) {
+             var target = $( event.target );
+             var x = document.getElementById("call-number");
+             target.html(x.innerHTML);
+//		    if (x.style.display === "none") {
+//		        x.style.display = "block";
+//		    } else {
+//		        x.style.display = "none";
+//		    }
+         });
     });
 </script>
 @endsection
