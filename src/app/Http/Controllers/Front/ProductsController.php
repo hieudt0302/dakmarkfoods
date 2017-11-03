@@ -35,6 +35,29 @@ class ProductsController extends Controller
 
         return View('front/products/index',compact('results','tags', 'best_sellers_products'));
     }
+
+    /**
+     * Display a listing of the cat.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cat($slug)
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $tags = Tag::has('products')->get();
+        $comments = Tag::has('products')->get();
+        $lastProducts = Product::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
+        //PRODCTS
+        $results = $category->publishedProducts()->paginate(12);  ///TODO: move number limit to database setting
+        $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
+            ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy('count', 'desc')
+            ->limit(4)
+            ->get();
+        return View('front/products/index', compact('results','tags','comments', 'lastProducts','category', 'best_sellers_products'))
+            ->with('i', ($page??1 - 1) * 12);
+    }
   
     /**
      * Show the form for creating a new resource.
@@ -55,6 +78,31 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showsingle($parent, $slug)
+    {
+
+        $category = Category::where('slug', $parent)->firstOrFail();
+        $product = Product::where('slug',$slug)->firstOrFail();
+        if(empty($product))
+            return abort(404);
+        $starAvg = $product->comments->avg('rate');
+
+        $is_sales = false;
+        if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
+            if($product->special_price_start_date <= date('Y-m-d H:i:s') && $product->special_price_end_date >= date('Y-m-d H:i:s') ){
+                $is_sales = true;
+            }
+        }
+
+        return View('front.products.show', compact('product','starAvg','is_sales'));
     }
 
     /**

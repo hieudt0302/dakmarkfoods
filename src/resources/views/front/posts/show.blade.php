@@ -121,6 +121,7 @@
                     <!-- End Add Comment -->
 
                 </div>
+
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="widget">
                         {!! Form::open(array('url' => '/search', 'class' => 'form-inline form')) !!}
@@ -138,7 +139,7 @@
                             <ul class="clearlist widget-menu">
                                 @foreach($categories as $cat)
                                 <li>
-                                    <a href="{{url('/subject/posts')}}/{{$cat->slug}}" title="">
+                                    <a href="{{url('/blog')}}/{{$cat->slug}}" title="">
                                         <i class="fa fa-circle-thin" aria-hidden="true"></i>  {{$cat->name}}
                                     </a>
                                 </li>

@@ -29,7 +29,7 @@
 
                         </div>
                         <div class="post-prev-title align-center">
-                            <a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
+                            <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
                         </div>
                         <div class="post-prev-text align-center mb-0">
                             @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )

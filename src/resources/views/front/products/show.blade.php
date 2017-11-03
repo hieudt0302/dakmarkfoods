@@ -138,9 +138,9 @@
 					<div>SKU: <span>{{$product->sku}}</span></div>
 					<div class="social-share">
 						Chia sẻ:
-						<a href="https://www.facebook.com/sharer/sharer.php?u={{url('/products')}}/{{$product->slug}}" class="social facebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-						<a href="https://twitter.com/intent/tweet?url={{url('/products')}}/{{$product->slug}}" class="social twitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-						<a href="http://pinterest.com/pin/create/button/?url={{url('/products')}}/{{$product->slug}}&media={{asset('/storage')}}/{{$media->source}}&description={{$product->translation->summary??''}}" class="social pinterest" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{url('/product')}}/{{$product->slug}}" class="social facebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+						<a href="https://twitter.com/intent/tweet?url={{url('/product')}}/{{$product->slug}}" class="social twitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+						<a href="http://pinterest.com/pin/create/button/?url={{url('/product')}}/{{$product->slug}}&media={{asset('/storage')}}/{{$media->source}}&description={{$product->translation->summary??''}}" class="social pinterest" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
 					</div>
 					<div class="tags">Tags:
 						@foreach($product->tags as $tag)
@@ -380,6 +380,7 @@
         $('.call').click(function(event) {
             var target = $( event.target );
             var x = document.getElementById("call-number");
+            target.text('');
             target.html(x.innerHTML);
 //		    if (x.style.display === "none") {
 //		        x.style.display = "block";
