@@ -26,12 +26,6 @@
                         </li>
                         <!-- End About Us Column -->
 
-                        <!-- Blog Column -->
-                        <li>
-                            <a href="{{url('/posts')}}">@lang('header.blogs')</a>
-                        </li>
-                        <!-- End Blog Column -->
-
                         <!-- Contact Column -->
                         <li>
                             <a href="{{url('/contact')}}">@lang('header.contact')</a>
@@ -41,27 +35,6 @@
                     <!-- End Sub Multilevel -->
                 </li>
                 <!-- End Homapage With Sub -->
-
-                <!-- Blog menu -->
-                <li>
-                    <a href="{{url('/blog')}}" class="mn-has-sub">
-                        @lang('blog.blog') <i class="fa fa-angle-down"></i>
-                    </a>
-                    <!-- Sub Multilevel -->
-                    <ul class="mn-sub">
-                        @foreach($blog_menu as $menu)
-                            <li>
-                                <a href="{{url('/blog')}}/{{$menu->slug}}">
-                                    {{$menu->translation->name??$menu->name}}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                    <!-- End Sub Multilevel -->
-                </li>
-                <!-- End Homapage With Sub -->
-
-
 
                 <!-- Product menu -->
                 <li>
@@ -80,8 +53,7 @@
                         @endforeach
                     </ul>
                 </li>
-
-
+                
                 <!-- Promotion -->
                 <li>
                     <a href="{{ url('/promotion')}}">
@@ -89,6 +61,25 @@
                     </a>
                 </li>
                 <!-- End Promotion -->
+
+                <!-- Blog menu -->
+                <li>
+                    <a href="{{url('/blog')}}" class="mn-has-sub">
+                        @lang('blog.blog') <i class="fa fa-angle-down"></i>
+                    </a>
+                    <!-- Sub Multilevel -->
+                    <ul class="mn-sub">
+                        @foreach($blog_menu as $menu)
+                            <li>
+                                <a href="{{url('/blog')}}/{{$menu->slug}}">
+                                    {{$menu->translation->name??$menu->name}}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <!-- End Sub Multilevel -->
+                </li>
+                <!-- End Blog -->
 
                 <!-- Divider -->
                 <li><a>&nbsp;</a></li>
