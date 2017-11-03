@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('title')</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+         <!-- META -->
+         <title>@yield('title')</title>
         <meta charset="utf-8">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="DakMark Foods">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+        <!-- END META -->
+
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         
-        <!-- Favicons -->
-        <link rel="shortcut icon" href="{{asset('frontend/images/favicon.png')}}">
-        <link rel="apple-touch-icon" href="{{asset('frontend/images/apple-touch-icon.png')}}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{asset('frontend/images/apple-touch-icon-72x72.png')}}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{{asset('frontend/images/apple-touch-icon-114x114.png')}}">
-        
-        <!-- CSS -->        
-        <!-- <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}"> -->
+       <!-- FAVICON: GENERATE HERE: http://www.favicomatic.com -->
+        <link rel="apple-touch-icon" sizes="180x180" href="">
+        <link rel="apple-touch-icon" sizes="57x57" href="" />
+        <link rel="apple-touch-icon" sizes="60x60" href="" />
+        <link rel="apple-touch-icon" sizes="72x72" href="" />
+        <link rel="apple-touch-icon" sizes="76x76" href="" />
+        <link rel="apple-touch-icon" sizes="114x114" href="" />
+        <link rel="apple-touch-icon" sizes="120x120" href="" />
+        <link rel="apple-touch-icon" sizes="144x144" href="" />
+        <link rel="apple-touch-icon" sizes="152x152" href="" />
+        <link rel="apple-touch-icon" sizes="180x180" href="" />
+        <link rel="icon" type="image/png" href="" sizes="196x196" />
+        <link rel="icon" type="image/png" href="" sizes="96x96" />
+        <link rel="icon" type="image/png" href="" sizes="32x32" />
+        <link rel="icon" type="image/png" href="" sizes="16x16" />
+        <link rel="icon" type="image/png" href="" sizes="128x128" />
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#e81000">
+        <meta name="apple-mobile-web-app-title" content="BBLand">
+        <meta name="application-name" content="BBLand">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+        <!-- END FAVICON -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/custom-style.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style-responsive.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/vertical-rhythm.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/rev-slider.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/rs-plugin/css/settings.css') }}" media="screen" />  
-         
+        <link rel="stylesheet" href="{{ asset('frontend/css/timeline.css') }}">
+
         @yield('header')
     </head>
     <body class="appear-animate">
@@ -40,7 +67,18 @@
         
         <!-- Page Wrap -->
         <div class="page" id="top">
-            
+
+            <!-- SITE SEARCH OVERLAY -->
+            <div id="full-screen-search">
+                <button type="button" class="close">×</button>
+                {!! Form::open(array('url' => '/search')) !!}
+                <div class="seach-input">
+                    <input type="text" class="search" id="s" name="key" placeholder="@lang('header.enter-keyword')" autofocus="autofocus">
+                </div>
+                {!! Form::close() !!}
+            </div>
+            <!-- END SITE SEARCH OVERLAY -->
+
             <!-- Navigation panel -->
             @include('layouts.nav')
             <!-- End Navigation panel -->
@@ -84,7 +122,9 @@
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script> 
         <script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('frontend/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('frontend/js/rev-slider.js') }}"></script>        
+        <script type="text/javascript" src="{{ asset('frontend/js/rev-slider.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/bootstrapscrollspy.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/custom-js.js') }}"></script>
 
         <script>
                 (function() {
