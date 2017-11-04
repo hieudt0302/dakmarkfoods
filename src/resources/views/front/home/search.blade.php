@@ -1,135 +1,102 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Tìm kiếm')
+@section('title','Pokofarms - '.__('header.search'))
 @section('content')
 
-<!-- Head Section -->
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.search-results')</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Head Section -->
 
-
-<section class="shopgrid products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="left-it">
-                    <h5>Showing <span class="sub">1-12 of 134</span> results</h5>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="right-it">
-                </div>
-            </div>
-        </div>
-        @foreach($products as $key => $product)
-            @if($key == 0 || $key%4 === 0)
+    <!-- Head Section -->
+    <section class="small-section pt-60 pb-40 bg-gray-lighter">
+        <div class="relative container align-left">
             <div class="row">
-                <div class="products-it">
-            @endif                    
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="pro-it">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            <img class="pro-img" src="frontend/images/uploads/p1.jpg" alt="">
-                            <div class="pro-infor">
-                                <h2>{{$product->translation->name??$product->name}}</h2>
-                                <span class="pro-cost">{{$product->price}}</span>
-                            </div>
-                            <div class="hover-inner">   
-                                <a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                <a class="cart" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                <a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+                <div class="col-md-8">
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">@lang('common.search-results')</h1>
+                    <div class="hs-line-4 black">
+                        @lang('common.search-message')&nbsp;{{$search_key}}
                     </div>
-            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($products))
-                </div>
-            </div>
-            @endif
-        @endforeach
-        
-        
-        <div class="row">
-            <div class="blogpanigation">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <ul>
-                        <li class="prev"><a href="#">prev</a></li>
-                        <li class="num"><a href="#">1</a></li>
-                        <li class="num active"><a href="#">2</a></li>
-                        <li class="num"><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li class="num2"><a href="#">13</a></li>
-                        <li class="num2"><a href="#">14</a></li>
-                        <li class="next"><a href="#">next</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- End Head Section -->
 
-    <hr>
-
-<section class="bloglistpost-v1 bloglistpost-v2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="left-it">
-                    <h5>Showing <span class="sub">1-12 of 134</span> results</h5>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="right-it">
-                </div>
-            </div>
-        </div>        
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-
-                <div class="left">
-                    @if(!empty($search_key) && count($posts)==0)
-                        @lang('common.zero-search-message')&nbsp;{{$search_key}}
-                    @endif 
-                </div>
-
-                <!-- Post -->
-                @foreach($posts as $post_tran)
-                @if($post_tran->post->published==1)
-                <div class="blogpost-v1">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="video2">
-                                <img src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
+    <section class="small-section">
+        <div class="relative container align-left">
+            <div class="row">
+                <!-- Product Results-->
+                <div class="col-sm-6 col-xs-12 productresult">
+                    <h2 class="section-title align-center pb-40">
+                        @lang('header.products')
+                    </h2>
+                    <div class="row multi-columns-row">
+                        {{--{{dd($products)}}--}}
+                        {{--{{dd($posts)}}--}}
+                        @foreach($products as $product)
+                        <div class="col-xs-12 col-sm-6 mb-20">
+                            <div class="post-prev-img">
+                                <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{asset('/storage')}}/{{$product->product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt=""></a>
+                                @if($product->sold_off)
+                                    <div class="pro-overlay-info align-left">
+                                        <span class="hethang">Sold Off</span>
+                                    </div>
+                                @else
+                                    @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
+                                        <div class="pro-overlay-info align-left">
+                                            <span class="giamgia">SALE</span>
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                            <div class="post-prev-title align-center">
+                                <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
+                            </div>
+                            <div class="post-prev-text align-center mb-0">
+                                @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
+                                    <del class="section-text">{{$product->price}}</del> &nbsp;
+                                    <strong>{{$product->special_price}}</strong>
+                                @else
+                                    @if($product->old_price > 0)
+                                        <del class="section-text">{{$product->old_price}}</del> &nbsp;
+                                    @endif
+                                    <strong>{{$product->price}}</strong>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-md-7">
-                            <div class="blog-it-content">
-                                <div class="date">
-                                    <span>@lang('blog.posted-by') {{$post_tran->post->author->last_name}} {{$post_tran->post->author->first_name}}, {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
-                                </div>                                
-                                <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
-                                <p>{{$post_tran->excerpt}} </p>
-                                <div class="sub-button">
-                                    <a class="readmore" href="{{url('/')}}/posts/{{$post_tran->post->slug}}">@lang('common.read-more')</a>
-                                </div>                                                          
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                </br></br>
-                @endif
-                @endforeach
-                <!-- End Post -->            
-                
+                <!-- End Product Results-->
+                <div class="col-sm-1 col-xs-12"></div>
+                <!-- Blog Results-->
+                <div class="col-sm-5 col-xs-12 productresult">
+                    <h2 class="section-title align-center pb-40">
+                        @lang('header.blogs')
+                    </h2>
+                    <div class="row multi-columns-row">
+                        @foreach($posts as $post)
+                        <div class="col-xs-12 mb-20">
+                            <div class="blog-item">
+                                <!-- Post Title -->
+                                <h2 class="blog-item-title"><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->title}}</a></h2>
+
+                                <!-- Text Intro -->
+                                <div class="blog-item-body">
+                                    <p>
+                                        {{$post->excerpt}}
+                                    </p>
+                                </div>
+                                <!-- Read More Link -->
+                                <div class="blog-item-foot">
+                                    <a href="{{url('/')}}/posts/{{$post->slug}}" class="btn btn-mod btn-round  btn-small">@lang('common.read-more') <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- End Post -->
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <!-- End Blog Results-->
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 @endsection
