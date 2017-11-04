@@ -15,26 +15,15 @@
             <ul class="clearlist">
                 <!-- Homapage With Sub -->
                 <li>
-                    <a href="{{url('/')}}" class="mn-has-sub active">
-                        @lang('header.home') <i class="fa fa-angle-down"></i>
-                    </a>
-                    <!-- Sub Multilevel -->
-                    <ul class="mn-sub">
-                        <!-- About Us Column -->
-                        <li>
-                            <a href="{{url('/about')}}">@lang('header.about-us')</a>
-                        </li>
-                        <!-- End About Us Column -->
-
-                        <!-- Contact Column -->
-                        <li>
-                            <a href="{{url('/contact')}}">@lang('header.contact')</a>
-                        </li>
-                        <!-- End Contact Column -->
-                    </ul>
-                    <!-- End Sub Multilevel -->
+                    <a href="{{url('/')}}" class="active">@lang('header.home')</a>
                 </li>
                 <!-- End Homapage With Sub -->
+
+                <!-- About Us Column -->
+                <li>
+                    <a href="{{url('/about')}}">@lang('header.about-us')</a>
+                </li>
+                <!-- End About Us Column -->
 
                 <!-- Product menu -->
                 <li>
@@ -80,6 +69,12 @@
                     <!-- End Sub Multilevel -->
                 </li>
                 <!-- End Blog -->
+
+                <!-- Contact Column -->
+                <li>
+                    <a href="{{url('/contact')}}">@lang('header.contact')</a>
+                </li>
+                <!-- End Contact Column -->
 
                 <!-- Divider -->
                 <li><a>&nbsp;</a></li>

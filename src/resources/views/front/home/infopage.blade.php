@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Head Section -->
-<section class="small-section pt-100 pb-100" data-background="{{ asset('/frontend/images/home-sample/about.jpg') }}">
+<section class="small-section pt-60 pb-20 bg-gray-lighter">
     <div class="relative container align-left">
         <div class="row">
             <div class="col-md-8">
@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-4 mt-30">
                 <div class="mod-breadcrumbs align-right">
-                    <a href="{{url('/')}}">Trang Chủ</a>&nbsp;/&nbsp;{{$info_page_translation->title}}
+                    <a href="{{url('/')}}">@lang('header.home')</a>&nbsp;/&nbsp;{{$info_page_translation->title}}
                 </div>
             </div>
         </div>
