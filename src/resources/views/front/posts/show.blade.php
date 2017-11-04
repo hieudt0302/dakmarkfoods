@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Head Section -->
-    <section class="small-section" data-background="{{ asset('/frontend/images/home-sample/about.jpg') }}">
+    <section class="small-section pt-60 pb-20 bg-gray-lighter">
         <div class="relative container align-left">
             <div class="row">
                 <div class="col-md-8">
