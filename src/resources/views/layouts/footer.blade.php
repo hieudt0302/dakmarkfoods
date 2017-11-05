@@ -87,14 +87,15 @@
                             {{--<div class="mb-20 ">NEWSLETTER</div>--}}
                             <div class="widget-text clearfix">
                                 <form class="form" id="mailchimp">
-                                    <div class="mb-20">Stay informed with our newsletter. Please trust us, we will never send you spam.</div>
+                                    <div class="mb-20">@lang('footer.newsletter-message')</div>
                                     <div class="mb-20">
-                                        <input placeholder="Enter Your Email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
-                                        <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">Subscribe</button>
+                                        <input placeholder="Email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
+                                        <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
                                     </div>
                                     <div id="subscribe-result"></div>
                                 </form>
                             </div>
+                            <br>
                             <div class="footer-social-links ">
                                 <a href="#" title="Facebook " target="_blank "><i class="fa fa-facebook "></i></a>
                                 <a href="#" title="Twitter " target="_blank "><i class="fa fa-twitter "></i></a>
