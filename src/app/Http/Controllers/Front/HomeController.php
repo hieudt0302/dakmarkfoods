@@ -200,13 +200,13 @@ class HomeController extends Controller
             ->orWhereIn('products.id', function($query) use ($search_key){
                 $query->select('product_id')->from('product_translations')
                     ->Where('name','LIKE', '%'. $search_key . '%');
-            })->paginate(2, ['*'], 'product_page');
+            })->paginate(12, ['*'], 'product_page');
         $posts = Post::where('published',1)
             ->where('posts.title', 'LIKE', '%'. $search_key . '%')
             ->orWhereIn('posts.id', function($query) use ($search_key){
                 $query->select('post_id')->from('post_translations')
                     ->Where('title','LIKE', '%'. $search_key . '%');
-            })->paginate(2, ['*'], 'post_page');
+            })->paginate(10, ['*'], 'post_page');
         return view('front/home/search',compact('products','search_key', 'posts'))->with(compact('product_page','post_page'));;
     }      
 
