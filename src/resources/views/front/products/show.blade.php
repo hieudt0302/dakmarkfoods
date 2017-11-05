@@ -20,7 +20,7 @@
 									@if(!$product->sold_off)
 										@if($is_sales)
 											<div class="pro-overlay-info align-left">
-												<span class="giamgia">SALE</span>
+												<span class="giamgia">@lang('product.sale')</span>
 											</div>
 										@endif
 									@endif
@@ -76,7 +76,7 @@
 							@else
 								<del class="section-text">{{$product->price}}</del>
 								<strong>{{$product->special_price}}</strong>
-								<span class="hot">Sale</span>
+								<span class="hot">@lang('product.sale')</span>
 							@endif
 						@endif
 					</div>
