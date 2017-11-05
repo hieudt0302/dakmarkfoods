@@ -58,28 +58,21 @@
             <!-- Widget -->
             <div class="col-sm-6 col-md-3 ">
                 <div class="widget ">
-                    <h5 class="widget-title ">PHƯƠNG THỨC THANH TOÁN</h5>
+                    <h5 class="widget-title ">@lang('footer.my-account')</h5>
                     <div class="widget-body ">
-                        <div class="phuongthucthanhtoan ">
-                                    <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-visa.svg') }}">
-                                    </span>
-                            <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-mastercard.svg') }}">
-                                    </span>
-                            <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-jcb.svg') }}">
-                                    </span>
-                            <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-cash.svg') }}">
-                                    </span>
-                            <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-internet-banking.svg') }}">
-                                    </span>
-                            <span class="payment pb-10 ">
-                                        <img src="{{ asset('frontend/images/tt/ic-installment.svg') }}">
-                                    </span>
-                        </div>
+                        <ul class="clearlist widget-menu">
+                        @if (Auth::guest())
+                        <!-- Sub Column -->
+                            <li><a href="{{ url('/login') }}"><i class="fa fa-angle-right "></i> @lang('auth.login')</a></li>
+                            <li><a href="{{ url('/register') }}"><i class="fa fa-angle-right "></i> @lang('auth.register')</a></li>
+                            <!-- End Sub Column -->
+                        @else
+                            <li><a href="{{ url('/cart') }}"><i class="fa fa-angle-right "></i> @lang('footer.view-cart')</i></a></li>
+                            <li><a href="{{ url('/wishlist') }}"><i class="fa fa-angle-right "></i> @lang('footer.my-wishlist')</i></a></li>
+                            <li><a href="{{ url('/Account/Orders') }}"><i class="fa fa-angle-right "></i> @lang('footer.order-history')</i></a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-angle-right "></i> @lang('auth.logout')</i></a></li>
+                        @endif
+                        </ul>
                     </div>
                 </div>
                 <!-- End Widget -->
