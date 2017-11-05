@@ -192,18 +192,19 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-        $search_key = $request->input('key'); 
-        
-
-        $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
-        ->paginate(12);             
+        $search_key = $request->input('key');
 
 
-        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
-        ->paginate(4);             
+        $products = ProductTranslation::where("name", "LIKE", "%$search_key%")->paginate(12);
+//        $products = Product::where("name", "LIKE", "%$search_key%")->paginate(10);
+
+//        $posts = Post::where("title", "LIKE", "%$search_key%")->paginate(10);
 
 
-        return view('front/home/search',compact('products','posts','search_key'));
+        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")->paginate(12);
+
+
+        return view('front/home/search',compact('products','search_key', 'posts'));
     }      
 
     function getInfoPageTranslation($slug){
