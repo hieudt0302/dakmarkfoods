@@ -18,15 +18,6 @@
                         <div class="left section-text mt-10">
                             @lang('common.showing') <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} @lang('common.of') {{$results->count()}}</span>
                         </div>
-                        <div class="right">
-                            <form method="post" action="#" class="form">
-                                <select class="input-md round">
-                                    <option>Default sorting</option>
-                                    <option>Sort by price: low to high</option>
-                                    <option>Sort by price: high to low</option>
-                                </select>
-                            </form>
-                        </div>
                     </div>
                     <!-- END PRODUCT FILTER -->
 
@@ -118,7 +109,7 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="widget cats">
-                        <h5 class="widget-title">DANH MỤC SẢN PHẨM (CHƯA CÓ LANG)</h5>
+                        <h5 class="widget-title">@lang('common.categories')</h5>
                         <div class="widget-body">
                             <ul class="clearlist widget-menu">
                                 @foreach($product_menu->GetMenuSubLevel1() as $sub)
