@@ -28,13 +28,12 @@ Route::get('/returns', 'Front\HomeController@returns');
 Route::get('/showrooms', 'Front\HomeController@showrooms');
 Route::get('/purchase-flow', 'Front\HomeController@purchase_flow');
 Route::post('/search', 'Front\HomeController@search');
-Route::get('/search', 'Front\HomeController@search');
 Route::get('/product-origin', 'Front\HomeController@product_origin');
 Route::get('/product-quality', 'Front\HomeController@product_quality');
 Route::get('/contact', 'Front\HomeController@contact');
 Route::post('/contact',  ['uses'=>'Front\HomeController@send_contact','as' => 'front.send-contact']);
 Route::post('/subscribe',  ['uses'=>'Front\HomeController@subscribe','as' => 'front.subscribe']);
-Route::post('/unsubscribe',  ['uses'=>'Front\HomeController@unsubscribe','as' => 'front.unsubscribe']);
+Route::get('/unsubscribe/{email}',  ['uses'=>'Front\HomeController@unsubscribe','as' => 'front.unsubscribe']);
 Route::get('/promotion', 'Front\HomeController@promotion');
 
 /* ACCOUNT */
@@ -46,20 +45,13 @@ Route::get('/orders',  ['uses'=>'Front\HomeController@orders','middleware' => 'a
 Route::get('/faqs', 'Front\FaqController@index');
 
 /* PRODUCT */
-Route::get('/products', 'Front\ProductsController@index');
-Route::get('/products/{slug}', 'Front\ProductsController@cat');
-Route::get('/product/{id}', 'Front\ProductsController@show');
-
+// Route::get('/products', 'Front\ProductsController@index');
+Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
-Route::post('/products','Front\ProductsController@search');
-
-/* BLOG */
-Route::get('/blog','Front\PostsController@index');
-Route::get('/blog/{slug}','Front\PostsController@cat');
 
 /* POST */
-//Route::get('/posts', 'Front\PostsController@index');
+// Route::get('/posts', 'Front\PostsController@index');
 Route::get('/subject/posts/tags/{slug}', 'Front\PostsController@filterByTag');
 Route::get('/posts/{slug}', 'Front\PostsController@show');
 Route::post('/posts','Front\PostsController@search');  
@@ -72,6 +64,7 @@ Route::post('/posts/{id}/comment', 'Front\CommentsController@store');
 
 /* MENU */
 Route::get('/subject/{parent}/{slug}', 'Front\MenuController@menu');
+
 
 /* SHOPPING CART */
 Route::get('/cart', 'Front\ShoppingCartController@cart');
@@ -201,6 +194,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('posts/categories',['as'=>'admin.posts.findcategories','uses'=>'PostsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('posts/comments',['as'=>'admin.posts.comments','uses'=>'PostsController@comments','middleware' => ['role:admin|manager']]);
     Route::post('posts/comments',['as'=>'admin.posts.findcomments','uses'=>'PostsController@findcomments','middleware' => ['role:admin|manager']]);
+    Route::get('posts/comments/{id}',['as'=>'admin.products.editcomments','uses'=>'PostsController@editcomments','middleware' => ['role:admin|manager']]);
+    Route::delete('posts/comments/{id}',['as'=>'admin.products.deletecomments','uses'=>'PostsController@deletecomments','middleware' => ['role:admin|manager']]);
     //
     Route::get('posts/generateslug/{title}',['as'=>'admin.posts.generateSlug','uses'=>'PostsController@GenerateSlug','middleware' => ['role:admin|manager']]);
    
@@ -211,6 +206,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('products/categories',['as'=>'admin.products.findcategories','uses'=>'ProductsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('products/reviews',['as'=>'admin.products.reviews','uses'=>'ProductsController@reviews','middleware' => ['role:admin|manager']]);
     Route::post('products/reviews',['as'=>'admin.products.findreviews','uses'=>'ProductsController@findreviews','middleware' => ['role:admin|manager']]);
+    Route::get('products/reviews/{id}',['as'=>'admin.products.editreviews','uses'=>'ProductsController@editreviews','middleware' => ['role:admin|manager']]);
+    Route::delete('products/reviews/{id}',['as'=>'admin.products.deletereviews','uses'=>'ProductsController@deletereviews','middleware' => ['role:admin|manager']]);
     //
     Route::get('products/create',['as'=>'admin.products.create','uses'=>'ProductsController@create','middleware' => ['role:admin|manager']]);
     Route::post('products/create',['as'=>'admin.products.store','uses'=>'ProductsController@store','middleware' => ['role:admin|manager']]);
@@ -275,5 +272,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     // Settings
     Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);
     Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update']);
+
+    // Subscribes
+    Route::get('subscribes',['as'=>'admin.subscribes.index','uses'=>'SubscribeController@index']);
+    Route::post('subscribes',['as'=>'admin.subscribes.send_mail','uses'=>'SubscribeController@send_mail']);
 });
 
