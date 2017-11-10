@@ -42,14 +42,12 @@ class CommentsController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'comment' => 'required|string',
+            'post_id' =>'required',
         ]);
-
-//        dd($request->all());
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1003')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -65,7 +63,7 @@ class CommentsController extends Controller
         if(!empty($request->reader_id))
             $comment->author_id = $request->reader_id;
 
-        $post = Post::where('slug', $request->post_slug)->firstOrFail();
+        $post = Post::find($request->post_id); 
 
         $review = $post->comments()->save($comment);
 
