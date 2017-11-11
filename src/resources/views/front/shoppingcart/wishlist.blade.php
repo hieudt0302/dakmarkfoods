@@ -78,7 +78,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cart-col cart-col-price" data-caption="Price">
-                                                        <span class="price">{{$row->price}}</span>
+                                                        <span class="price">{{FormatPrice::price($row->price)}}</span>
                                                     </div>
                                                     <div class="cart-col cart-col-qty" data-caption="Quantity">
                                                         <div class="qty-input">
@@ -115,7 +115,7 @@
                                                             <tbody>
                                                                 <tr class="cart-summary-subtotal">
                                                                     <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                    <td class="cart-summary-value">{{Cart::subtotal()}}</td>
+                                                                    <td class="cart-summary-value">{{FormatPrice::price(Cart::subtotal())}}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-shipping">
                                                                     <td class="cart-summary-label">
@@ -127,7 +127,7 @@
                                                                 </tr>
                                                                 <tr class="cart-summary-tax">
                                                                     <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                    <td class="cart-summary-value">{{Cart::tax()}}</td>
+                                                                    <td class="cart-summary-value">{{FormatPrice::price(Cart::tax())}}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-total">
                                                                     <td class="cart-summary-label">@lang('shoppings.total'):</td>
@@ -259,7 +259,6 @@ $(document).ready(function(){
 
                 displayNotification(response['message'], response['status']);
 
-                // $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
                 hideThrobber();
 
             }

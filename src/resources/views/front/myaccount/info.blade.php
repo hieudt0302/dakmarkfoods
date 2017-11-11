@@ -38,13 +38,13 @@
                                             <div class="col-lg-9">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M" checked="{{Auth::user()->gender?'checked':''}}">
+                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M" {{Auth::user()->gender == 1 ?'checked':''}}>
                                                     <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.male')</span>
                                                 </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F" checked="{{Auth::user()->gender?'':'checked'}}">
+                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F" {{Auth::user()->gender == 1  ?'':'checked'}}>
                                                         <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.female')</span>
                                                     </label>
                                                 </div>
@@ -66,13 +66,13 @@
                                             <div class="col-lg-9">
                                                 <div class="row row-hardcode xs-gutters">
                                                     <div class="col">
-                                                        <input class="form-control"  id="day" name="day" type="text" value="{{Auth::user()->date_of_birth->format('d') }}">
+                                                        <input class="form-control"  id="day" name="day" type="text" value="{{date('d',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                     <div class="col">
-                                                        <input class="form-control"  id="month" name="month" type="text" value="{{Auth::user()->date_of_birth->format('m')}}">
+                                                        <input class="form-control"  id="month" name="month" type="text" value="{{date('m',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                     <div class="col">
-                                                        <input class="form-control" id="year" name="year" type="text" value="{{Auth::user()->date_of_birth->format('Y')}}">
+                                                        <input class="form-control" id="year" name="year" type="text" value="{{date('Y',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                 </div>
                                             </div>
