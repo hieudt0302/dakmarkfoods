@@ -5,11 +5,14 @@ class FormatPrice {
 
     public static function price($price, $type = null) {
         switch ($type) {
-            case 'vnd':
-                return number_format($price, 2, '.', ','); //etc: 5,500,000.69
-                break;
+            case 'usd':
+                return '$' . str_replace('.00', '',number_format(str_replace( ',', '', $price), 2, '.', ',')); 
+            case 'usd-f':
+                return '$' . $price; 
+            case 'vnd-f':
+                return $price . 'đ';
             default:
-                return number_format($price, 2, ',', '.'); //etc: 5.500.000,69
+                return str_replace(',00', '',number_format(str_replace( ',', '', $price), 2, ',', '.')) . 'đ';
         } 
     }
 }
