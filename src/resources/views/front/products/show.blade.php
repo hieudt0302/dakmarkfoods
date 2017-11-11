@@ -71,11 +71,11 @@
 							<strong>Sold Off</strong>
 						@else
 							@if(!$is_sales)
-								<del class="section-text">{{$product->old_price}}</del>
-								<strong>{{$product->price}}</strong>
+								<del class="section-text">{{FormatPrice::price($product->old_price)}}</del>
+								<strong>{{FormatPrice::price($product->price)}}</strong>
 							@else
-								<del class="section-text">{{$product->price}}</del>
-								<strong>{{$product->special_price}}</strong>
+								<del class="section-text">{{FormatPrice::price($product->price)}}</del>
+								<strong>{{FormatPrice::price($product->special_price)}}</strong>
 								<span class="hot">@lang('product.sale')</span>
 							@endif
 						@endif
