@@ -115,31 +115,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="cart-col cart-col-price" data-caption="Price">
-                                                        <span class="price">{{$row->price}}</span>
+                                                    <div class="cart-col cart-col-price">
+                                                        <span class="price">{{ FormatPrice::price($row->price)  }}</span>
                                                     </div>
                                                     <div class="cart-col cart-col-qty" data-caption="Quantity">
                                                         <div class="qty-input">
-                                                            <!-- <div class="input-group bootstrap-touchspin">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-secondary bootstrap-touchspin-down" type="button">
-                                                                        <i class="fa fa-minus"></i>
-                                                                    </button>
-                                                                </span>
-                                                                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span> -->
                                                                 <input  class="form-control" data-href="/Cart/UpdateCartItem?ItemId={{$row->rowId}}" data-max="10000" data-min="1"
                                                                     data-postfix="" data-sci-item="{{$row->rowId}}" data-step="1" data-val="true" data-val-number="The field 'EnteredQuantity' must be a number." id="itemquantity{{$row->id}}" type="text" value="{{$row->qty}}" style="display: block;">
-                                                                <!-- <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-secondary bootstrap-touchspin-up" type="button">
-                                                                        <i class="fa fa-plus"></i>
-                                                                    </button>
-                                                                </span>
-                                                            </div> -->
                                                         </div>
                                                     </div>
                                                     <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
-                                                        <span class="price">{{$row->total}}</span>
+                                                        <span class="price">{{ FormatPrice::price($row->total) }}</span>
                                                     </div>
                                                 </div>
                                                 @endforeach
@@ -154,7 +140,7 @@
                                                             <tbody>
                                                                 <tr class="cart-summary-subtotal">
                                                                     <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                    <td class="cart-summary-value">{{Cart::subtotal()}}</td>
+                                                                    <td class="cart-summary-value">{{ FormatPrice::price(Cart::subtotal()) }}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-shipping">
                                                                     <td class="cart-summary-label">
@@ -166,7 +152,7 @@
                                                                 </tr>
                                                                 <tr class="cart-summary-tax">
                                                                     <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                    <td class="cart-summary-value">{{Cart::tax()}}</td>
+                                                                    <td class="cart-summary-value">{{ FormatPrice::price(Cart::tax()) }}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-total">
                                                                     <td class="cart-summary-label">@lang('shoppings.total'):</td>
@@ -275,6 +261,8 @@ $(document).ready(function(){
             data: data,
             type: 'POST',
             success: function (response) {
+                $('.cartItemCount').html(response['newCartItemCount']);
+                
                 if(response['status'] ==='success')
                 {
                     if (response['newCartItemCount'] == 0) {
@@ -292,7 +280,6 @@ $(document).ready(function(){
 
                 displayNotification(response['message'], response['status']);
 
-                // $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
                 hideThrobber();
             }
         });

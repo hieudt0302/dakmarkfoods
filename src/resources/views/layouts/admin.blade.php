@@ -79,7 +79,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="javascript:void(0)" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>PK</b>F</span>
       <!-- logo for regular state and mobile devices -->
@@ -95,7 +95,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
+          <!-- <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-success">4</span>
@@ -103,12 +103,11 @@
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
               <li>
-                <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li><!-- start message -->
+                  <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                        <img src="{{asset('/images/logo/poko.png')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -117,7 +116,6 @@
                       <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
-                  <!-- end message -->
                   <li>
                     <a href="#">
                       <div class="pull-left">
@@ -170,9 +168,9 @@
               </li>
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
-          </li>
+          </li> -->
           <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
+          <!-- <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
               <span class="label label-warning">10</span>
@@ -180,7 +178,6 @@
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
               <li>
-                <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <li>
                     <a href="#">
@@ -212,9 +209,8 @@
               </li>
               <li class="footer"><a href="#">View all</a></li>
             </ul>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
+          </li> -->
+          <!-- <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
               <span class="label label-danger">9</span>
@@ -222,9 +218,8 @@
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
               <li>
-                <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li><!-- Task item -->
+                  <li>
                     <a href="#">
                       <h3>
                         Design some buttons
@@ -238,8 +233,7 @@
                       </div>
                     </a>
                   </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
+                  <li>
                     <a href="#">
                       <h3>
                         Create a nice theme
@@ -253,8 +247,7 @@
                       </div>
                     </a>
                   </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
+                  <li>
                     <a href="#">
                       <h3>
                         Some task I need to do
@@ -268,8 +261,7 @@
                       </div>
                     </a>
                   </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
+                  <li>
                     <a href="#">
                       <h3>
                         Make beautiful transitions
@@ -283,32 +275,31 @@
                       </div>
                     </a>
                   </li>
-                  <!-- end task item -->
                 </ul>
               </li>
               <li class="footer">
                 <a href="#">View all tasks</a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+              <img src="{{asset('images/logo/poko.png')}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{Auth::user()->last_name}} {{Auth::user()->first_name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('images/logo/poko.png')}}" class="img-circle" alt="User Image">
 
                 <p>
                 {{Auth::user()->last_name}} {{Auth::user()->first_name}} - Admin
-                  <small>Member since Nov. 2012</small>
+                  <small>Gia nhập từ {{ date('d/m/Y',strtotime(Auth::user()->created_at))}}</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -320,15 +311,19 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
-                <!-- /.row -->
-              </li>
+              </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{url('admin/users')}}/{{Auth::id()}}/edit" class="btn btn-default btn-flat">Tài Khoản</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a class="btn btn-default btn-flat" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                      @lang('auth.logout')
+                  </a>
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
                 </div>
               </li>
             </ul>
@@ -348,7 +343,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="{{asset('/images/logo/poko.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{Auth::user()->last_name}} {{Auth::user()->first_name}}</p>
@@ -356,7 +351,7 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <!-- <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -364,7 +359,7 @@
                 </button>
               </span>
         </div>
-      </form>
+      </form> -->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -467,7 +462,7 @@
         <!-- Slider-->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-picture-o"></i> <span>Slider</span>
+            <i class="fa fa-sliders"></i> <span>Slider</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -477,6 +472,14 @@
             <li><a href="{{url('/admin/sliders/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
           </ul>
         </li>
+
+        <!-- Slider-->        
+        <li>
+          <a href="{{url('/admin/banners/edit')}}">
+            <i class="fa fa-picture-o"></i> 
+            <span>Banner</span>
+          </a>
+        </li>                
         
         <!-- Mail Templates-->
         <li class="treeview">
@@ -490,6 +493,14 @@
             <li><a href="{{url('/admin/mail_templates')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
             <li><a href="{{url('/admin/mail_templates/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
           </ul>
+        </li>
+
+        <!-- Settings-->
+        <li>
+          <a href="{{url('/admin/subscribes')}}">
+            <i class="fa fa-share-square"></i> 
+            <span>Subscribe</span>
+          </a>
         </li>
 
           <!-- User Manager -->
@@ -529,7 +540,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.9
+      <b>Version</b> 1.17.11.8
     </div>
     <strong>Copyright &copy; 2018 <a href="#">Poko Farms</a>.</strong> All rights
     reserved.

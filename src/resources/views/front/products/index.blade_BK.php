@@ -62,7 +62,7 @@
                         </a>
                         <div class="pro-infor">
                             <h2>{{$product->translation->name??$product->name}}</h2>
-                            <span class="pro-cost">{{$product->price}}</span>
+                            <span class="pro-cost">{{FormatPrice::price($product->price)}}</span>
                         </div>
                     </div>
                 </div>

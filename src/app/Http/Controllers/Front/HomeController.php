@@ -17,6 +17,9 @@ use App\Models\InfoPageTranslation;
 use App\Models\Language;
 use App\Models\Subscribe;
 use App\Models\Category;
+use App\Models\MailTemplate;
+use App\Models\MailTemplateTranslation;
+use Setting;
 
 class HomeController extends Controller
 {
@@ -45,13 +48,14 @@ class HomeController extends Controller
                                         ->get();
 
 
-        $sale_products = Product::where('special_price', '>', 0)
+        $sale_products = Product::where('published',1)
+                                ->where('special_price', '>', 0)
                                 ->where('special_price_start_date', '<=', date('Y-m-d', time()))
                                 ->where('special_price_end_date', '>=', date('Y-m-d', time()))
                                 ->orderBy('created_at', 'desc')
                                 ->limit(4)
                                 ->get();                
-        $new_blogs = Post::orderBy('updated_at', 'desc')->limit(4)->get();
+        $new_blogs = Post::where('published',1)->orderBy('updated_at', 'desc')->limit(3)->get();
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
@@ -97,8 +101,13 @@ class HomeController extends Controller
 
     public function promotion()
     {
-        $info_page_translation = $this->getInfoPageTranslation('promotion');
-        return View("front.home.infopage",compact('info_page_translation'));
+        $promo = true;
+        $results = Product::where('special_price', '>', 0)
+                                ->where('special_price_start_date', '<=', date('Y-m-d', time()))
+                                ->where('special_price_end_date', '>=', date('Y-m-d', time()))
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(12);          
+        return View("front.products.index",compact('results','promo'));
     }       
 
     public function contact()
@@ -107,8 +116,9 @@ class HomeController extends Controller
     }
     public function send_contact(Request $request){
         $input = $request->all();
-        Mail::send('front/home/mail_template', array('name'=>$input["name"], 'email'=>$input["email"], 'phone'=>$input["phone"], 'content'=>$input['message']),                                  function($message){
-            $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
+        Mail::send('front/home/contact_mail', array('name'=>$input["name"], 'email'=>$input["email"], 'phone'=>$input["phone"], 'content'=>$input['message']),
+            function($message){
+                $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
         });
         session()->flash('success_message', 'Send message successfully!');
 
@@ -116,11 +126,21 @@ class HomeController extends Controller
     }
 
     public function subscribe(Request $request){
+        if(Subscribe::existEmail($request->email)){
+            return response()->json(['success' => false]);
+        }
         $subscribe = new Subscribe();
         $subscribe->email = $request->email;
+        $subscribe->locale = \App::getLocale(); 
         $subscribe->save();
         return response()->json(['success' => true]);
     }
+
+    public function unsubscribe($email){
+        DB::table('subscribe')->where('email', $email)->delete();
+        return View("front/home/unsubscribe");
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -189,22 +209,18 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-        $search_key = $request->input('key');
+        $search_key = $request->input('key'); 
+        
 
-        $products = Product::where('published',1)
-            ->where('products.name', 'LIKE', '%'. $search_key . '%')
-            ->whereNull('deleted_at')
-            ->orWhereIn('products.id', function($query) use ($search_key){
-                $query->select('product_id')->from('product_translations')
-                    ->Where('name','LIKE', '%'. $search_key . '%');
-            })->paginate(12, ['*'], 'product_page');
-        $posts = Post::where('published',1)
-            ->where('posts.title', 'LIKE', '%'. $search_key . '%')
-            ->orWhereIn('posts.id', function($query) use ($search_key){
-                $query->select('post_id')->from('post_translations')
-                    ->Where('title','LIKE', '%'. $search_key . '%');
-            })->paginate(10, ['*'], 'post_page');
-        return view('front/home/search',compact('products','search_key', 'posts'))->with(compact('product_page','post_page'));;
+        $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
+        ->paginate(12);             
+
+
+        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
+        ->paginate(4);             
+
+
+        return view('front/home/search',compact('products','posts','search_key'));
     }      
 
     function getInfoPageTranslation($slug){

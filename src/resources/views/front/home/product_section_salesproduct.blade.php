@@ -34,12 +34,12 @@
                         <div class="post-prev-text align-center mb-0">
                             @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                                 <del class="section-text">{{$product->price}}</del> &nbsp;
-                                <strong>{{$product->special_price}}</strong>
+                                <strong>{{FormatPrice::price($product->special_price)}}</strong>
                             @else
                                 @if($product->old_price > 0)
                                     <del class="section-text">{{$product->old_price}}</del> &nbsp;
                                 @endif
-                                <strong>{{$product->price}}</strong>
+                                <strong>{{FormatPrice::price($product->price)}}</strong>
                             @endif
                         </div>
                     </div>
