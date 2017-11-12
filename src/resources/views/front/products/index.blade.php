@@ -57,7 +57,7 @@
                                     @if($product->old_price > 0)
                                         <del class="section-text">{{FormatPrice::price($product->old_price)}}</del> &nbsp;
                                     @endif
-                                    <strong>{{FormatPrice::price($product->priceFormatPrice::price(}}</strong>
+                                    <strong>{{FormatPrice::price($product->price)}}</strong>
                                 @endif
                             </div>
                             <div class="post-prev-more align-center">

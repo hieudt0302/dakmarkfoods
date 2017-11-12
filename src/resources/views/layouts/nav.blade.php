@@ -15,7 +15,7 @@
             <ul class="clearlist">
                 <!-- Homapage With Sub -->
                 <li>
-                    <a href="{{url('/')}}" class="active">@lang('header.home')</a>
+                    <a href="{{url('/')}}">@lang('header.home')</a>
                 </li>
                 <!-- End Homapage With Sub -->
 
@@ -34,7 +34,7 @@
                     <ul class="mn-sub">
                         @foreach($product_menu->GetMenuSubLevel1() as $sub)
                         <li>
-                            <a href="{{url('/products')}}/{{$sub->slug}}">
+                            <a href="{{url('/subject')}}/{{$product_menu->slug}}/{{$sub->slug}}">
                                 <i class="ion-ios-minus-empty"></i>
                                 {{$sub->translation->name??$sub->name}}
                             </a>
@@ -53,14 +53,14 @@
 
                 <!-- Blog menu -->
                 <li>
-                    <a href="{{url('/blog')}}" class="mn-has-sub">
+                    <a href="{{url('/posts')}}" class="mn-has-sub">
                         @lang('blog.blog') <i class="fa fa-angle-down"></i>
                     </a>
                     <!-- Sub Multilevel -->
                     <ul class="mn-sub">
                         @foreach($blog_menu as $menu)
                             <li>
-                                <a href="{{url('/blog')}}/{{$menu->slug}}">
+                                <a href="{{url('/subject/posts')}}/{{$menu->slug}}">
                                     {{$menu->translation->name??$menu->name}}
                                 </a>
                             </li>
