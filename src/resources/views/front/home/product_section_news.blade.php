@@ -11,7 +11,7 @@
             <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn">
                 <div class="post-prev-img">
                     <a href="{{url('/posts')}}/{{$news->slug}}">
-                        <img src="{{ asset('/storage/images/blog/preview/') }}/{{$news->post->img??'images/no-image.png'}}" alt="">
+                        <img src="{{ asset('/storage/images/blog/preview/') }}/{{$news->img??'images/no-image.png'}}" alt="">
                     </a>
                 </div>
                 <div class="post-prev-title ">
