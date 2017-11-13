@@ -16,7 +16,7 @@
                         </div>
                     @endif
                     @else
-                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$posts[0]->category->translation->name}}</h1>
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
                 @endif
             </div>
         </div>
@@ -87,8 +87,8 @@
                             <ul class="clearlist widget-menu">
                                 @foreach($categories as $cat)
                                     <li>
-                                        <a href="{{url('/blog/')}}/{{$cat->slug}}" title="">
-                                            <i class="fa fa-circle-thin" aria-hidden="true"></i>  {{$cat->translation->name}}
+                                        <a href="{{url('/subject/posts')}}/{{$cat->slug}}" title="">
+                                            <i class="fa fa-circle-thin" aria-hidden="true"></i>  {{$cat->translation->name??$cat->name}}
                                         </a>
                                     </li>
                                 @endforeach
