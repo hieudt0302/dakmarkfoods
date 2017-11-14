@@ -1,4 +1,4 @@
-<section class="small-section bg-gray-lighter pt-50 pb-30">
+<section class="small-section pt-50 pb-30">
     <div class="container relative">
         <h2 class="section-title align-left mb-30 mb-sm-40">
             @lang('home.new-products')

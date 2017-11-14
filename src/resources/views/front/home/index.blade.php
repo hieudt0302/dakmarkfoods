@@ -19,6 +19,10 @@
     <!-- End Sales Product with Carousel -->
 
     <!-- News -->
+    @include('front.home.promo')
+    <!-- End News -->
+
+    <!-- News -->
     @include('front.home.product_section_news')
     <!-- End News -->
 
