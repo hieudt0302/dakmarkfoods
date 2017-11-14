@@ -108,7 +108,7 @@ class CartController extends Controller
         Cart::instance('wishlist')->update($request->ItemId, $request->newQuantity);
         
         return response()->json([
-            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
+            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào wishlist!',
             'status' => 'success',
             'type' => 'update',
             'rowId' => $request->ItemId,

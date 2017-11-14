@@ -346,12 +346,12 @@
                     'quantity': quantity,//just test
                 },
                success:function(response){
-                    console.log(response['newCartItemCount']); //debug
+                    console.log(response['message']); //debug
 					//$('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
 					$('.cartItemCount').html(response['newCartItemCount']);
                },
                error:function(response){
-                    console.log(response['newCartItemCount']); //debug
+                    console.log(response['message']); //debug
                }
             });
         });
