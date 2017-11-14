@@ -43,5 +43,7 @@ return [
      'of' => 'of',
 	 'call-details' => 'Call for more details',     
      'chat-details' => 'Chat for more details',
-     'posts' => 'Posts',                         	                     
+     'posts' => 'Posts',
+     'open-map' => 'Open the map',
+     'close-map' => 'Close the map',                                  	                     
 ];

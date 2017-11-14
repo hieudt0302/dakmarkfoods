@@ -41,5 +41,7 @@ return [
      'of' => 'trong',               	                                	 
 	 'call-details' => 'Gọi để biết thêm chi tiết',     
      'chat-details' => 'Nói chuyện với hướng dẫn viên', 
-     'posts' => 'Bài viết',             
+     'posts' => 'Bài viết',  
+     'open-map' => 'Mở bản đồ',
+     'close-map' => 'Đóng bản đồ',                 
 ];
