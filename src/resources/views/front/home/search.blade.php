@@ -66,6 +66,13 @@
             </div>
             <!-- End Product Results-->
             @endif
+
+            @if ($search_type =="all")
+            <!-- Divider -->
+            <hr class="mt-0 mb-0 " />
+            <!-- End Divider -->
+            @endif
+
             @if ($search_type =="all" || $search_type =="blog")
             <!-- Blog Results-->
             <div class="col-xs-12 blogresult">

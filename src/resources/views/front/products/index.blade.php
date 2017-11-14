@@ -6,6 +6,22 @@
 
 @section('content')
 
+    <!-- Head Section -->
+    <section class="small-section pt-60 pb-20 bg-gray-lighter">
+        <div class="relative container align-left">
+            <div class="row">
+                <div class="col-md-8">
+                @if(!empty($promo))
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">@lang('header.promotion')</h1>
+                @else
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
+                @endif
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Head Section -->
+
     <!-- PRODUCT PAGE-->
     <section class="small-section productlist">
         <div class="container relative">

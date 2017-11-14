@@ -18,6 +18,7 @@
                     @else
                     <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
                 @endif
+                </div>
             </div>
         </div>
     </section>
