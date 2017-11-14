@@ -87,7 +87,7 @@
                             <ul class="clearlist widget-menu">
                                 @foreach($categories as $cat)
                                     <li>
-                                        <a href="{{url('/subject/posts')}}/{{$cat->slug}}" title="">
+                                        <a href="{{url('/blog')}}/{{$cat->slug}}" title="">
                                             <i class="fa fa-circle-thin" aria-hidden="true"></i>  {{$cat->translation->name??$cat->name}}
                                         </a>
                                     </li>

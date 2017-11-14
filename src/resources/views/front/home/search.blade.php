@@ -23,14 +23,10 @@
             <!-- Product Results-->
             <div class="col-xs-12 productresult">
                 <h2 class="section-title align-center pb-40">
-                    @lang('header.products')
+                    @lang('header.product')
                 </h2>
                 <div class="row multi-columns-row">
-{{--                    {{dd($products)}}--}}
-                    {{--{{dd($posts)}}--}}
-
                     @foreach($products as $product)
-                        {{--{{ dd($product->product) }}--}}
                     <div class="item col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-30 mb-xs-30">
                         <div class="post-prev-img">
                             <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt=""></a>
@@ -65,9 +61,6 @@
                 </div>
                 <div class="pt20 pb20">
                     {{ $products->appends(request()->all())->render() }}
-                    {{--{{ $products->links() }}--}}
-{{--                    {{ $products->appends(['product_page' => $products->currentPage()])->links() }}--}}
-
                 </div>
             </div>
             <!-- End Product Results-->
@@ -78,8 +71,6 @@
                 </h2>
                 <div class="row multi-columns-row">
                     @foreach($posts as $post)
-{{--                    @if($post->post->published==1)--}}
-                        {{--{{ dd($post->post) }}--}}
                     <div class="col-xs-12 col-sm-6 mb-20">
                         <div class="blog-item">
                             <!-- Post Title -->
@@ -103,8 +94,6 @@
                 </div>
                 <div class="pt20 pb20">
                     {{ $posts->appends(request()->all())->render() }}
-{{--                    {{ $posts->links() }}--}}
-{{--                    {{$posts->appends(['post_page' => $posts->currentPage()])->links()}}--}}
                 </div>
             </div>
             <!-- End Blog Results-->

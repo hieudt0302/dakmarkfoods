@@ -134,7 +134,7 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="widget cats">
-                        <h5 class="widget-title">CHUYÊN MỤC (CHƯA CÓ TRONG LANG)</h5>
+                        <h5 class="widget-title">@lang('common.categories')</h5>
                         <div class="widget-body">
                             <ul class="clearlist widget-menu">
                                 @foreach($categories as $cat)
