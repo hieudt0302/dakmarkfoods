@@ -34,7 +34,7 @@
                     <ul class="mn-sub">
                         @foreach($product_menu->GetMenuSubLevel1() as $sub)
                         <li>
-                            <a href="{{url('/subject')}}/{{$product_menu->slug}}/{{$sub->slug}}">
+                            <a href="{{url('')}}/{{$product_menu->slug}}/{{$sub->slug}}">
                                 <i class="ion-ios-minus-empty"></i>
                                 {{$sub->translation->name??$sub->name}}
                             </a>
@@ -53,14 +53,14 @@
 
                 <!-- Blog menu -->
                 <li>
-                    <a href="{{url('/posts')}}" class="mn-has-sub">
+                    <a href="{{url('/blog')}}" class="mn-has-sub">
                         @lang('blog.blog') <i class="fa fa-angle-down"></i>
                     </a>
                     <!-- Sub Multilevel -->
                     <ul class="mn-sub">
                         @foreach($blog_menu as $menu)
                             <li>
-                                <a href="{{url('/subject/posts')}}/{{$menu->slug}}">
+                                <a href="{{url('/blog')}}/{{$menu->slug}}">
                                     {{$menu->translation->name??$menu->name}}
                                 </a>
                             </li>

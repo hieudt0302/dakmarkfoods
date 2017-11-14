@@ -2,7 +2,7 @@
 <section class="page-section ">
     <div class="container relative">
 
-        <h2 class="section-title font-alt mb-70 mb-sm-40">
+        <h2 class="section-title mb-70 mb-sm-40">
             Bạn đang tìm đặc sản hấp dẫn nhất của từng miền?
         </h2>
 
@@ -69,7 +69,7 @@
             <div class="col-sm-3">
                 <div class="alt-features-item align-center">
                     <div class="alt-features-descr align-left">
-                        <h4 class="mt-0 font-alt">Phương châm của chúng tôi?</h4>
+                        <h4 class="mt-0">Phương châm của chúng tôi?</h4>
                         Hoạt động trong lĩnh vực thực phẩm nhiều năm, chúng tôi luôn theo đuổi triêt lý chiều chuộng vị giác khách hàng. Chỉ cần bạn bước 1 bước về phía chúng tôi, 999 bước còn lại chúng tôi sẽ bước.
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="alt-features-icon">
                         <span class="icon-chat"></span>
                     </div>
-                    <h3 class="alt-features-title font-alt">Hỗ trợ 24/7</h3>
+                    <h3 class="alt-features-title">Hỗ trợ 24/7</h3>
                     <p>Luôn luôn lắng nghe.</p>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <div class="alt-features-icon">
                         <span class="icon-wallet"></span>
                     </div>
-                    <h3 class="alt-features-title font-alt">100% hoàn tiền</h3>
+                    <h3 class="alt-features-title">100% hoàn tiền</h3>
                     <p>Nếu bạn thấy chất lượng không như chúng tôi giới thiệu.</p>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <div class="alt-features-icon">
                         <span class="icon-hotairballoon"></span>
                     </div>
-                    <h3 class="alt-features-title font-alt">Ship hàng toàn quốc</h3>
+                    <h3 class="alt-features-title">Ship hàng toàn quốc</h3>
                     <p>Đem cả 3 miền về ngôi nhà bạn.</p>
                 </div>
             </div>

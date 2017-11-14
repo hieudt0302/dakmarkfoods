@@ -23,9 +23,9 @@
                                     </div>
                                 @endif
                             @endif
-                            <div class="pro-overlay-info align-bottom-left">
-                                <a href="#"><i class="fa fa-heart-o"></i></a>
-                            </div>
+                            {{--<div class="pro-overlay-info align-bottom-left">--}}
+                                {{--<a href="#"><i class="fa fa-heart-o"></i></a>--}}
+                            {{--</div>--}}
 
                         </div>
                         <div class="post-prev-title align-center">

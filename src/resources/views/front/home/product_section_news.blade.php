@@ -2,7 +2,7 @@
     <div class="container relative">
         <h2 class="section-title align-left mb-30 mb-sm-40">
             @lang('home.our-blogs')
-            <a href="{{url('/posts')}}" class="section-more right">@lang('common.see-more') <i class="fa fa-angle-right"></i></a>
+            <a href="{{url('/blog')}}" class="section-more right">@lang('common.see-more') <i class="fa fa-angle-right"></i></a>
         </h2>
         <div class="row multi-columns-row">
             @foreach($new_blogs as $news)
