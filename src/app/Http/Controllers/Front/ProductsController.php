@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
+use Lang;
 use App\Models\Tag;
 use App\Models\Comment;
 use Validator;
@@ -34,6 +35,50 @@ class ProductsController extends Controller
             ->get();
 
         return View('front/products/index',compact('results','tags', 'best_sellers_products'));
+    }
+
+    /**
+     * Display Best Seller
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bestseller()
+    {
+        $tags = Tag::has('products')->get();
+        $results = Product::join('order_details','products.id', '=', 'order_details.product_id')
+            ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy('count', 'desc')
+            ->paginate(12);
+
+        $headerlang = Lang::get('home.best-sellers-products');
+
+        $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+
+        return View('front/products/hotproduct',compact('results','tags', 'new_products', 'headerlang'));
+    }
+
+    /**
+     * Display Best Seller
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function salesproduct()
+    {
+        $tags = Tag::has('products')->get();
+
+        $results = Product::where('published',1)
+            ->where('special_price', '>', 0)
+            ->where('special_price_start_date', '<=', date('Y-m-d', time()))
+            ->where('special_price_end_date', '>=', date('Y-m-d', time()))
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        $headerlang = Lang::get('home.sale-products');
+
+        $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+
+        return View('front/products/hotproduct',compact('results','tags', 'new_products', 'headerlang'));
     }
 
     /**

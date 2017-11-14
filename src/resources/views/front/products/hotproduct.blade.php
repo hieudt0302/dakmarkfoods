@@ -6,6 +6,26 @@
 
 @section('content')
 
+    <!-- Head Section -->
+    <section class="small-section pt-60 pb-20 bg-gray-lighter">
+        <div class="relative container align-left">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{ $headerlang }}</h1>
+                    <div class="hs-line-4 black">
+                    </div>
+                </div>
+                <div class="col-md-4 mt-30">
+                    <div class="mod-breadcrumbs align-right">
+                        <a href="{{url('/')}}">@lang('header.home')</a>&nbsp;/&nbsp;<a href="{{url('/products')}}"> @lang('header.products') </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Head Section -->
+
     <!-- PRODUCT PAGE-->
     <section class="small-section productlist">
         <div class="container relative">
@@ -130,10 +150,10 @@
                         </div>
                     </div>
                     <div class="widget">
-                        <h5 class="widget-title">@lang('home.best-sellers-products') <a href="{{url('/bestseller')}}" class="pull-right"><i class="fa fa-angle-double-right"></i></a></h5>
+                        <h5 class="widget-title">@lang('home.new-products') <a href="{{url('/products')}}" class="pull-right"><i class="fa fa-angle-double-right"></i></a></h5>
                         <div class="widget-body">
                             <ul class="clearlist widget-posts">
-                            @foreach($best_sellers_products as $product)
+                            @foreach($new_products as $product)
                                 <!-- Preview item -->
                                 <li class="clearfix">
                                     <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="" class="widget-posts-img"></a>
