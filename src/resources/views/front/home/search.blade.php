@@ -74,25 +74,27 @@
                 </h2>
                 <div class="row multi-columns-row">
                     @foreach($posts as $post)
-                    <div class="col-xs-12 col-sm-6 mb-20">
-                        <div class="blog-item">
-                            <!-- Post Title -->
-                            <h2 class="blog-item-title"><a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title??$post->title}}</a></h2>
-
-                            <!-- Text Intro -->
-                            <div class="blog-item-body">
-                                <p>
-                                    {{$post->translation->excerpt??$post->excerpt}}
-                                </p>
-                            </div>
-                            <!-- Read More Link -->
-                            <div class="blog-item-foot">
-                                <a href="{{url('/posts')}}/{{$post->slug}}" class="btn btn-mod btn-round  btn-small">@lang('common.read-more') <i class="fa fa-angle-right"></i></a>
-                            </div>
+                    <!-- Post Item -->
+                    <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn">
+                        <div class="post-prev-img">
+                            <a href="{{url('/posts')}}/{{$post->slug}}">
+                                <img src="{{ asset('/storage/images/blog/preview/') }}/{{$post->img??'images/no-image.png'}}" alt="">
+                            </a>
                         </div>
-                        <!-- End Post -->
+                        <div class="post-prev-title ">
+                            <a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a>
+                        </div>
+                        <div class="post-prev-info ">
+                            {{$post->author->last_name}} {{$post->author->first_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}
+                        </div>
+                        <div class="post-prev-text">
+                            {{$post->translation->excerpt??$post->excerpt}}
+                        </div>
+                        <div class="post-prev-more">
+                            <a href="{{url('/posts')}}/{{$post->slug}}" class="btn btn-mod btn-gray btn-round">@lang('common.read-more') <i class="fa fa-angle-right"></i></a>
+                        </div>
                     </div>
-                    {{--@endif--}}
+                    <!-- End Post Item -->
                     @endforeach
                 </div>
                 <div class="pt20 pb20">
