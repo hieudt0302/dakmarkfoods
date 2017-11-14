@@ -6,7 +6,6 @@
         </h2>
         <div class="row multi-columns-row">
             @foreach($new_blogs as $news)
-{{--                {{ dd($news) }}--}}
             <!-- Post Item -->
             <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn">
                 <div class="post-prev-img">
