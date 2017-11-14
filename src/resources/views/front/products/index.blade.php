@@ -145,7 +145,7 @@
                             </ul>
                         </div>
                     </div>
-                    @if(!empty($promo))
+                    @if(empty($promo))
                     <div class="widget">
                         <h5 class="widget-title">@lang('home.best-sellers-products') <a href="{{url('/bestseller')}}" class="pull-right"><i class="fa fa-angle-double-right"></i></a></h5>
                         <div class="widget-body">
