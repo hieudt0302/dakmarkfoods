@@ -20,6 +20,7 @@
 
     <section class="small-section">
         <div class="relative container align-left">
+            @if ($search_type =="all" || $search_type =="product")
             <!-- Product Results-->
             <div class="col-xs-12 productresult">
                 <h2 class="section-title align-center pb-40">
@@ -64,6 +65,8 @@
                 </div>
             </div>
             <!-- End Product Results-->
+            @endif
+            @if ($search_type =="all" || $search_type =="blog")
             <!-- Blog Results-->
             <div class="col-xs-12 blogresult">
                 <h2 class="section-title align-center pb-40">
@@ -97,7 +100,7 @@
                 </div>
             </div>
             <!-- End Blog Results-->
-
+            @endif
         </div>
     </section>
 

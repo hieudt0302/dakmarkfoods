@@ -45,6 +45,7 @@
             {!! Form::open(array('url' => '/search')) !!}
                 <div class="seach-input">
                     <input type="text" class="search" id="s" name="key" placeholder="@lang('header.enter-keyword')" autofocus="autofocus">
+                    <input type="hidden" name="searchtype" value="all">
                 </div>
             {!! Form::close() !!}
         </div>
