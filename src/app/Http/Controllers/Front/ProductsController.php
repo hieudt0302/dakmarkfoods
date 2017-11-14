@@ -226,6 +226,16 @@ class ProductsController extends Controller
        
 
         $product = Product::find($request->id);
+        
+        if(empty($product))
+        {
+            return response()->json([
+                'message' => 'Product not found!',
+                'status' => 'error',
+                'newCartItemCount' => Cart::count()
+            ]);
+        }
+
         $price = $product->price;
         if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
             if($product->special_price_start_date <= date('Y-m-d H:i:s') && $product->special_price_end_date >= date('Y-m-d H:i:s') ){
