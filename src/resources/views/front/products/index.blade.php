@@ -61,12 +61,11 @@
                                 @endif
                             </div>
                             <div class="post-prev-more align-center">
-
                                 @if(!$product->call_for_price)
                                     @if(!$product->disable_buy_button)
                                         @if(!$product->sold_off)
                                         <form method="post" action="#" class="form">
-                                            <a href="javascript:void(0)" class="readmore add-shoopingcart btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
+                                            <a href="javascript:void(0)" data-id="{{$product->id}}" class="readmore add-shoopingcart btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
                                         </form>
                                         @endif
                                     @endif
@@ -200,8 +199,8 @@
         $('.add-shoopingcart').click(function() {
             var id = $("input[name='product_id']").val();
             var name = $("input[name='product_name']").val();
-            var price = $("input[name='product_price']").val();
-            var quantity = 1;//$("input[name='quantity']").val();
+            var price = 0;
+            var quantity = 1;
             $.ajax({
                type:'POST',
                url:'{{ url("/add-to-cart") }}',              
@@ -222,8 +221,8 @@
          $('.add-wishlist').click(function() {
              var id = $("input[name='product_id']").val();
              var name = $("input[name='product_name']").val();
-             var price = $("input[name='product_price']").val();
-             var quantity = 1;//$("input[name='quantity']").val();
+             var price = 0;
+             var quantity = 1;
              $(this).effect("shake", {
                  times: 1
              }, 200);
