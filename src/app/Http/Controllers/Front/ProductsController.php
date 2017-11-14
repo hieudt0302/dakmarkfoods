@@ -278,6 +278,7 @@ class ProductsController extends Controller
                 'newCartItemCount' => Cart::count()
             ]);
         }
+        
         $price = $product->price;
         if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
             if($product->special_price_start_date <= date('Y-m-d H:i:s') && $product->special_price_end_date >= date('Y-m-d H:i:s') ){
