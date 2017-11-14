@@ -19,6 +19,7 @@ return [
     'retype-password' => 'Xác nhận mật khẩu',
 	'save' => 'Lưu', 
 	'action' => 'Thao tác',
+    'district' => 'Quận',     
     'city' => 'Thành phố',
     'province' => 'Tỉnh',
     'country' => 'Nước',

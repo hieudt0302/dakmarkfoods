@@ -45,5 +45,6 @@ return [
      'chat-details' => 'Chat for more details',
      'posts' => 'Posts',
      'open-map' => 'Open the map',
-     'close-map' => 'Close the map',                                  	                     
+     'close-map' => 'Close the map',   
+     'in-stock' => 'In stock',                         	                     
 ];
