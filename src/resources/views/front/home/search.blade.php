@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - '.__('header.search'))
+@section('title','Dakmark foods - '.__('header.search'))
 @section('content')
 
 
