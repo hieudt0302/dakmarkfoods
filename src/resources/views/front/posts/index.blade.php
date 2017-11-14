@@ -77,7 +77,8 @@
                             <button class="search-button animate" type="submit" title="@lang('header.search')">
                                 <i class="fa fa-search"></i>
                             </button>
-                            <input type="text" class="form-control search-field" placeholder="@lang('header.enter-keyword')">
+                            <input type="hidden" name="searchtype" value="blog">
+                            <input type="text" class="form-control search-field" id="s" name="key" placeholder="@lang('header.enter-keyword')">
                         </div>
                         {!! Form::close() !!}
                     </div>
