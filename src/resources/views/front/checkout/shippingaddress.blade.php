@@ -1,5 +1,5 @@
 @extends('layouts.master') 
-@section('title','Địa Chỉ Nhận Hàng - Giỏ Hàng') 
+@section('title','Địa Chỉ Nhận Hàng - Dakmark foods') 
 
 @section('header')
 @parent

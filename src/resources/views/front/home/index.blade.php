@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Home')
+@section('title','Dakmark foods - Home')
 @section('content')
 
     <!-- Futured Slider -->

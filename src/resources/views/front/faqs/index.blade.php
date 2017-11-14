@@ -1,7 +1,7 @@
 
 
 @extends('layouts.master')
-@section('title','Poko Farms - FAQ')
+@section('title','Dakmark foods - FAQ')
 @section('content')
 
 <!-- Head Section -->
