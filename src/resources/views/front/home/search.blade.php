@@ -23,7 +23,7 @@
             <!-- Product Results-->
             <div class="col-xs-12 productresult">
                 <h2 class="section-title align-center pb-40">
-                    @lang('header.product')
+                    @lang('header.products')
                 </h2>
                 <div class="row multi-columns-row">
                     @foreach($products as $product)

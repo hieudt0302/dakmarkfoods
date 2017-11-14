@@ -47,6 +47,8 @@ Route::get('/faqs', 'Front\FaqController@index');
 
 /* PRODUCT */
 Route::get('/products', 'Front\ProductsController@index');
+Route::get('/bestseller', 'Front\ProductsController@bestseller');
+Route::get('/sales', 'Front\ProductsController@salesproduct');
 Route::get('/products/{slug}', 'Front\ProductsController@cat');
 Route::get('/product/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');

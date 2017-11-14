@@ -2,7 +2,7 @@
     <div class="container relative">
         <h2 class="section-title align-left mb-30 mb-sm-40">
             @lang('home.best-sellers-products')
-            <a href="{{url('/products')}}" class="section-more right">@lang('common.see-more') <i class="fa fa-angle-right"></i></a>
+            <a href="{{url('/bestseller')}}" class="section-more right">@lang('common.see-more') <i class="fa fa-angle-right"></i></a>
         </h2>
         <div class="row multi-columns-row">
             @foreach($best_sellers_products as $product)
