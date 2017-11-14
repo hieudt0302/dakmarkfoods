@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Poko Farms - Product')
+@section('title','Dakmark foods - Product')
 @section('header')
 
 @endsection
@@ -61,12 +61,11 @@
                                 @endif
                             </div>
                             <div class="post-prev-more align-center">
-
                                 @if(!$product->call_for_price)
                                     @if(!$product->disable_buy_button)
                                         @if(!$product->sold_off)
                                         <form method="post" action="#" class="form">
-                                            <a href="javascript:void(0)" class="readmore add-shoopingcart btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
+                                            <a href="javascript:void(0)" data-id="{{$product->id}}" data-name="{{$product->name}}" class="readmore add-shoopingcart btn btn-mod btn-border btn-circle mt-10 addcart">@lang('shoppings.add-cart')</a>
                                         </form>
                                         @endif
                                     @endif
@@ -193,15 +192,15 @@
 
 @endsection
 @section('scripts')
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
         $('.add-shoopingcart').click(function() {
-            var id = $("input[name='product_id']").val();
-            var name = $("input[name='product_name']").val();
-            var price = $("input[name='product_price']").val();
-            var quantity = 1;//$("input[name='quantity']").val();
+            var id = $(this).attr("data-id") 
+            var name = $(this).attr("data-name") 
+            var price = 0;
+            var quantity = 1;
             $.ajax({
                type:'POST',
                url:'{{ url("/add-to-cart") }}',              
@@ -222,8 +221,8 @@
          $('.add-wishlist').click(function() {
              var id = $("input[name='product_id']").val();
              var name = $("input[name='product_name']").val();
-             var price = $("input[name='product_price']").val();
-             var quantity = 1;//$("input[name='quantity']").val();
+             var price = 0;
+             var quantity = 1;
              $(this).effect("shake", {
                  times: 1
              }, 200);
