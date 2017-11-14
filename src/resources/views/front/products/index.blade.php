@@ -220,8 +220,8 @@
             });
         });
          $('.add-wishlist').click(function() {
-             var id = $("input[name='product_id']").val();
-             var name = $("input[name='product_name']").val();
+            var id = $(this).attr("data-id") 
+            var name = $(this).attr("data-name") 
              var price = 0;
              var quantity = 1;
              $(this).effect("shake", {
