@@ -321,7 +321,7 @@
 @section('scripts')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script> 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/SmoothScroll.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/eventbroker.js') }}"></script> 
