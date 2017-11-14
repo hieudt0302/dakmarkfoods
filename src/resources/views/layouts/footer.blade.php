@@ -11,16 +11,13 @@
                                 <a href="{{url('/about')}}" title=" "><b>@lang('common.company-name').</b></a>
                             </li>
                             <li>
-                                @lang('common.headquarter-address')
+                                {{ Setting::config('address') }}
                             </li>
                             <li>
-                                <a href="tel:+842462531666" id="call-number"><i class="fa fa-phone-square" aria-hidden="true"></i> +94 24 6253 1666</a>
+                                <a href="tel:+842462531666" id="call-number"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Setting::config('phone') }}</a>
                             </li>
                             <li>
-                                <a href="tel:+84916322822"><i class="fa fa-mobile" aria-hidden="true"></i> +84 916 322 822</a>
-                            </li>
-                            <li>
-                                <a href="mailto:dakmark@dakmark.com.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> dakmark@dakmark.com.vn</a>
+                                <a href="mailto:dakmark@dakmark.com.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ Setting::config('website') }}</a>
                             </li>
                         </ul>
                         <div class="mb-20 mt-20 ">
