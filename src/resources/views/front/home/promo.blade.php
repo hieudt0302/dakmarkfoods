@@ -21,7 +21,7 @@
             <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
 
                 <div class="post-prev-img">
-                    <a href="#"><img src="{{ asset('images/foods/banner-1.jpg')}}" alt="" /></a>
+                    <a href="{{ Setting::config('banner-url-1') }}"><img src="{{ asset('images/foods/banner-1.jpg')}}" alt="" /></a>
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
             <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
 
                 <div class="post-prev-img">
-                    <a href="#"><img src="{{ asset('images/foods/banner-2.jpg')}}" alt="" /></a>
+                    <a href="{{ Setting::config('banner-url-2') }}"><img src="{{ asset('images/foods/banner-2.jpg')}}" alt="" /></a>
                 </div>
 
             </div>
@@ -41,7 +41,7 @@
             <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.3s" data-wow-duration="2s">
 
                 <div class="post-prev-img">
-                    <a href="#"><img src="{{ asset('images/foods/banner-3.jpg')}}" alt="" /></a>
+                    <a href="{{ Setting::config('banner-url-3') }}"><img src="{{ asset('images/foods/banner-3.jpg')}}" alt="" /></a>
                 </div>
 
             </div>
