@@ -86,8 +86,10 @@
                                 <form class="form" id="mailchimp">
                                     <div class="mb-20">@lang('footer.newsletter-message')</div>
                                     <div class="mb-20">
-                                        <input placeholder="Email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
+                                        <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
                                         <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
+                                        <div class="subscribe-success">@lang('footer.subscribe-success')</div>
+                                        <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>                                    
                                     </div>
                                     <div id="subscribe-result"></div>
                                 </form>
@@ -113,3 +115,29 @@
     </div>
     <!-- End Top Link -->
 </footer>
+
+<script type="text/javascript">
+    $('a.subscribe1').click(function() {  
+        $.ajax({
+            type: "POST",
+            url: "{{url('/subscribe')}}" ,
+            data: {
+                "email": $("input[name='subscribe_email']").val(),
+            },
+            success: function(res){
+                if(res.success){
+                    $(".subscribe-success").show();
+                    $(".subscribe-failed").hide();
+                }
+                else{
+                    $(".subscribe-success").hide();
+                    $(".subscribe-failed").show();
+                }
+                
+            },
+            error:function(res){
+                console.log("Error!");  
+            }
+        });            
+    });
+</script>
