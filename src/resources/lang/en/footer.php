@@ -14,10 +14,11 @@ return [
     'my-wishlist' => 'My wishlist',
     'order-history' => 'Order history',
     'faqs' => 'FAQs',
-    'newsletter-message' => 'Stay informed with Pokofarms',
+    'newsletter-message' => 'Stay informed with Dakmark Foods',
     'subscribe' => 'Subscribe',   
     'unsubscribe' => 'Unsubscribe',
     'subscribe-success' => 'You have successfully subscribed !',
     'subscribe-failed' => 'This email is already subscribed !',       
-    'about-us' => 'About',          
+    'about-us' => 'About',
+    'verified-by' => 'VERIFIED BY',             
 ];

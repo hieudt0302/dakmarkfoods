@@ -14,13 +14,13 @@
                     </a>
                 </div>
                 <div class="post-prev-title ">
-                    <a href="{{url('/posts')}}/{{$news->slug}}">{{$news->translation->title}}</a>
+                    <a href="{{url('/posts')}}/{{$news->slug}}">{{$news->translation->title??$news->title}}</a>
                 </div>
                 <div class="post-prev-info ">
                     {{$news->author->last_name}} {{$news->author->first_name}} | {{ date('d-m-Y', strtotime($news->created_at)) }}
                 </div>
                 <div class="post-prev-text">
-                    {{$news->excerpt}}
+                    {{$news->translation->excerpt??''}}
                 </div>
                 <div class="post-prev-more">
                     <a href="{{url('/posts')}}/{{$news->slug}}" class="btn btn-mod btn-gray btn-round">@lang('common.read-more') <i class="fa fa-angle-right"></i></a>

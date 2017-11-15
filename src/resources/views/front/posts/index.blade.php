@@ -36,7 +36,7 @@
                     @foreach($posts as $post)
                     <div class="blog-item">
                         <!-- Post Title -->
-                        <h2 class="blog-item-title"><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
+                        <h2 class="blog-item-title"><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title??$post->title}}</a></h2>
                         <!-- Author, Categories, Comments -->
                         <div class="blog-item-data">
                             <a href="#"><i class="fa fa-clock-o"></i> {{ date('d-m-Y', strtotime($post->created_at)) }}</a>
@@ -50,12 +50,12 @@
                         </div>
                         <!-- Media Gallery -->
                         <div class="blog-media">
-                            <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="{{$post->translation->title}}">
+                            <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="{{$post->translation->title??$post->title}}">
                         </div>
                         <!-- Text Intro -->
                         <div class="blog-item-body">
                             <p>
-                                {{$post->translation->excerpt}}
+                                {{$post->translation->excerpt??''}}
                             </p>
                         </div>
                         <!-- Read More Link -->
@@ -106,7 +106,7 @@
                                     <li class="clearfix">
                                         <a href="{{url('/posts')}}/{{$recentpost->slug}}"><img src="{{ asset('images/blog/' . $recentpost->img) }}" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href="{{url('/posts')}}/{{$recentpost->slug}}" title="">{{$recentpost->translation->title}}</a> @lang('blog.posted-by') {{$recentpost->author->first_name}}<br/>@lang('blog.posted-on') {{ date('d-m-Y', strtotime($recentpost->created_at)) }}
+                                            <a href="{{url('/posts')}}/{{$recentpost->slug}}" title="">{{$recentpost->translation->title??$recentpost->title}}</a>{{$recentpost->author->first_name}}&nbsp;|&nbsp;{{ date('d-m-Y', strtotime($recentpost->created_at)) }}
                                         </div>
                                     </li>
                                 @endforeach
