@@ -123,12 +123,6 @@
 	                                <td>
 	                                    <input type="text" class="form-control" name="vimeo" value="{{ Setting::config('vimeo') }}"/>
 	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Link video homepage</td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="home_video_url" value="{{ Setting::config('home_video_url') }}"/>
-	                                </td>
 	                            </tr>	                            
 
                             </table>                
@@ -152,75 +146,23 @@
 	                                <td>
 	                                    <textarea class="form-control" name="description" style="height: 100px">{{ Setting::config('description') }}</textarea>
 	                                </td>
-	                            </tr>
+	                            </tr>  
 	                            <tr>
-	                                <td>Logo</td>
+	                                <td>Url cho bannder 1</td>
 	                                <td>
-	                                    <input type="file" class="form-control" name="logo" />
-	                                </td>
-	                                <td>
-	                                    @if(Setting::config('logo') != '' )
-	                                    <img src="{{asset('/images/logo')}}/Setting::config('logo')" />
-	                                    @endif
+	                                    <input type="text" class="form-control" name="banner-url-1" value="{{ Setting::config('banner-url-1') }}"/>
 	                                </td>
 	                            </tr>
 	                            <tr>
-	                                <td>Favicon</td>
+	                                <td>Url cho bannder 2</td>
 	                                <td>
-	                                    <input type="file" class="form-control" name="favicon" />
-	                                </td>
-	                                <td>
-	                                    @if(Setting::config('favicon') != '' )
-	                                    <img src="{{asset('/images/logo')}}/Setting::config('favicon')" />
-	                                    @endif
-	                                </td>
-	                            </tr>   
-	                            <tr>
-	                                <td>Mẫu mail kích hoạt tài khoản</td>
-	                                <td>
-		                                <select name="account_active_mail" class="form-control">
-	                                        @foreach($mail_temps as  $mail_temp)
-	                                        <option value="{{$mail_temp->id}}" {!! Setting::config('account_active_mail')==$mail_temp->id ? 'selected' : '' !!}>
-	                                        	{{$mail_temp->name}}
-	                                        </option>
-	                                        @endforeach
-	                                    </select>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Mẫu mail thông báo khuyến mãi</td>
-	                                <td>
-		                                <select name="promote_mail" class="form-control">
-	                                        @foreach($mail_temps as $mail_temp)
-	                                        <option value="{{$mail_temp->id}}" {!! Setting::config('promote_mail')==$mail_temp->id ? 'selected' : '' !!}>
-	                                        	{{$mail_temp->name}}
-	                                        </option>
-	                                        @endforeach
-	                                    </select>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Banner style (1:fullwidth, 2:two columns)</td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="banner-style" value="{{ Setting::config('banner-style') }}"/>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Url cho full-width bannder</td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="fw-banner-url" value="{{ Setting::config('fw-banner-url') }}"/>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Url cho bannder bên trái</td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="left-banner-url" value="{{ Setting::config('left-banner-url') }}"/>
+	                                    <input type="text" class="form-control" name="banner-url-2" value="{{ Setting::config('banner-url-2') }}"/>
 	                                </td>
 	                            </tr> 
 	                            <tr>
-	                                <td>Url cho bannder bên phải</td>
+	                                <td>Url cho bannder 3</td>
 	                                <td>
-	                                    <input type="text" class="form-control" name="right-banner-url" value="{{ Setting::config('right-banner-url') }}"/>
+	                                    <input type="text" class="form-control" name="banner-url-3" value="{{ Setting::config('banner-url-3') }}"/>
 	                                </td>
 	                            </tr> 	                             	                              	                                                       	                            	                            		                            	                                     
                             </table>  

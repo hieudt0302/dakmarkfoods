@@ -82,22 +82,10 @@
                                                     </div>
                                                     <div class="cart-col cart-col-qty" data-caption="Quantity">
                                                         <div class="qty-input">
-                                                            <!-- <div class="input-group bootstrap-touchspin">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-secondary bootstrap-touchspin-down" type="button">
-                                                                        <i class="fa fa-minus"></i>
-                                                                    </button>
-                                                                </span>
-                                                                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span> -->
+                                                          
                                                                 <input  class="form-control" data-href="/Cart/UpdateWishlistItem?ItemId={{$row->rowId}}" data-max="10000" data-min="1"
                                                                     data-postfix="" data-sci-item="{{$row->rowId}}" data-step="1" data-val="true" data-val-number="The field 'EnteredQuantity' must be a number." id="itemquantity{{$row->id}}" type="text" value="{{$row->qty}}" style="display: block;">
-                                                                <!-- <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-secondary bootstrap-touchspin-up" type="button">
-                                                                        <i class="fa fa-plus"></i>
-                                                                    </button>
-                                                                </span>
-                                                            </div> -->
+                                                               
                                                         </div>
                                                     </div>
                                                     <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
@@ -179,7 +167,7 @@
 @section('scripts')
 <!-- <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>  -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/eventbroker.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/underscore.js') }}"></script> 

@@ -30,13 +30,13 @@
                 ctx.find("select:not(.noskin), input:hidden[data-select]").selectWrapper();
             },
             // tooltips
-            function (ctx) {
-                if ($.fn.tooltip === undefined)
-                    return;
-                if (!Modernizr.touchevents) {
-                    ctx.tooltip({ selector: '[data-toggle=tooltip], .tooltip-toggle', animation: false });
-                }
-            },
+            // function (ctx) {
+            //     if ($.fn.tooltip === undefined)
+            //         return;
+            //     if (!Modernizr.touchevents) {
+            //         ctx.tooltip({ selector: '[data-toggle=tooltip], .tooltip-toggle', animation: false });
+            //     }
+            // },
             // touch spin
             function (ctx) {
                 if ($.fn.TouchSpin === undefined)

@@ -17,11 +17,11 @@
                                 <a href="tel:+842462531666" id="call-number"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Setting::config('phone') }}</a>
                             </li>
                             <li>
-                                <a href="mailto:dakmark@dakmark.com.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ Setting::config('website') }}</a>
+                                <a href="mailto:{{ Setting::config('email') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ Setting::config('email') }}</a>
                             </li>
                         </ul>
                         <div class="mb-20 mt-20 ">
-                            <strong>ĐƯỢC CHỨNG NHẬN</strong>
+                            <strong>@lang('footer.verified-by')</strong>
                             <a target="_blank " href="#" rel="nofollow"><img alt=" " title=" " src="{{ asset('frontend/images/home-sample/1492058103818_8888090.png') }} " class="img-responsive "></a>
                             <a target="_blank " href="#" rel="nofollow"><img alt=" " title=" " src="{{ asset('frontend/images/home-sample/bo-cong-thuong.da-dang-ky.png') }} " class="img-responsive "></a>
                         </div>
@@ -86,19 +86,21 @@
                                 <form class="form" id="mailchimp">
                                     <div class="mb-20">@lang('footer.newsletter-message')</div>
                                     <div class="mb-20">
-                                        <input placeholder="Email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
+                                        <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
                                         <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
+                                        <div class="subscribe-success">@lang('footer.subscribe-success')</div>
+                                        <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>                                    
                                     </div>
                                     <div id="subscribe-result"></div>
                                 </form>
                             </div>
                             <br>
                             <div class="footer-social-links ">
-                                <a href="#" title="Facebook " target="_blank "><i class="fa fa-facebook "></i></a>
-                                <a href="#" title="Twitter " target="_blank "><i class="fa fa-twitter "></i></a>
-                                <a href="#" title="Behance " target="_blank "><i class="fa fa-behance "></i></a>
-                                <a href="#" title="LinkedIn+ " target="_blank "><i class="fa fa-linkedin "></i></a>
-                                <a href="#" title="Pinterest " target="_blank "><i class="fa fa-pinterest "></i></a>
+                                <a href="http://www.facebbook.com/{{ Setting::config('facebook') }}" title="Facebook " target="_blank "><i class="fa fa-facebook "></i></a>
+                                <a href="http://www.twitter.com/{{ Setting::config('twitter') }}" title="Twitter " target="_blank "><i class="fa fa-twitter "></i></a>
+                                <a href="skype:{{ Setting::config('skype')}}?chat" title="Skype " target="_blank "><i class="fa fa-skype "></i></a>
+                                <a href="http://www.youtube.com/{{ Setting::config('youtube') }}" title="Youtube " target="_blank "><i class="fa fa-youtube-play "></i></a>
+                                <a href="http://www.vimeo.com/{{ Setting::config('vimeo') }}" title="Vimeo " target="_blank "><i class="fa fa-vimeo "></i></a>
                             </div>
                         </div>
                     </div>
@@ -113,3 +115,29 @@
     </div>
     <!-- End Top Link -->
 </footer>
+
+<script type="text/javascript">
+    $('a.subscribe1').click(function() {  
+        $.ajax({
+            type: "POST",
+            url: "{{url('/subscribe')}}" ,
+            data: {
+                "email": $("input[name='subscribe_email']").val(),
+            },
+            success: function(res){
+                if(res.success){
+                    $(".subscribe-success").show();
+                    $(".subscribe-failed").hide();
+                }
+                else{
+                    $(".subscribe-success").hide();
+                    $(".subscribe-failed").show();
+                }
+                
+            },
+            error:function(res){
+                console.log("Error!");  
+            }
+        });            
+    });
+</script>

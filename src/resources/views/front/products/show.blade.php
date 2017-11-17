@@ -125,7 +125,7 @@
 					@if(!$product->call_for_price)
 						@if(!$product->disable_buy_button)
 							<form method="post" action="#" class="form">
-								<input type="number" class="input-lg round" min="1" max="100" value="1">
+								<input name="quantity" type="number" class="input-lg round" min="1" max="100000" value="1">
 								<a href="javascript:void(0)" class="readmore add-shoopingcart btn btn-mod btn-large btn-round">@lang('shoppings.add-cart')</a>
 							</form>
 						@endif
@@ -330,7 +330,7 @@
 
 @section('scripts')
 
-
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
@@ -340,18 +340,18 @@
                type:'POST',
                url:'{{ url("/add-to-cart") }}',              
                data: {
-                    'id': '{{$product->id}}',//just test
-                    'name': '{{$product->name}}',//just test
-                    'price': {{$product->price}},//just test
-                    'quantity': quantity,//just test
+                    'id': '{{$product->id}}',
+                    'name': '{{$product->name}}',
+                    'price': {{$product->price}},
+                    'quantity': quantity, 
                 },
                success:function(response){
-                    console.log(response['newCartItemCount']); //debug
+                    console.log(response['message']); //debug
 					//$('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
 					$('.cartItemCount').html(response['newCartItemCount']);
                },
                error:function(response){
-                    console.log(response['newCartItemCount']); //debug
+                    console.log(response['message']); //debug
                }
             });
         });
@@ -364,10 +364,10 @@
                type:'POST',
                url:'{{ url("/add-to-wishlist") }}',              
                data: {
-                    'id': '{{$product->id}}',//just test
-                    'name': '{{$product->name}}',//just test
-                    'price': {{$product->price}},//just test
-                    'quantity': 1,//just test
+                    'id': '{{$product->id}}',
+                    'name': '{{$product->name}}',
+                    'price': {{$product->price}},
+                    'quantity': 1,
                 },
                success:function(response){
 					console.log(response['message']); //debug

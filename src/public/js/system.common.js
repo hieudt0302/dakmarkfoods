@@ -138,6 +138,7 @@
             }
         }
     
+        /*
         window.Prefixer = (function () {
             var TransitionEndEvent = {
                 WebkitTransition: 'webkitTransitionEnd',
@@ -180,7 +181,7 @@
                 }
             }
         })();
-    
+        */
         window.createCircularSpinner = function (size, active, strokeWidth, boxed, white) {
             var spinner = $('<div class="spinner"></div>');
             if (active) spinner.addClass('active');

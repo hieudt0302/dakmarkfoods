@@ -6,6 +6,22 @@
 
 @section('content')
 
+    <!-- Head Section -->
+    <section class="small-section pt-60 pb-20 bg-gray-lighter">
+        <div class="relative container align-left">
+            <div class="row">
+                <div class="col-md-8">
+                @if(!empty($promo))
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">@lang('header.promotion')</h1>
+                @else
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
+                @endif
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Head Section -->
+
     <!-- PRODUCT PAGE-->
     <section class="small-section productlist">
         <div class="container relative">
@@ -129,6 +145,7 @@
                             </ul>
                         </div>
                     </div>
+                    @if(empty($promo))
                     <div class="widget">
                         <h5 class="widget-title">@lang('home.best-sellers-products') <a href="{{url('/bestseller')}}" class="pull-right"><i class="fa fa-angle-double-right"></i></a></h5>
                         <div class="widget-body">
@@ -184,6 +201,7 @@
                             </ul>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <!-- END PRODUCT SIDEBAR -->
             </div>
@@ -220,8 +238,8 @@
             });
         });
          $('.add-wishlist').click(function() {
-             var id = $("input[name='product_id']").val();
-             var name = $("input[name='product_name']").val();
+            var id = $(this).attr("data-id") 
+            var name = $(this).attr("data-name") 
              var price = 0;
              var quantity = 1;
              $(this).effect("shake", {

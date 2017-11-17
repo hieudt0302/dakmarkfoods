@@ -41,8 +41,7 @@
                                 @lang('contact.phone')
                             </div>
                             <div class="ci-text">
-                                <a href="tel:+842462531666">+84 24 6253 1666</a><br>
-                                <a href="tel:+84916322822">+84 916 322 822</a>
+                                <a href="tel:{{ Setting::config('phone') }}">{{ Setting::config('phone') }}</a><br>
                             </div>
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                                 @lang('contact.address')
                             </div>
                             <div class="ci-text">
-                                @lang('common.headquarter-address')
+                                {{ Setting::config('address') }}
                             </div>
                         </div>
                     </div>
@@ -72,7 +71,7 @@
                                 Email
                             </div>
                             <div class="ci-text">
-                                <a href="mailto:pokofarms@pokofarms.com.vn">pokofarms@pokofarms.com.vn</a>
+                                <a href="mailto:pokofarms@pokofarms.com.vn">{{ Setting::config('email') }}</a>
                             </div>
                         </div>
                     </div>

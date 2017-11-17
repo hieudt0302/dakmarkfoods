@@ -273,13 +273,22 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('mail_templates/{id}/edit',['as'  =>'admin.mail_templates.edit','uses' => 'MailTemplateController@edit','middleware'=> ['role:admin|manager']]);
     Route::patch('mail_templates/{id}',['as'  =>'admin.mail_templates.update','uses' => 'MailTemplateController@update','middleware'=> ['role:admin|manager']]);    
     Route::delete('mail_templates/{id}',['as'  =>'admin.mail_templates.destroy','uses' => 'MailTemplateController@destroy','middleware'=> ['role:admin|manager']]);     
+    Route::patch('mail_templates/{id}/translation',['as'=>'admin.mail_templates.updateTranslation','uses'=>'MailTemplateController@updateTranslation','middleware' => ['role:admin|manager']]);
 
     // Settings
-    Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);
-    Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update']);
+    Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit','middleware'=> ['role:admin|manager']]);
+    Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update','middleware'=> ['role:admin|manager']]);
 
     // Subscribes
-    Route::get('subscribes',['as'=>'admin.subscribes.index','uses'=>'SubscribeController@index']);
-    Route::post('subscribes',['as'=>'admin.subscribes.send_mail','uses'=>'SubscribeController@send_mail']);
+    Route::get('subscribes',['as'=>'admin.subscribes.index','uses'=>'SubscribeController@index','middleware'=> ['role:admin|manager']]);
+    Route::post('subscribes',['as'=>'admin.subscribes.search','uses'=>'SubscribeController@search','middleware'=> ['role:admin|manager']]);
+    Route::get('subscribes/send_mail',['as'=>'admin.subscribes.send_mail','uses'=>'SubscribeController@send_mail','middleware'=> ['role:admin|manager']]);
+    Route::post('subscribes/send_mail',['as'=>'admin.subscribes.send_mail_perform','uses'=>'SubscribeController@send_mail_perform','middleware'=> ['role:admin|manager']]);
+    Route::delete('subscribes/delele_email/{id}',['as'=>'admin.subscribes.destroy','uses'=>'SubscribeController@destroy','middleware'=> ['role:admin|manager']]); 
+    Route::post('subscribes',['as'=>'admin.subscribes.search','uses'=>'SubscribeController@search','middleware'=> ['role:admin|manager']]);
+
+    //Banner
+    Route::get('banners/edit',['as'=>'admin.banners.edit','uses'=>'BannersController@edit','middleware'=> ['role:admin|manager']]);
+    Route::post('banners/update',['as'=>'admin.banners.update','uses'=>'BannersController@update','middleware'=> ['role:admin|manager']]); 
 });
 
