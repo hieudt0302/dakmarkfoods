@@ -15,7 +15,7 @@ return [
 
     '' => '',
     'home' => 'Trang chủ',
-    'about-us' => 'Dakmarkfoods',
+    'about-us' => 'Dakmark Foods',
     'cert' => 'Chứng chỉ',
     'shop' => 'Mua hàng',
     'product' => 'Sản phẩm',
