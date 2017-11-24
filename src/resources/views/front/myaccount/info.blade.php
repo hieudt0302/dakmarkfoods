@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode">
-                                            <label class="col-lg-3 col-form-label required" for="Username" aria-required="true">@lang('profile.name')</label>
+                                            <label class="col-lg-3 col-form-label required" for="Username" aria-required="true">@lang('<profile class=""></profile>name')</label>
                                             <div class="col-lg-9">
                                                 <p class="form-control-static">{{Auth::user()->username}}</p>
                                             </div>
