@@ -1,6 +1,6 @@
 
 @extends('layouts.master')
-@section('title','Pokofarms - '.__('header.contact'))
+@section('title','Dakmark foods - '.__('header.contact'))
 @section('content')
 
 <!-- Head Section -->
@@ -71,7 +71,7 @@
                                 Email
                             </div>
                             <div class="ci-text">
-                                <a href="mailto:pokofarms@pokofarms.com.vn">{{ Setting::config('email') }}</a>
+                                <a href="mailto:{{ Setting::config('email') }}">{{ Setting::config('email') }}</a>
                             </div>
                         </div>
                     </div>
