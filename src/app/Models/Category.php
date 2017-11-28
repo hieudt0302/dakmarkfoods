@@ -26,6 +26,14 @@ class Category extends Model
         ->get();
     }
 
+    public function GetMenuSubLevel()
+    {       
+        return Category::where('parent_id', $this->id)
+        ->where('is_menu_avaiable', 1)
+        ->orderBy('order','asc')
+        ->get();
+    }
+
 
      /**
      * Get the products for the category.
