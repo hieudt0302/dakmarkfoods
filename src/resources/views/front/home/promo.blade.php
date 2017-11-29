@@ -3,14 +3,13 @@
     <div class="container relative">
 
         <h2 class="section-title mb-70 mb-sm-40">
-            Bạn đang tìm đặc sản hấp dẫn nhất của từng miền?
+            {{$banner_translation->title??''}}
         </h2>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="section-text align-center mb-70 mb-xs-40">
-                    Tố tụng tìm luật sư, tìm kiếm lên Google, cần đặn sản "chất" của 3 miền thì đến với chúng tôi. Không có một cơ hỏi nhỏ nhoi cho lựa chọn sai. Đưa vào miệng là bạn bè bạn cảm nhận dạt dào vùng đất
-                    bạn đã đến.
+                    {!! $banner_translation->content??'' !!}
                 </div>
             </div>
         </div>
