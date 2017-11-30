@@ -86,7 +86,7 @@
                                 <div class="form" id="mailchimp">
                                     <div class="mb-20">@lang('footer.newsletter-message')</div>
                                     <div class="mb-20">
-                                        <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
+                                        <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="text"  required/>
                                         <button type="button" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">@lang('footer.subscribe')</button>
                                     </div>
                                     <div id="subscribe-result">
