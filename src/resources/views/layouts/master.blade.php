@@ -55,6 +55,7 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/timeline.css') }}">
 
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
         @yield('header')
     </head>
     <body class="appear-animate">
@@ -95,7 +96,7 @@
         <!-- End Page Wrap -->
                 
         <!-- JS -->
-        <script type="text/javascript" src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
+        
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.easing.1.3.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>        
         <script type="text/javascript" src="{{ asset('frontend/js/SmoothScroll.js') }}"></script>

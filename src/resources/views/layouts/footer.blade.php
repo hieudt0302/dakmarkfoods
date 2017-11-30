@@ -83,16 +83,17 @@
                         <div class="widget-text clearfix ">
                             {{--<div class="mb-20 ">NEWSLETTER</div>--}}
                             <div class="widget-text clearfix">
-                                <form class="form" id="mailchimp">
+                                <div class="form" id="mailchimp">
                                     <div class="mb-20">@lang('footer.newsletter-message')</div>
                                     <div class="mb-20">
                                         <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
-                                        <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">@lang('footer.subscribe')</button>
-                                        <div class="subscribe-success">@lang('footer.subscribe-success')</div>
-                                        <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>                                    
+                                        <button type="button" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">@lang('footer.subscribe')</button>
                                     </div>
-                                    <div id="subscribe-result"></div>
-                                </form>
+                                    <div id="subscribe-result">
+                                        <div class="subscribe-success">@lang('footer.subscribe-success')</div>
+                                        <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>   
+                                    </div>
+                                </div>
                             </div>
                             <br>
                             <div class="footer-social-links ">
@@ -117,7 +118,7 @@
 </footer>
 
 <script type="text/javascript">
-    $('.subscribe1').click(function() {  
+    $('button.subscribe1').click(function() {  
         $.ajax({
             type: "POST",
             url: "{{url('/subscribe')}}" ,
@@ -125,6 +126,7 @@
                 "email": $("input[name='subscribe_email']").val(),
             },
             success: function(res){
+                var test = $("input[name='subscribe_email']").val();
                 if(res.success){
                     $(".subscribe-success").show();
                     $(".subscribe-failed").hide();
