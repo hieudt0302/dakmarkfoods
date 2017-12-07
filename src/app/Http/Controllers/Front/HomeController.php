@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $new_products = Product::orderBy('created_at', 'desc')->limit(8)->get();
+        $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(8)->get();
 
         // $best_sellers_products = DB::table('products')
         //                             ->join('order_details','products.id', '=', 'order_details.product_id')
