@@ -77,6 +77,37 @@
                                 @endif
                             </div>
                             <div class="post-prev-more align-center">
+                                <p>
+                                    @if( $product->comments->avg('rate') )
+                                    
+                                        @if($product->comments->avg('rate')>=1)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @endif
+                                        @if($product->comments->avg('rate')>=2)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-star-o"></i>
+                                        @endif
+                                        @if($product->comments->avg('rate')>=3)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @endif
+                                        @if($product->comments->avg('rate')>=4)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @endif
+                                        @if($product->comments->avg('rate')>=5)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @endif
+                                        
+                                    @endif 
+                                </p>
                                 @if(!$product->call_for_price)
                                     @if(!$product->disable_buy_button)
                                         @if(!$product->sold_off)
