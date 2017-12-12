@@ -39,6 +39,37 @@
                         @endif
                         <strong>{{FormatPrice::price($product->price)}}</strong>
                     @endif
+                    <p>
+                        @if( $product->comments->avg('rate') )
+                        
+                            @if($product->comments->avg('rate')>=1)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            @endif
+                            @if($product->comments->avg('rate')>=2)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o"></i>
+                            @endif
+                            @if($product->comments->avg('rate')>=3)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            @endif
+                            @if($product->comments->avg('rate')>=4)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            @endif
+                            @if($product->comments->avg('rate')>=5)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            @endif
+                            
+                        @endif 
+                    </p>
                 </div>
             </div>
             <!-- End Shop Item -->

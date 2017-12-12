@@ -91,6 +91,26 @@
             <!-- Foter -->
             @include('layouts.footer')
             <!-- End Foter -->
+            <a class="popup-with-form" id="popup-with-form" href="#newsletter-popup" style="display: none;"></a>
+            <div id="newsletter-popup" class="mfp-hide white-popup-block" style="width: auto; max-width: 500px; background-color: #fff; border-radius: 6px; padding: 20px;margin: 0px auto;">
+                <div class="newsletter-popup-wrap">
+                    <div class="newsletter-icon" style="text-align: center;">
+                        <img src="{{ asset('frontend/images/Mail-icon.png')}}" alt="" style="width: 120px;">
+                    </div>
+                    <h3 class="section-title">BẠN ƠI, ĐỪNG BỎ LỠ!</h3>
+                    <p style="text-align: center;">Đăng ký ngay hôm nay để nhận thông tin khuyến mãi mới nhất</p>
+                    <div class="form" id="mailchimp" novalidate="true">
+                        <div class="mb-20">
+                            <input placeholder="Email" name="subscribe_email" class="form-control input-md round mb-10" type="text" required="" data-com.agilebits.onepassword.user-edited="yes">
+                            <button type="button" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">Đăng ký</button>
+                        </div>
+                        <!-- <div id="subscribe-result">
+                            <div class="subscribe-success" style="display: block;">Bạn đã đăng ký thành công !</div>
+                            <div class="subscribe-failed" style="display: none;">Bạn không thể đăng ký email này!</div>   
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             
         </div>
         <!-- End Page Wrap -->
@@ -112,6 +132,7 @@
         <script type="text/javascript" src="{{ asset('frontend/js/isotope.pkgd.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/imagesloaded.pkgd.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery.cookie.js') }}"></script>
         <!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below 
         **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>
