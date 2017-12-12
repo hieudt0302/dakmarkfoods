@@ -8,7 +8,7 @@
         <small>
             <i class="fa fa-arrow-circle-left"></i>
             <a href="{{url('/admin/mail_templates')}}">Quay lại danh sách</a>
-        </small>
+        </small>   
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -56,6 +56,7 @@
                 </div>
             </div>
         </div>
+
     </div>  
 @endsection
 

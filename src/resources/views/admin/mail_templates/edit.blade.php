@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="{{$tab==2?'active':''}} tab-pane" id="content">
                             <div class="panel-group">
                                 <form id="getTranslation" action="{{url('/admin/mail_templates')}}/{{$mailTemplate->id}}/edit" method="GET">
@@ -110,13 +111,16 @@
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>    
         </div>
     </div>
-</section>        
+
+</section>      
+   
 @endsection
 
 @section('scripts')
@@ -144,4 +148,5 @@
     })    
   })
 </script>
+
 @endsection
