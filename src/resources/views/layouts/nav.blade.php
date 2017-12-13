@@ -100,21 +100,25 @@
 
                 <!-- User -->
                 <li>
+                    @if (Auth::guest())
                     <a href="#" class="mn-has-sub align-center"><i class="fa fa-user-circle-o"></i> <i class="fa fa-angle-down"></i></a>
                     <!-- Sub Multilevel -->
                     <ul class="mn-sub">
-                    @if (Auth::guest())
                         <!-- Sub Column -->
                         <li><a href="{{ url('/login') }}">@lang('auth.login')</a></li>
                         <li><a href="{{ url('/register') }}">@lang('auth.register')</a></li>
                         <!-- End Sub Column -->
+                    </ul>
                     @else
+                    <a href="#" class="mn-has-sub align-center"><i class="fa fa-user-circle-o"></i> {{Auth::user()->first_name}} <i class="fa fa-angle-down"></i></a>
+                    <!-- Sub Multilevel -->
+                    <ul class="mn-sub">
                         <li><a href="{{ url('/cart') }}">@lang('footer.view-cart')</i></a></li>
                         <li><a href="{{ url('/wishlist') }}">@lang('footer.my-wishlist')</i></a></li>
                         <li><a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a></li>
                         <li><a href="{{ url('/logout') }}">@lang('auth.logout')</i></a></li>
-                    @endif
                     </ul>
+                    @endif
                     <!-- End Sub Multilevel -->
                 </li>
                 <!-- End User -->

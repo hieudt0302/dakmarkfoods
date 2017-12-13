@@ -16,35 +16,12 @@
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         
-       <!-- FAVICON: GENERATE HERE: http://www.favicomatic.com -->
-        <link rel="apple-touch-icon" sizes="180x180" href="">
-        <link rel="apple-touch-icon" sizes="57x57" href="" />
-        <link rel="apple-touch-icon" sizes="60x60" href="" />
-        <link rel="apple-touch-icon" sizes="72x72" href="" />
-        <link rel="apple-touch-icon" sizes="76x76" href="" />
-        <link rel="apple-touch-icon" sizes="114x114" href="" />
-        <link rel="apple-touch-icon" sizes="120x120" href="" />
-        <link rel="apple-touch-icon" sizes="144x144" href="" />
-        <link rel="apple-touch-icon" sizes="152x152" href="" />
-        <link rel="apple-touch-icon" sizes="180x180" href="" />
-        <link rel="icon" type="image/png" href="" sizes="196x196" />
-        <link rel="icon" type="image/png" href="" sizes="96x96" />
-        <link rel="icon" type="image/png" href="" sizes="32x32" />
-        <link rel="icon" type="image/png" href="" sizes="16x16" />
-        <link rel="icon" type="image/png" href="" sizes="128x128" />
-        <link rel="shortcut icon" href="favicon.ico">
-        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#e81000">
-        <meta name="apple-mobile-web-app-title" content="BBLand">
-        <meta name="application-name" content="BBLand">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/images/favicons/apple-touch-icon.png')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/favicons//favicon-32x32.png')}}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicons//favicon-16x16.png')}}">
+        <link rel="manifest" href="{{ asset('frontend/images/favicons/manifest.json')}}">
         <meta name="theme-color" content="#ffffff">
-        <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-        <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
-        <!-- END FAVICON -->
-
+        
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
@@ -96,17 +73,16 @@
                     <div class="newsletter-icon" style="text-align: center;">
                         <img src="{{ asset('frontend/images/Mail-icon.png')}}" alt="" style="width: 120px;">
                     </div>
-                    <h3 class="section-title">BẠN ƠI, ĐỪNG BỎ LỠ!</h3>
-                    <p style="text-align: center;">Đăng ký ngay hôm nay để nhận thông tin khuyến mãi mới nhất</p>
+                    <h3 class="section-title">@lang('footer.newsletter-message')</h3>
+                    <p style="text-align: center;"></p>
                     <div class="form" id="mailchimp" novalidate="true">
                         <div class="mb-20">
-                            <input placeholder="Email" name="subscribe_email" class="form-control input-md round mb-10" type="text" required="" data-com.agilebits.onepassword.user-edited="yes">
-                            <button type="button" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">Đăng ký</button>
+                            <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
+                            <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
+                            <div class="subscribe-success">@lang('footer.subscribe-success')</div>
+                            <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>     
                         </div>
-                        <!-- <div id="subscribe-result">
-                            <div class="subscribe-success" style="display: block;">Bạn đã đăng ký thành công !</div>
-                            <div class="subscribe-failed" style="display: none;">Bạn không thể đăng ký email này!</div>   
-                        </div> -->
+                        <div id="subscribe-result"></div>
                     </div>
                 </div>
             </div>
