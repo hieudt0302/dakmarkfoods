@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title','Dakmark foods - Post') 
-
+@include('layouts.share')
 @section('content')
 
     <!-- Head Section -->

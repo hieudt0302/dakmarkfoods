@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', $post->title) 
-
+@include('layouts.share')
 @section('content')
 
     <!-- Head Section -->
