@@ -3,7 +3,6 @@
 @section('header')
 
 @endsection
-@include('layouts.share')
 @section('content')
 
     <!-- Head Section -->
@@ -14,7 +13,7 @@
                 @if(!empty($promo))
                     <h1 class="hs-line-11 mb-20 mb-xs-0">@lang('header.promotion')</h1>
                 @else
-                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??__('header.products')}}</h1>
                 @endif
                 </div>
             </div>
@@ -66,38 +65,36 @@
                                 <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
                             </div>
                             <div class="post-prev-text align-center mb-0">
-                                <p>
-                                    @if( $product->comments->avg('rate') )
-                                    
-                                        @if($product->comments->avg('rate')>=1)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        @endif
-                                        @if($product->comments->avg('rate')>=2)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-star-o"></i>
-                                        @endif
-                                        @if($product->comments->avg('rate')>=3)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        @endif
-                                        @if($product->comments->avg('rate')>=4)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        @endif
-                                        @if($product->comments->avg('rate')>=5)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @else
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        @endif
-                                        ({{count($product->comments)}} @lang('product.reviews'))
-                                        
-                                    @endif 
-                                </p>
+                                @if( $product->comments->avg('rate') )
+                                
+                                    @if($product->comments->avg('rate')>=1)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    @endif
+                                    @if($product->comments->avg('rate')>=2)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star-o"></i>
+                                    @endif
+                                    @if($product->comments->avg('rate')>=3)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    @endif
+                                    @if($product->comments->avg('rate')>=4)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    @endif
+                                    @if($product->comments->avg('rate')>=5)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    @endif
+                                    ({{count($product->comments)}} @lang('product.reviews'))
+                                    <br>
+                                @endif 
                                 @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                                     <del class="section-text">{{FormatPrice::price($product->price)}}</del> &nbsp;
                                     <strong>{{$product->special_price}}</strong>
@@ -308,4 +305,5 @@
          });
     });
 </script>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59f8733056502d001224650a&product=sticky-share-buttons""></script>
 @endsection

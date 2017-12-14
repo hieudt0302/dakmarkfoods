@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title','Dakmark foods - Post') 
-@include('layouts.share')
 @section('content')
 
     <!-- Head Section -->
@@ -16,7 +15,7 @@
                         </div>
                     @endif
                     @else
-                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??''}}</h1>
+                    <h1 class="hs-line-11 mb-20 mb-xs-0">{{$category->translation->name??$category->name??__('header.blogs')}}</h1>
                 @endif
                 </div>
             </div>
@@ -124,5 +123,7 @@
 
 
     <!-- End Blog Section -->
-
+@endsection
+@section('scripts')
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59f8733056502d001224650a&product=sticky-share-buttons"></script>
 @endsection

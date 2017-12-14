@@ -1,4 +1,4 @@
-<nav class="main-nav stick-fixed">
+<nav class="main-nav stick-fixed clearfix">
     <div class="full-wrapper relative clearfix">
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
@@ -82,19 +82,19 @@
 
                 <!-- Favorite -->
                 <li>
-                    <a href="{{ url('/wishlist') }}" class="align-center"><i class="wishlist-icon fa fa-heart-o"></i></a>
+                    <a href="{{ url('/wishlist') }}" class="mn-has-sub align-center"><i class="wishlist-icon fa fa-heart-o"></i></a>
                 </li>
                 <!-- End Favorite -->
 
                 <!-- Search -->
                 <li>
-                    <a id="site-search" href="#" class="align-center"><i class="fa fa-search"></i></a>
+                    <a id="site-search" href="#" class="mn-has-sub align-center"><i class="fa fa-search"></i></a>
                 </li>
                 <!-- End Search -->
 
                 <!-- Cart -->
                 <li>
-                    <a href="{{ url('/cart') }}" class="align-center"><i class="fa fa-shopping-cart shopping-cart-icon"></i></a>
+                    <a href="{{ url('/cart') }}" class="mn-has-sub align-center"><i class="fa fa-shopping-cart shopping-cart-icon"></i></a>
                 </li>
                 <!-- End Cart -->
 

@@ -47,7 +47,7 @@
         <div class="page" id="top">
 
             <!-- SITE SEARCH OVERLAY -->
-            <div id="full-screen-search">
+            <div id="full-screen-search" class="">
                 <button type="button" class="close">×</button>
                 {!! Form::open(array('url' => '/search')) !!}
                 <div class="seach-input">
@@ -125,6 +125,31 @@
         <script type="text/javascript" src="{{ asset('frontend/js/bootstrapscrollspy.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/custom-js.js') }}"></script>
 
+        <script type="text/javascript">
+            $('a.subscribe1').click(function() {  
+                $.ajax({
+                    type: "POST",
+                    url: "{{url('/subscribe')}}" ,
+                    data: {
+                        "email": $("input[name='subscribe_email']").val(),
+                    },
+                    success: function(res){
+                        if(res.success){
+                            $(".subscribe-success").show();
+                            $(".subscribe-failed").hide();
+                        }
+                        else{
+                            $(".subscribe-success").hide();
+                            $(".subscribe-failed").show();
+                        }
+                        
+                    },
+                    error:function(res){
+                        console.log("Error!");  
+                    }
+                });            
+            });
+        </script>
         <script>
                 (function() {
                     $.ajaxSetup({

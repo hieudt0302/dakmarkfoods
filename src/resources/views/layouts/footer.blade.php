@@ -116,30 +116,3 @@
     </div>
     <!-- End Top Link -->
 </footer>
-
-<script type="text/javascript">
-    $('button.subscribe1').click(function() {  
-        $.ajax({
-            type: "POST",
-            url: "{{url('/subscribe')}}" ,
-            data: {
-                "email": $("input[name='subscribe_email']").val(),
-            },
-            success: function(res){
-                var test = $("input[name='subscribe_email']").val();
-                if(res.success){
-                    $(".subscribe-success").show();
-                    $(".subscribe-failed").hide();
-                }
-                else{
-                    $(".subscribe-success").hide();
-                    $(".subscribe-failed").show();
-                }
-                
-            },
-            error:function(res){
-                console.log("Error!");  
-            }
-        });            
-    });
-</script>
