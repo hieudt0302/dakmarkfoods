@@ -72,7 +72,6 @@
 							<strong>Sold Off</strong>
 						@else
 							@if(!$is_sales)
-								<del class="section-text">{{FormatPrice::price($product->old_price)}}</del>
 								<strong>{{FormatPrice::price($product->price)}}</strong>
 							@else
 								<del class="section-text">{{FormatPrice::price($product->price)}}</del>
