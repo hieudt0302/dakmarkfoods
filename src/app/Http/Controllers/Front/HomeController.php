@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $new_products = Product::orderBy('created_at', 'desc')->limit(8)->get();
+        $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(8)->get();
 
         // $best_sellers_products = DB::table('products')
         //                             ->join('order_details','products.id', '=', 'order_details.product_id')
@@ -57,9 +57,10 @@ class HomeController extends Controller
                                 ->get();                
         $new_blogs = Post::where('published',1)->orderBy('updated_at', 'desc')->limit(3)->get();
         $sliders = Slider::where('is_show',1)->get();      
+        $banner_translation = $this->getInfoPageTranslation('banner');
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders'));
+        return View("front/home/index",compact('new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders','banner_translation'));
 
     }
 
@@ -129,10 +130,15 @@ class HomeController extends Controller
         if(Subscribe::existEmail($request->email)){
             return response()->json(['success' => false]);
         }
+        if(empty($request->email) || strlen($request->email) < 0 ){
+            return response()->json(['success' => false]);
+        }
+
         $subscribe = new Subscribe();
         $subscribe->email = $request->email;
         $subscribe->locale = \App::getLocale(); 
         $subscribe->save();
+
         return response()->json(['success' => true]);
     }
 
