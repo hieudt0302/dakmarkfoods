@@ -30,13 +30,40 @@
                     <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
                 </div>
                 <div class="post-prev-text align-center mb-0">
+                    @if( $product->comments->avg('rate') )
+                    
+                        @if($product->comments->avg('rate')>=1)
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        @endif
+                        @if($product->comments->avg('rate')>=2)
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-star-o"></i>
+                        @endif
+                        @if($product->comments->avg('rate')>=3)
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        @endif
+                        @if($product->comments->avg('rate')>=4)
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        @endif
+                        @if($product->comments->avg('rate')>=5)
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        @endif
+                        ({{count($product->comments)}} @lang('product.reviews'))
+                        <br>
+                    @endif 
                     @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                         <del class="section-text">{{FormatPrice::price($product->price)}}</del> &nbsp;
                         <strong>{{$product->special_price}}</strong>
                     @else
-                        @if($product->old_price > 0)
-                            <del class="section-text">{{FormatPrice::price($product->old_price)}}</del> &nbsp;
-                        @endif
                         <strong>{{FormatPrice::price($product->price)}}</strong>
                     @endif
                 </div>

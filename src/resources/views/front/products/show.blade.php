@@ -3,6 +3,7 @@
 @section('header')
 
 @endsection
+@include('layouts.share')
 @section('content')
 
 <!-- Product Info -->
@@ -71,7 +72,6 @@
 							<strong>Sold Off</strong>
 						@else
 							@if(!$is_sales)
-								<del class="section-text">{{FormatPrice::price($product->old_price)}}</del>
 								<strong>{{FormatPrice::price($product->price)}}</strong>
 							@else
 								<del class="section-text">{{FormatPrice::price($product->price)}}</del>
@@ -106,7 +106,7 @@
 						@else
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 						@endif
-						 &nbsp;<a href="#reviewbox">({{count($product->comments)}} reviews)</a>
+						 &nbsp;<a href="#reviewbox">({{count($product->comments)}} @lang('product.reviews'))</a>
 					</div>
 				</div>
 				<hr class="mt-0">
@@ -266,7 +266,7 @@
 					</div>
 					@else
 					<input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
-					<input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
+					<input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} first">
 					<input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
 					<input type="hidden" id="website" name="website" value="">
 					@endguest
@@ -390,4 +390,5 @@
 		});       	
     });
 </script>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59f8733056502d001224650a&product=sticky-share-buttons""></script>
 @endsection

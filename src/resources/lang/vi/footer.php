@@ -17,7 +17,7 @@ return [
     'subscribe' => 'Đăng ký',
     'unsubscribe' => 'Hủy đăng ký nhận mail',
     'subscribe-success' => 'Bạn đã đăng ký thành công !',
-    'subscribe-failed' => 'Email này đã được đăng ký !',
+    'subscribe-failed' => 'Bạn không thể đăng ký email này!',
     'about-us' => 'Liên Hệ',
     'verified-by' => 'ĐƯỢC CHỨNG NHẬN',        
 ];

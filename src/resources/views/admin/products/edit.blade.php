@@ -21,6 +21,7 @@
         </div>
     </div> 
 </section>
+
 <!-- Main content -->
 <section class="content">
     <!-- PRODUCTS EDIT -->
@@ -39,7 +40,7 @@
                             <form action="{{url('/admin/products')}}/{{$product->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
-                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
@@ -81,7 +82,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{$product->category->id == $category->id? 'selected':''}}>{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
