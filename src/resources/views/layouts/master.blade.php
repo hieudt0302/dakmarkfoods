@@ -79,9 +79,9 @@
                     <div class="form" id="mailchimp" novalidate="true">
                         <div class="mb-20">
                             <input placeholder="{{ __('profile.email') }}" name="subscribe_email" class="form-control input-md round mb-10" type="email" pattern=".{5,100}" required/>
-                            <button type="submit" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
-                            <div class="subscribe-success">@lang('footer.subscribe-success')</div>
-                            <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>     
+                            <button type="submit" class="subscribe1 btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10">@lang('footer.subscribe')</button>
+                            <div class="subscribe-success" style="display:none;">@lang('footer.subscribe-success')</div>
+                            <div class="subscribe-failed" style="display:none;">@lang('footer.subscribe-failed')</div>     
                         </div>
                         <div id="subscribe-result"></div>
                     </div>
@@ -126,7 +126,7 @@
         <script type="text/javascript" src="{{ asset('frontend/js/custom-js.js') }}"></script>
 
         <script type="text/javascript">
-            $('a.subscribe1').click(function() {  
+            $('button.subscribe1').click(function() {  
                 $.ajax({
                     type: "POST",
                     url: "{{url('/subscribe')}}" ,
