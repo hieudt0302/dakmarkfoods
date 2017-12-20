@@ -28,21 +28,11 @@
 								</div>
 							</div>
 						@else
-							@if($key === 1)
-								<div class="more-img">
-									{{--<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>--}}
-									{{--@endif--}}
-									{{--@if($key < 4)--}}
-										{{--@if($key === 1)--}}
-											{{--<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">--}}
-										{{--@else--}}
-											{{--<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">--}}
-										{{--@endif--}}
-									{{--@endif--}}
-									{{--@if($key + 1  == count($product->medias))--}}
-										{{--<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>--}}
-								</div>
-							@endif
+						<div class="row">
+							<div class="col-xs-3 post-prev-img">
+								<a href="{{asset('/storage')}}/{{$media->source}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('/storage')}}/{{$media->source}}" alt=""></a>
+                            </div>
+						</div>
 						@endif
 					@endforeach
 				@else
