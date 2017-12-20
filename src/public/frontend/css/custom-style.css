@@ -556,3 +556,14 @@ ul.top-links.right {
 .form select{
   text-transform: none !important;
 }
+
+.main-nav{
+  height: 100px !important;
+}
+.nav-logo-wrap .logo{
+  max-width: 250px;
+  height: 100px !important;
+}
+.inner-nav{
+  margin-top: 5px;
+}

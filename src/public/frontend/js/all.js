@@ -187,14 +187,14 @@
         
         $(window).scroll(function(){        
             
-                if ($(window).scrollTop() > 10) {
-                    $(".js-transparent").removeClass("transparent");
-                    $(".main-nav, .nav-logo-wrap .logo, .mobile-nav").addClass("small-height");
-                }
-                else {
-                    $(".js-transparent").addClass("transparent");
-                    $(".main-nav, .nav-logo-wrap .logo, .mobile-nav").removeClass("small-height");
-                }
+                // if ($(window).scrollTop() > 10) {
+                //     $(".js-transparent").removeClass("transparent");
+                //     $(".main-nav, .nav-logo-wrap .logo, .mobile-nav").addClass("small-height");
+                // }
+                // else {
+                //     $(".js-transparent").addClass("transparent");
+                //     $(".main-nav, .nav-logo-wrap .logo, .mobile-nav").removeClass("small-height");
+                // }
             
             
         });
