@@ -558,12 +558,9 @@ ul.top-links.right {
 }
 
 .main-nav{
-  height: 100px !important;
+  height: 75px !important;
 }
 .nav-logo-wrap .logo{
   max-width: 250px;
-  height: 100px !important;
-}
-.inner-nav{
-  margin-top: 5px;
+  height: 75px !important;
 }
