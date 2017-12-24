@@ -90,8 +90,8 @@
                                         <button type="button" class="btn btn-mod btn-gray btn-medium btn-round form-control mb-xs-10 subscribe1">@lang('footer.subscribe')</button>
                                     </div>
                                     <div id="subscribe-result">
-                                        <div class="subscribe-success">@lang('footer.subscribe-success')</div>
-                                        <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>   
+                                        <div class="subscribe-success" style="display:none;">@lang('footer.subscribe-success')</div>
+                                        <div class="subscribe-failed" style="display:none;">@lang('footer.subscribe-failed')</div>   
                                     </div>
                                 </div>
                             </div>
