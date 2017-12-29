@@ -67,7 +67,8 @@
                             <li><a href="{{ url('/cart') }}"><i class="fa fa-angle-right "></i> @lang('footer.view-cart')</i></a></li>
                             <li><a href="{{ url('/wishlist') }}"><i class="fa fa-angle-right "></i> @lang('footer.my-wishlist')</i></a></li>
                             <li><a href="{{ url('/Account/Orders') }}"><i class="fa fa-angle-right "></i> @lang('footer.order-history')</i></a></li>
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-angle-right "></i> @lang('auth.logout')</i></a></li>
+                            <!-- <li><a href="{{ url('/logout') }}"><i class="fa fa-angle-right "></i> @lang('auth.logout')</i></a></li> -->
+                            <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-angle-right "></i>@lang('auth.logout')</a></li>
                         @endif
                         </ul>
                     </div>

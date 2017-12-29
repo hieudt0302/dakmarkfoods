@@ -116,7 +116,9 @@
                         <li><a href="{{ url('/cart') }}">@lang('footer.view-cart')</i></a></li>
                         <li><a href="{{ url('/wishlist') }}">@lang('footer.my-wishlist')</i></a></li>
                         <li><a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a></li>
-                        <li><a href="{{ url('/logout') }}">@lang('auth.logout')</i></a></li>
+                        <!-- <li><a href="{{ url('/logout') }}">@lang('auth.logout')</i></a></li> -->
+                        <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('auth.logout')</a></li>
+                        
                     </ul>
                     @endif
                     <!-- End Sub Multilevel -->
