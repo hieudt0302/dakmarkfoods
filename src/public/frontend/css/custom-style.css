@@ -564,3 +564,7 @@ ul.top-links.right {
   max-width: 250px;
   height: 75px !important;
 }
+
+.mfp-wrap{
+  z-index: 9043;
+}
