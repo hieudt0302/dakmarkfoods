@@ -568,3 +568,6 @@ ul.top-links.right {
 .mfp-wrap{
   z-index: 9043;
 }
+.mfp-bg{
+  z-index: 9042;
+}
