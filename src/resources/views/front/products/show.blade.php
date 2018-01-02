@@ -361,6 +361,8 @@
                 },
                success:function(response){
 					console.log(response['message']); //debug
+				   if(response['status'] === 'error')
+				   	window.location.href = "/login";
                },
                error:function(response){
                     console.log(response['message']); //debug
