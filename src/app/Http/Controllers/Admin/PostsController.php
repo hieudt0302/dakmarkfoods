@@ -13,6 +13,7 @@ use App\Models\PostTranslation;
 use App\Models\Language;
 use Validator;
 use App\Models\Comment;
+use DB;
 
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -206,7 +207,7 @@ class PostsController extends Controller
         return redirect()->back()
         ->with('message', 'Bài viết đã được cập nhật')
         ->with('status', 'success')
-        ->withInput(['tab'=> 1]);
+        ->withInput();
     }
 
     public function updateTranslation(Request $request, $id)
@@ -225,7 +226,7 @@ class PostsController extends Controller
             return redirect()->back()
             ->with('message', 'Vui lòng chọn ngôn ngữ.')
             ->with('status', 'error')
-            ->withInput(['tab'=> 2]);
+            ->withInput();
         }
 
         $translation = PostTranslation::where('post_id', $id)
@@ -253,7 +254,7 @@ class PostsController extends Controller
         return redirect()->back()
         ->with('message', 'Cập nhật nội dung mới thành công')
         ->with('status', 'success')
-        ->withInput(['tab'=> 2]);
+        ->withInput();
     }
 
     public function fetchTranslation($id, $code)
@@ -330,7 +331,7 @@ class PostsController extends Controller
 
     public function SelectTags($post, $tagIds)
     {
-        if(is_array($tagIds)){
+        if(is_array($tagIds) && count($tagIds) > 0){
             foreach($tagIds as $key =>  $id)
             {
                 if(empty(Tag::find($id)))
@@ -351,8 +352,18 @@ class PostsController extends Controller
             }
             $tags = Tag::whereIn('id',$tagIds)->get();
             $post->tags()->sync($tags); 
+        }else{
+            //delete all tags of post
+            $post->tags()->detach();
         }
+
+        //delete tag not use
+        $tag_ids = DB::table('taggables')->pluck('tag_id')->toArray();
+
+        //dd($tag_ids);
+        Tag::whereNotIn('id', $tag_ids)->delete();
     }
+    
       /* COMMENT */
       public function comments(Request $request)
       {
@@ -416,7 +427,7 @@ class PostsController extends Controller
             });
    
 
-        $posts = $query->paginate(21);
+        $posts = $query->orderBy('created_at','desc')->paginate(21);
         $postsCategory = Category::where('slug', 'posts')->first();
         $categories = Category::where('parent_id', $postsCategory->id)->get();
         

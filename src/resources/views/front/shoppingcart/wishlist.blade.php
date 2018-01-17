@@ -19,7 +19,11 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                                @if(Cart::instance('wishlist')->count() >0)
+
+                                @php(Cart::instance('wishlist')->restore(Auth::user()->id))
+                                @php(Cart::instance('wishlist')->store(Auth::user()->id))
+
+                                @if(Cart::instance('wishlist')->count()  > 0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->
                                     <div class="card">
@@ -82,10 +86,22 @@
                                                     </div>
                                                     <div class="cart-col cart-col-qty" data-caption="Quantity">
                                                         <div class="qty-input">
-                                                          
+                                                            <!-- <div class="input-group bootstrap-touchspin">
+                                                                <span class="input-group-btn">
+                                                                    <button class="btn btn-secondary bootstrap-touchspin-down" type="button">
+                                                                        <i class="fa fa-minus"></i>
+                                                                    </button>
+                                                                </span>
+                                                                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span> -->
                                                                 <input  class="form-control" data-href="/Cart/UpdateWishlistItem?ItemId={{$row->rowId}}" data-max="10000" data-min="1"
                                                                     data-postfix="" data-sci-item="{{$row->rowId}}" data-step="1" data-val="true" data-val-number="The field 'EnteredQuantity' must be a number." id="itemquantity{{$row->id}}" type="text" value="{{$row->qty}}" style="display: block;">
-                                                               
+                                                                <!-- <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                                                <span class="input-group-btn">
+                                                                    <button class="btn btn-secondary bootstrap-touchspin-up" type="button">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </button>
+                                                                </span>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                     <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
@@ -186,7 +202,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){   
-   
+    $('form input').on('keypress', function(e) {
+        return e.which !== 13;
+    });
     var orderSummary = $(".order-summary-content");
     orderSummary.on("click", ".btn-continue-shopping", function (e) {
         e.preventDefault();
