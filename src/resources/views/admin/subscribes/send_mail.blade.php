@@ -4,11 +4,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Gửi mail khuyến mãi
+        Gửi mail đến khách hàng
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Gửi mail khuyến mãi</li>
+        <li class="active">Gửi mail</li>
       </ol>
 </section>
 <!-- Main content -->

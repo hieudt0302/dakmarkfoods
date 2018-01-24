@@ -69,9 +69,9 @@ class SubscribeController extends Controller
                     }); 
                 }                
             } 
-            session()->flash('success_message', 'Send mail is successfully!');
+            session()->flash('success_message', 'Gửi mail thành công.');
         }else{
-            session()->flash('error_message', 'Send mail is failed!');
+            session()->flash('error_message', 'Gửi mail thất bại.');
         }
         return redirect()->back();    
     }
