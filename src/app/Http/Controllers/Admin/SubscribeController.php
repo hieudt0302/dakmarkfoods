@@ -59,7 +59,7 @@ class SubscribeController extends Controller
                     $language_id = $language->id; 
                     $mail_template = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first();
 
-                    if(strlen($mail_template->content) <= 0 || empty($mail_template))
+                    if(empty($mail_template) || strlen($mail_template->content) <= 0)
                         continue;
                     $data = array('email' => $email->email, 'content' => $mail_template->content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
