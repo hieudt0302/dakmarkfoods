@@ -21,14 +21,16 @@ return [
 
     'shipping' => [
         1 => 'Not Yet Shipped',
-        2 => 'Partially Shipped',
-        3 => 'Shipped',
-        4 => 'Delivered',
+        2 => 'Shipped',
+        3 => 'Delivered',
+        4 => 'Cancelled'        
     ],
 
     'payment' => [
         1 => 'Unpaid',
         2 => 'Paid',
-        3 => 'Refunded',
+        3 => 'Partially Refunded',
+        4 => 'Refunded',
+        5 => 'Cancelled'
     ]
 ];

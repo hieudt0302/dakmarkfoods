@@ -22,14 +22,16 @@ return [
 
     'shipping' => [
         1 => 'Chưa ship',
-        2 => 'Đã gửi ship một phần đơn hàng',
-        3 => 'Đã gửi ship',
-        4 => 'Đã giao hàng',
+        2 => 'Đã gửi ship',
+        3 => 'Đã giao hàng',
+        4 => 'Đã huỷ'        
     ],
 
     'payment' => [
         1 => 'Chưa thanh toán',
         2 => 'Đã thanh toán',
-        3 => 'Đã hoàn tiền',
-    ]    
+        3 => 'Đã hoàn tiền một phần',
+        4 => 'Đã hoàn tiền',
+        5 => 'Đã huỷ'
+    ]
 ];
