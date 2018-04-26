@@ -57,7 +57,7 @@
                                 @endif
                                 @if(!$product->disable_wishlist_button)
                                     <div class="pro-overlay-info align-bottom-left">
-                                        <a href="javascript:void(0)"><i class="yeuthich add-wishlist fa fa-heart-o"></i></a>
+                                        <a href="javascript:void(0)"><i class="yeuthich add-wishlist fa fa-gratipay"></i></a>
                                     </div>
                                 @endif
                             </div>
