@@ -30,9 +30,10 @@
 
                     <!-- PRODUCT FILTER -->
                     <div class="clearfix mb-40">
-                        <div class="left section-text mt-10">
-                            @lang('common.showing') <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} @lang('common.of') {{$results->count()}}</span>
-                        </div>
+                        {{ $results->links() }}
+<!--                         <div class="left section-text mt-10">
+                            @lang('common.showing') <span class="sub">{{($results->currentPage()- 1) * 12 + 1}}-{{$results->total() * $results->currentPage() }} @lang('common.of') {{$results->count()}}</span>
+                        </div> -->
                     </div>
                     <!-- END PRODUCT FILTER -->
 
