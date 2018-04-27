@@ -55,12 +55,7 @@
                                         </div>
                                     @endif
                                 @endif
-                                @if(!$product->disable_wishlist_button)
-                                    <div class="pro-overlay-info align-bottom-left">
-                                        <a href="javascript:void(0)"><i class="yeuthich add-wishlist fa fa-gratipay"></i></a>
-                                    </div>
-                                @endif
-                            </div>
+                            </div>  
 
                             <div class="post-prev-title align-center">
                                 <a href="{{url('/product')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a>
@@ -261,43 +256,6 @@
                }
             });
         });
-         $('.add-wishlist').click(function() {
-            var id = $(this).attr("data-id") 
-            var name = $(this).attr("data-name") 
-             var price = 0;
-             var quantity = 1;
-             $(this).effect("shake", {
-                 times: 1
-             }, 200);
-
-             $.ajax({
-                 type:'POST',
-                 url:'{{ url("/add-to-wishlist") }}',
-                 data: {
-                     'id': id, //just test
-                     'name': name,//just test
-                     'price': price,//just test
-                     'quantity': quantity,//just test
-                 },
-                 success:function(response){
-                     console.log(response['message']); //debug
-                 },
-                 error:function(response){
-                     console.log(response['message']); //debug
-                 }
-             });
-         });
-         $('.call').click(function(event) {
-             var target = $( event.target );
-             var x = document.getElementById("call-number");
-             target.text('');
-             target.html(x.innerHTML);
-//		    if (x.style.display === "none") {
-//		        x.style.display = "block";
-//		    } else {
-//		        x.style.display = "none";
-//		    }
-         });
     });
 </script>
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59f8733056502d001224650a&product=sticky-share-buttons""></script>

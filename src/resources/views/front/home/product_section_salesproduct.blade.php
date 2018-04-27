@@ -11,7 +11,7 @@
                 <!-- Shop Item -->
                     <div>
                         <div class="post-prev-img p15">
-                            <a href="{{url('/posts')}}/{{$product->slug}}"><img src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt=""></a>
+                            <a href="{{url('/product')}}/{{$product->slug}}"><img src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt=""></a>
                             @if($product->sold_off)
                                 <div class="pro-overlay-info align-left">
                                     <span class="hethang">Sold Off</span>
@@ -19,7 +19,7 @@
                             @else
                                 @if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                                     <div class="pro-overlay-info align-left">
-                                        <span class="giamgia">SALE</span>
+                                        <span class="giamgia">@lang('product.sale')</span>
                                     </div>
                                 @endif
                             @endif
