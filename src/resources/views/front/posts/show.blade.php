@@ -47,7 +47,7 @@
                             <hr>
                             <div class="tags">Tags:
                                 @foreach($post->tags as $tag)
-                                    <a href="#">{{$tag->name}}</a>
+                                    <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>
                                 @endforeach
                             </div>
                         </div>

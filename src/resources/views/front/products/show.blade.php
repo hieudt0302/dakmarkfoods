@@ -134,7 +134,7 @@
 					</div>
 					<div class="tags">Tags:
 						@foreach($product->tags as $tag)
-							<a href="#">{{$tag->name}}</a>
+							<a href="{{url('/subject/products/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>
 						@endforeach
 					</div>
 				</div>

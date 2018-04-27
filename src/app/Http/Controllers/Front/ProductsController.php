@@ -293,5 +293,25 @@ class ProductsController extends Controller
         $lastProducts = Product::take(10)->get(); ///TODO: move number limit to database setting        
 
         return view('front/products/index',compact('products','search_key','tags','comments', 'lastProducts'));
-    }     
+    }
+
+    public function filterByTag($slug)
+    {     
+        //RELATED
+        $tags = Tag::has('products')->get();
+        $comments = Tag::has('products')->get();
+        $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
+        ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+        ->groupBy('product_id')
+        ->orderBy('count', 'desc')
+        ->limit(4)
+        ->get(); 
+
+        // GET PRODUCTS
+        //POSTS
+        $results = Tag::where('slug', $slug)->firstOrFail()->products()->paginate(12);   
+
+        return View('front/products/index', compact('results','tags','comments', 'best_sellers_products','slug'));
+
+    }          
 }

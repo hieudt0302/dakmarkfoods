@@ -146,5 +146,20 @@ class PostsController extends Controller
         $post_category = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$post_category->id)->get();        
         return view('front/posts/index',compact('posts','search_key','tags','comments', 'lastPosts','categories','post_category')); 
-    }    
+    }
+
+    public function filterByTag($slug)
+    {     
+        $tags = Tag::has('posts')->get();
+        $lastPosts = Post::where('published',1)->take(4)->get(); 
+        $post_category = Category::where('slug','posts')->firstOrFail();
+        $categories = Category::where('parent_id',$post_category->id)->get(); 
+
+        
+        //POSTS
+        $posts = Tag::where('slug', $slug)->first()->posts()->paginate(21);  
+        
+        return View('front/posts/index', compact('posts', 'lastPosts','tags','post_category','categories'))
+        ->with('i', ($page??1 - 1) * 21);    
+    }        
 }
