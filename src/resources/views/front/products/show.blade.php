@@ -63,10 +63,12 @@
 						@else
 							@if(!$is_sales)
 								<strong>{{FormatPrice::price($product->price)}}</strong>
+								@php($final_price = $product->price)
 							@else
 								<del class="section-text">{{FormatPrice::price($product->price)}}</del>
 								<strong>{{FormatPrice::price($product->special_price)}}</strong>
 								<span class="hot">@lang('product.sale')</span>
+								@php($final_price = $product->special_price)
 							@endif
 						@endif
 					</div>
@@ -332,7 +334,7 @@
                data: {
                     'id': '{{$product->id}}',
                     'name': '{{$product->name}}',
-                    'price': {{$product->price}},
+                    'price': {{$final_price}},
                     'quantity': quantity, 
                 },
                success:function(response){
