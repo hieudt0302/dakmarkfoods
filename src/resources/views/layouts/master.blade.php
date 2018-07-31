@@ -65,7 +65,7 @@
             <!-- Foter -->
             @include('layouts.footer')
             <!-- End Foter -->
-            <a class="popup-with-form" id="popup-with-form" href="#newsletter-popup" style="display: none;"></a>
+<!--             <a class="popup-with-form" id="popup-with-form" href="#newsletter-popup" style="display: none;"></a>
             <div id="newsletter-popup" class="mfp-hide white-popup-block" style="width: auto; max-width: 500px; background-color: #fff; border-radius: 6px; padding: 20px;margin: 0px auto;">
                 <div class="newsletter-popup-wrap">
                     <div class="newsletter-icon" style="text-align: center;">
@@ -83,7 +83,7 @@
                         <div id="subscribe-result"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
         </div>
         <!-- End Page Wrap -->
